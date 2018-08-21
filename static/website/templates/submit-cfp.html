@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+<div class="se-pre-con"></div>
+{% block content %}
+<section id="view_proposal" class="section view_proposal">
+    <div class="container">
+        {% if proposals_a >= 1 %} You have exceeded the abstract submission limit. You may view your submitted proposals by clicking <a href="{{ SITE_URL}}/proposal/view" class="btn btn-info" role="button"> here</a>
+        <!-- <h2>{{ user.get_full_name|default:user.username }} </h2> -->
+        {% else %} <br>
+        <center>
+            <h1>Submit Proposal</h1>
+        </center>
+        <hr>
+        <h2><u>Proposal Guidelines</u></h2>
+        <ul>
+            <li>The project you are willing to present should be an actual implementation rather than just an idea.</li>
+            <li>Submissions need not necessarily be about an implementation, they could also be about experiences and usage of Python and Python-based tools and libraries for research or teaching.</li>
+            <li>Abstract should be of 300 to 700 words describing the topic, including its relevance to scientific computing or the use of Python in education.</li>
+            <li>Proposals with an aim to promote a commercial product or service will be rejected.</li>
+            <li>In your abstract mention the various tools/libraries used for development.</li>
+            <li>Notification for selection/rejection of your proposal will be given through email.</li>
+            <li>All selected proposals must be presented at the conference by at least one author.</li>
+        </ul>
+        <form action="" method=POST enctype="multipart/form-data">
+            <!--            <a style="color:red; ">{{ proposal_form.errors }}      -->
+            <div class="row1">
+                {% for field in proposal_form %}
+                <p>{{ field.label}} {% if field.field.required %} <span style="color:red;">*</span> {% endif %} {{ field }}
+                </p>
+                <a style="color:red; ">{{ field.errors }}</a> {% endfor %}
+            </div>
+            {% csrf_token %}
+            <center>
+                <button class="btn btn-info" type="submit">Submit</button>
+                <a href="{{ SITE_URL}}/proposal" class="btn btn-info" role="button">Back</a>
+            </center>
+        </form>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

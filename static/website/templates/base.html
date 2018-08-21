@@ -1,0 +1,11 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    {% include 'header.html' %}
+    <body data-spy="scroll" data-target="#site-nav">
+        {% include 'navbar.html' %}
+        {% block content %}{% endblock content %}
+        {% include 'footer.html' %}
+    </body>
+</html>
+

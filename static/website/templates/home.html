@@ -1,0 +1,916 @@
+{% load static %}
+<!-- Navigation -->
+{% block home %} 
+<div id="home" data="home"></div>
+    <header id="site-header" class="site-header valign-center img-fluid"> 
+        <div class="intro">
+
+          <!--  <h2>21 &amp; 22 December, 2018 / IIT Bombay</h2> 
+            
+            <h1>National Conference on Chemical Process Simulation - 2018</h1> -->
+            
+           <!-- <p>International conference on Python for education and computing</p> -->
+            <img class="img img-fluid " src="static/website/bootstrap-css/assets/images/backgrounds/1.png" alt=""> <br><br>
+            <a class="btn btn-primary" data-scroll href="#registration">Register Now</a> <br><br>
+        </div>
+    </header>
+
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+
+                    <h3 class="section-title">About Us</h3>
+
+                    <p class="text-justify">The FOSSEE Team and the Department of Chemical Engineering are organizing a national conference on Chemical Process Simulation, at IIT Bombay, on 26 November 2018, on the occasion of the Diamond Jubilee Year celebrations of IIT Bombay.  We cordially invite you to participate in this conference.</p>
+                    <p class="text-justify">
+                    The interaction between academia and industry practitioners, will lead to consulting projects. It will provide an improved employment potential, in the core chemical industry, for chemical engineering graduates.
+                    </p>
+
+                    <!-- <figure>
+                        <img alt="" class="img-responsive" src="bootstrap-css/assets/images/about-us.jpg">
+                    </figure> -->
+ 
+                </div><!-- /.col-sm-6 -->
+
+                <div class="col-sm-6">
+
+                  <!--  <h3 class="section-title multiple-title">What is Our Goal?</h3>
+
+                    <p class="text-justify">One of the goals of the conference is to combine education, engineering, and science with computing through the medium of Python and thereby extrapolate on how powerful Scientific Computing is in various fields and among different communities.</p>
+
+                    <ul class="list-arrow-right">
+
+                        <li>Have hands on sessions</li>
+                    </ul> -->
+                     <h3 class="section-title multiple-title" align="center"><u>News and Updates</u></h3>
+                    <a class="twitter-timeline" data-width="500" data-height="380" href="https://twitter.com/FOSSEENMEICT?ref_src=twsrc%5Etfw">Tweets by FOSSEENMEICT</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+                     <!--
+                    <a class="twitter-timeline" href="https://twitter.com/FOSSEENMEICT" data-widget-id="1031487038086762496" data-width="100%">Tweets by @FOSSEENMEICT</a>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> -->
+
+                </div><!-- /.col-sm-6 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section>
+
+    <section id="facts" class="section bg-image-1 facts text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+
+                    <i class="ion-ios-calendar"></i>
+                    <h3>2018<br>November 26</h3>
+                
+                </div>
+                <div class="col-sm-4">
+
+                    <i class="ion-ios-location"></i>
+                    <h3>Lecture Hall Complex, <br>IIT Bombay<br>Mumbai</h3>
+
+                </div>
+               <!-- <div class="col-sm-3">
+
+                    <i class="ion-pricetags"></i>
+                    <h3>Over 300<br>Tickets</h3>
+                
+                </div> -->
+                <div class="col-sm-4">
+                
+                    <i class="ion-speakerphone"></i>
+                    <h3>Speakers on the way</h3>
+
+                </div>
+            </div><!-- row -->
+        </div><!-- container -->
+    </section>
+
+    <section id="speakers" class="section speakers">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <h3 class="section-title">Speakers</h3>
+                
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- <div class="col-md-4">
+                    <div class="speaker">
+
+                        <figure>
+                            <img alt="" class="img-responsive center-block img-rounded" src="{% static 'website/bootstrap-css/assets/images/speakers/dummy.png' %}" style="max-width: 70%;">
+                        </figure>
+
+                        <h4>ABC XYZ</h4>
+
+                        <p>WXYZ QWERTY</p>
+
+                        <ul class="social-block">
+                            <li><a href=""><i class="ion-social-twitter"></i></a></li>
+                            <li><a href=""><i class="ion-social-facebook"></i></a></li>
+                            <li><a href=""><i class="ion-social-linkedin-outline"></i></a></li>
+                            <li><a href=""><i class="ion-social-googleplus"></i></a></li>
+                        </ul>
+
+                    </div><!-- /.speaker -->
+                <!-- </div> --> <!-- /.col-md-4 -->
+
+                <div class="col-md-6">
+                    <div class="speaker">
+
+                        <figure>
+                            <img alt="" class="img-responsive center-block img-rounded" src="{% static 'website/bootstrap-css/assets/images/speakers/madhavan.png' %}" style="max-width: 70%;height: 253px;" data-toggle="modal" data-target="#myModal">
+                        </figure>
+
+                        <h4>Prof. K P Madhavan</h4>
+
+                        <p style="text-transform: none;">Emeritus Professor, Dept. of Chemical Engineering, IITB</p>
+
+                        <ul class="social-block">
+                            <li><a href=""><i class="ion-social-twitter"></i></a></li>
+                            <li><a href=""><i class="ion-social-facebook"></i></a></li>
+                            <li><a href=""><i class="ion-social-linkedin-outline"></i></a></li>
+                            <li><a href=""><i class="ion-social-googleplus"></i></a></li>
+                        </ul>
+                        <div class="modal fade spkrmodal" id="myModal" role="dialog">
+                        <div class="modal-dialog">
+                        
+                          <!-- Modal content-->
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                              <h4 class="modal-title">Prof. K P Madhavan</h4>
+                            </div>
+                            <div class="modal-body">
+                              <p class="text-justify">Prof. K. P. Madhavan is currently an Emeritus Professor at the Department of Chemical Engineering at IIT Bombay. He has served the department since 1960s in several eminent positions such as Head of Chemical Engineering and Dean (R&D). He was decorated with the life time achievement award by IIT Bombay as well as by the International Society of Automation. Prof. Madhavan is a globally recognized leader in the areas of process systems engineering (modelling, optimization, instrumentation and control, fault detection and diagnosis, and decision support systems).</p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    </div><!-- /.speaker -->
+                </div><!-- /.col-md-4 -->
+
+                <div class="col-md-6">
+                    <div class="speaker">
+
+                        <figure>
+                            <img alt="" class="img-responsive center-block img-rounded" src="{% static 'website/bootstrap-css/assets/images/speakers/alok.png' %}" style="max-width: 70%;height: 253px;" data-toggle="modal" data-target="#myModal1">
+                        </figure>
+
+                        <h4>Mr. Alok Pandit</h4>
+
+                        <p style="text-transform: none;">Equinox Software and Services Private Limited</p>
+
+                        <ul class="social-block">
+                            <li><a href=""><i class="ion-social-twitter"></i></a></li>
+                            <li><a href=""><i class="ion-social-facebook"></i></a></li>
+                            <li><a href=""><i class="ion-social-linkedin-outline"></i></a></li>
+                            <li><a href=""><i class="ion-social-googleplus"></i></a></li>
+                        </ul>
+                        <div class="modal fade spkrmodal" id="myModal1" role="dialog">
+                        <div class="modal-dialog">
+                        
+                          <!-- Modal content-->
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                              <h4 class="modal-title">Mr. Alok Pandit</h4>
+                            </div>
+                            <div class="modal-body">
+                              <p class="text-justify">Mr. Alok is presently leading a team of professionals as the founder director of Equinox in the area of IT enabled chemical engineering services. He worked as the Country Head and Vice President for Aspen Tech India, leading the business in India and Southern Asia, before starting Equinox. He has an experience of about 30 years in refinery operations, software applications in chemical industry and business management.</p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    </div><!-- /.speaker -->
+                </div><!-- /.col-md-4 -->
+            </div><!-- /.row -->
+        </div>
+    </section>
+
+    <section id="contribution" class="section bg-image-2 contribution">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="text-uppercase mt0 font-400">Submit a Paper</h3>
+                    
+                    <p>We invite papers on Chemical Process Modelling, Simulation and Optimization. Time duration for oral presentation will be 15 to 30 minutes.  Accepted papers will be published in conference proceedings.</p>
+
+                    <a class="btn btn-white" href="#">Submit</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cod" class="section cod">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="section-title">Code Of Conduct</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                     <p class="text-justify">We appreciate your participation in NCCPS 2018. We want you to have an enjoyable and enriching experience in the conference. For this all the attendees are required to conform to the following Code of Conduct. Organisers will ensure that it is enforced throughout the event.
+                     <div id="demo" class="collapse">
+                        <div class="card-text">
+                           <p>NCCPS is dedicated to providing a harassment-free conference experience for everyone, regardless of age, gender, sexual orientation, physical appearance, disability, race, religion or employment.
+                           </p>
+                           <p>Harassment includes offensive verbal comments related to gender, sexual orientation, disability, physical appearance, body size, race, religion, sexual images in public spaces, deliberate intimidation, stalking, following, harassing photography or recording, sustained disruption of talks or other events, inappropriate physical contact, and unwelcome sexual attention. We have zero tolerance on harassment of conference participants in any form, including, but not limited to the activities mentioned here.
+                           </p>
+                           <p>Participants asked to stop any harassing behavior are expected to comply immediately.
+                           </p>
+                           <p>All communication should be appropriate for a professional audience, including people from many different backgrounds. Sexual language or imagery is inappropriate for all aspects of the conference, including talks. Remember that sexist, racist or any other form of exclusionary or offensive jokes or excessive public swearing are not appropriate at any venue of NCCPS.
+                           </p>
+                           <p>Do not insult or put down attendees or engage in any action that violates the open, welcoming and sharing spirit of the conference. Be kind and sensitive to the people around you when you are attending the conference, and avoid any kind of offensive or degrading behavior.
+                           </p>
+                           <p>
+                              <b>If a participant engages in behavior that violates this code of conduct, the conference organizers may take any action they deem appropriate, including warning the offender or expulsion from the conference with no refund.
+                              </b>
+                           </p>
+                           <p>Thank you for helping to make NCCPS a welcoming, friendly event for all.
+                           </p>
+                           <p>
+                              <b>Contact Information:
+                              </b>
+                           </p>
+                           <p>If you are being harassed, notice that someone else is being harassed, or have any other concerns, please contact a member of conference staff. Conference staff will be wearing "NCCPS: Organiser" badges.
+                           </p>
+                           <p>Conference staff will be happy to help participants contact venue security or local law enforcement, provide escorts, or otherwise assist those experiencing harassment to feel safe for the duration of the conference. We value your attendance.
+                           </p>
+                           <p>
+                              <b>License:
+                              </b>
+                           </p>
+                           <p>This Code of Conduct was forked from PSF Code of Conduct by Python Software Foundation which is under a Creative Commons Attribution 3.0 Unported License.
+                           </p>
+                           <p>NCCPS Conference Code of Conduct is licensed under a Creative Commons Attribution 3.0 Unported License.
+                           </p>
+                        </div>
+
+                     </div>
+                     <center>
+                        <button type="button" class="btn btn-black" data-toggle="collapse" data-target="#demo">
+                            <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                            <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                        </button>
+                    </center>
+            </div>
+    </section>
+
+
+    <section id="schedule" class="section schedule">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="section-title">Event Schedule</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="schedule-box">
+                        <div class="time">
+                            <!-- <time datetime="09:00">09:00 am</time> - <time datetime="22:00">10:00 am</time> -->
+                        </div>
+                        <p>TBD</p>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <section id="location" class="section location">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h3 class="section-title">Venue</h3>
+                    <address>
+                        <p>Lecture Hall Complex, IIT Bombay<br> Phone: (+91) 22 2576 4111<br> Email: contact-dwsim[at]fossee[dot]in </p>
+                    </address>
+                </div>
+                <div class="col-sm-9">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.472585331343!2d72.916895!3d19.130779999999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c7f4215f57bf%3A0xcf0c03ea45a113e1!2sLecture+Hall+Complex+(LHC)!5e0!3m2!1sen!2sin!4v1434726932900" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="organiser" class="section organiser">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="section-title">Organiser</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <a href="https://fossee.in"class="organiser-box organiser-box-1" target="_blank"></a>
+                    <p class="text-justify">NCCPS conference is organised by the team members of FOSSEE project which is part of the National Mission on Education through ICT with the thrust area being Adaptation and deployment of open source simulation packages equivalent to proprietary software, funded by MHRD, based at the Indian Institute of Technology Bombay (IITB). </p>
+                </div>
+            </div>
+    </section>
+
+<!--
+    <section id="sponsor" class="section sponsor">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="section-title">Sponsor</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <a href="http://mhrd.gov.in" class="sponsor-box sponsor-box-1" target="_blank"></a>
+                </div>
+            </div>
+             <div class="row">
+                <div class="col-sm-12">
+                    <p class="text-justify">
+                        Thank you for your interest to sponsor Scipy India 2018.</p>
+<p class="text-justify">
+    NCCPS India, an annual conference organized by FOSSEE (Free and Open Source Software for Education) based at IIT Bombay, provides the opportunity to unfurl the use of the Python programming language in the Scientific Computing community in India. NCCPS India being organized since 2009, attracts more than 250 students and faculty every year. This conference provides the participants with a unique opportunity to interact and connect with the Python community.
+</p><p class="text-justify">
+    Here’s a call to the interested organizations to sponsor this conference and get associated with the event. Through this sponsorship, you could engage with top professionals and enhance your organization’s brand visibility amongst Python users.
+                    </p>
+                </div>
+            </div>
+    </section>
+
+    <section id="faq" class="section faq">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="section-title">Event FAQs</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a class="faq-toggle collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> What is the price of the ticket ?</a>
+                                </h4>
+                            </div>
+
+                            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="panel-body">
+                                    <h3>TBD</h3>
+                                    <p>Follow on facebook</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingTwo">
+                                <h4 class="panel-title">
+                                    <a class="faq-toggle collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"> What is included in my ticket ?</a>
+                                </h4>
+                            </div>
+
+                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                <div class="panel-body">Depends</div>
+                            </div>
+                        </div>
+  
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingThree">
+                                <h4 class="panel-title">
+                                    <a class="faq-toggle collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree"> Office address ?</a>
+                                </h4>
+                            </div>
+
+                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                <div class="panel-body">IIT Bombay</div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingFour">
+                                <h4 class="panel-title">
+                                    <a class="faq-toggle collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour"> How should I dress ?</a>
+                                </h4>
+                            </div>
+
+                            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                                <div class="panel-body">Decent formal wear</div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingFive">
+                                <h4 class="panel-title">
+                                    <a class="faq-toggle collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive"> I have specific questions that are not addressed here. Who can help me ?</a>
+                                </h4>
+                            </div>
+
+                            <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                                <div class="panel-body">Drop your query through email to info[at]fossee[dot]in</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <section id="photos" class="section photos">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="section-title">Memories of NCCPS 2017</h3>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="row memories">
+                    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                        <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                           data-image="{% static 'website/bootstrap-css/assets/images/photos/photos-1.jpg' %}"
+                           data-target="#image-gallery">
+                            <img class="img-thumbnail"
+                                 src="{% static 'website/bootstrap-css/assets/images/photos/photos-1.jpg' %}"
+                                 alt="Scipy 2017">
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                        <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                           data-image="{% static 'website/bootstrap-css/assets/images/photos/photos-4.jpg' %}"
+                           data-target="#image-gallery">
+                            <img class="img-thumbnail"
+                                 src="{% static 'website/bootstrap-css/assets/images/photos/photos-4.jpg' %}"
+                                 alt="Scipy 2017">
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                        <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                           data-image="{% static 'website/bootstrap-css/assets/images/photos/photos-2.jpg' %}"
+                           data-target="#image-gallery">
+                            <img class="img-thumbnail"
+                                 src="{% static 'website/bootstrap-css/assets/images/photos/photos-2.jpg' %}"
+                                 alt="Scipy 2017">
+                        </a>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                        <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                           data-image="{% static 'website/bootstrap-css/assets/images/photos/photos-3.jpg' %}"
+                           data-target="#image-gallery">
+                            <img class="img-thumbnail"
+                                 src="{% static 'website/bootstrap-css/assets/images/photos/photos-3.jpg' %}"
+                                 alt="Scipy 2017">
+                        </a>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                        <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                           data-image="{% static 'website/bootstrap-css/assets/images/photos/photos-5.jpg' %}"
+                           data-target="#image-gallery">
+                            <img class="img-thumbnail"
+                                 src="{% static 'website/bootstrap-css/assets/images/photos/photos-5.jpg' %}"
+                                 alt="Scipy 2017">
+                        </a>
+                    </div>
+
+
+
+                    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                        <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                           data-image="{% static 'website/bootstrap-css/assets/images/photos/photos-6.jpg' %}"
+                           data-target="#image-gallery">
+                            <img class="img-thumbnail"
+                                 src="{% static 'website/bootstrap-css/assets/images/photos/photos-6.jpg' %}"
+                                 alt="Scipy 2017">
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                        <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                           data-image="{% static 'website/bootstrap-css/assets/images/photos/photos-7.jpg' %}"
+                           data-target="#image-gallery">
+                            <img class="img-thumbnail"
+                                 src="{% static 'website/bootstrap-css/assets/images/photos/photos-7.jpg' %}"
+                                 alt="Scipy 2017">
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                        <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                           data-image="{% static 'website/bootstrap-css/assets/images/photos/photos-8.jpg' %}"
+                           data-target="#image-gallery">
+                            <img class="img-thumbnail"
+                                 src="{% static 'website/bootstrap-css/assets/images/photos/photos-8.jpg' %}"
+                                 alt="Scipy 2017">
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                        <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                           data-image="{% static 'website/bootstrap-css/assets/images/photos/photos-9.jpg' %}"
+                           data-target="#image-gallery">
+                            <img class="img-thumbnail"
+                                 src="{% static 'website/bootstrap-css/assets/images/photos/photos-9.jpg' %}"
+                                 alt="Scipy 2017">
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                        <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                           data-image="{% static 'website/bootstrap-css/assets/images/photos/photos-10.jpg' %}"
+                           data-target="#image-gallery">
+                            <img class="img-thumbnail"
+                                 src="{% static 'website/bootstrap-css/assets/images/photos/photos-10.jpg' %}"
+                                 alt="Scipy 2017">
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                        <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                           data-image="{% static 'website/bootstrap-css/assets/images/photos/photos-11.jpg' %}"
+                           data-target="#image-gallery">
+                            <img class="img-thumbnail"
+                                 src="{% static 'website/bootstrap-css/assets/images/photos/photos-11.jpg' %}"
+                                 alt="Scipy 2017">
+                        </a>
+                    </div>
+                </div>
+
+
+                <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="image-gallery-title"></h4>
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <img id="image-gallery-image" class="img-responsive col-md-12" src="">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary float-left" id="show-previous-image"><i class="fa fa-arrow-left"></i>
+                                </button>
+
+                                <button type="button" id="show-next-image" class="btn btn-secondary float-right"><i class="fa fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="team" class="section team">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="text-uppercase mt0 font-400">Our Team</h3>
+                    <!-- <div class="row">
+                    </div> -->
+                  <!--  <div class="row">
+                        <div class="col-sm-3">
+                            <div class="card">
+                                <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
+                                <div class="avatar">
+                                    <img src="" alt="" />
+                                </div>
+                                <div class="content">
+                                    <p>Prof. Prabhu Ramachandran <br>
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="card">
+                                <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
+                                <div class="avatar">
+                                    <img src="" alt="" />
+                                </div>
+                                <div class="content">
+                                    <p>Usha Viswanathan <br>
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="card">
+                                <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
+                                <div class="avatar">
+                                    <img src="" alt="" />
+                                </div>
+                                <div class="content">
+                                    <p>Vineeta Ghavri <br>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="card">
+                                <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
+                                <div class="avatar">
+                                    <img src="" alt="" />
+                                </div>
+                                <div class="content">
+                                    <p>Sunil Shetye <br>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="card">
+                                <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
+                                <div class="avatar">
+                                    <img src="" alt="" />
+                                </div>
+                                <div class="content">
+                                    <p>Ankit R. Javalkar <br>
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="card">
+                                <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
+                                <div class="avatar">
+                                    <img src="" alt="" />
+                                </div>
+                                <div class="content">
+                                    <p>Prathamesh S <br>
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="card">
+                                <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
+                                <div class="avatar">
+                                    <img src="" alt="" />
+                                </div>
+                                <div class="content">
+                                    <p>Mahesh G <br>
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="card">
+                                <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
+                                <div class="avatar">
+                                    <img src="" alt="" />
+                                </div>
+                                <div class="content">
+                                    <p>Binson B <br>
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="card">
+                                <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
+                                <div class="avatar">
+                                    <img src="" alt="" />
+                                </div>
+                                <div class="content">
+                                    <p>Akshen D <br>
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="card">
+                                <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
+                                <div class="avatar">
+                                    <img src="" alt="" />
+                                </div>
+                                <div class="content">
+                                    <p>Yash V <br>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="card">
+                                <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
+                                <div class="avatar">
+                                    <img src="" alt="" />
+                                </div>
+                                <div class="content">
+                                    <p>Rohan M <br>
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="card">
+                                <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
+                                <div class="avatar">
+                                    <img src="" alt="" />
+                                </div>
+                                <div class="content">
+                                    <p>Prashant S <br>
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="card">
+                                <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
+                                <div class="avatar">
+                                    <img src="" alt="" />
+                                </div>
+                                <div class="content">
+                                    <p>Sashi Rekha B M K <br>
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="card">
+                                <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
+                                <div class="avatar">
+                                    <img src="" alt="" />
+                                </div>
+                                <div class="content">
+                                    <p>Komal S <br>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="card">
+                                <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
+                                <div class="avatar">
+                                    <img src="" alt="" />
+                                </div>
+                                <div class="content">
+                                    <p>Priya H <br>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="card">
+                                <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
+                                <div class="avatar">
+                                    <img src="" alt="" />
+                                </div>
+                                <div class="content">
+                                    <p>Vishal B <br>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <section id="write-us" class="section write-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="section-title">Write to Us</h3>
+                    <p><h5>Feel free to send us an email if you have any questions.</h5></p>
+                </div>
+            </div>
+
+            <form action="#" id="registration-form">
+                <div class="row">
+                    <div class="col-md-12" id="registration-msg" style="display:none;">
+                        <div class="alert"></div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="First Name" id="fname" name="fname" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Last Name" id="lname" name="lname" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Email" id="email" name="email" required>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <input type="textarea" class="form-control" placeholder="Your Query" id="query" name="query" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt20">
+                    <button type="submit" class="btn btn-black" id="registration-submit-btn">Submit</button>
+                </div>
+            </form>
+        </div>
+    </section> -->
+
+    <section id="contact-us" class="section contact-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="section-title">Contact us</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <dl class="alt">
+                            <dt>Phone</dt>
+                            <dd><i class="fa fa-phone" aria-hidden="true"></i> (+91) 22 25764111</dd>
+                            <dd><i class="fa fa-calendar" aria-hidden="true"></i> Monday - Friday</dd>
+                            <dd><i class="fa fa-clock-o" aria-hidden="true"></i> 10:00 AM - 6:00 PM</dd>
+                            <dt>Email</dt>
+                            <dd>
+                                <i class="fa fa-envelope" aria-hidden="true"></i> <a style="color:black;" href="mailto:contact-dwsim@fossee.in"> contact-dwsim[at]fossee[dot]in
+                                </a>
+                            </dd>
+                        </dl>
+                </div>
+                <div class="col-md-8">
+                <!-- <div class="row">
+                    <div class="col-md-3 text-center">
+                        <a href="https://fossee.in/" target="_blank"><img src="{% static 'website/bootstrap-css/assets/images/fossee_logo.png' %}" style="width:50%" class="text-center"></a><strong><p class="text-center">Fossee</p></strong>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <a href="https://yaksh.fossee.in" target="_blank"><img src="{% static 'website/bootstrap-css/assets/images/yaksh_banner.png' %}" style="background:black" class="text-center" ></a><strong><p class="text-center">yaksh - Online Test</p></strong>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <a href="https://python-workshops.fossee.in" target="_blank"><img src="{% static 'website/bootstrap-css/assets/images/pylogo.png' %}" style="width:30%;" class="text-center" ></a><strong><p class="text-center">Python Workshop</p></strong>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <a href="https://www.iitb.ac.in/" target="_blank"><img src="{% static 'website/bootstrap-css/assets/images/iitb_logo.png' %}" style="width:30%;" class="text-center"></a>
+    <strong><p class="text-center">IIT Bombay</p></strong>
+                    </div>
+                </div> -->
+                 <div class="table-responsive">
+                    <table class="table">
+                         <tr>
+                            <td style="vertical-align:bottom;border-top:none;!important">
+                            <div class="text-center align-baseline">
+                        <a href="https://fossee.in/" target="_blank"><img src="{% static 'website/bootstrap-css/assets/images/fossee_logo.png' %}" style="width:60%" class="text-center"></a>
+                    </div>
+                            </td>
+                            <td style="vertical-align:bottom;border-top:none;!important">
+                            <div class="text-center align-baseline">
+                        <a href="https://yaksh.fossee.in" target="_blank"><img src="{% static 'website/bootstrap-css/assets/images/yaksh_banner.png' %}" style="background:black;padding: 5%;" class="text-center" ></a>
+                    </div>
+                            </td>
+                            <td style="vertical-align:bottom;border-top:none;!important">
+                            <div class="text-center align-baseline">
+                        <a href="https://python-workshops.fossee.in" target="_blank"><img src="{% static 'website/bootstrap-css/assets/images/pylogo.png' %}" style="width:30%;" class="text-center" ></a>
+                    </div>
+                    </td>
+                    <td style="vertical-align:bottom;border-top:none;!important">
+                            <div class="text-center align-baseline">
+                        <a href="https://www.iitb.ac.in/" target="_blank"><img src="{% static 'website/bootstrap-css/assets/images/iitb_logo.png' %}" style="width:40%;" class="text-center"></a>
+                    </div>
+                         </tr>
+                         <tr>
+                            <td style="vertical-align:top;border-top:none;!important"><strong><p class="text-center">FOSSEE</p></strong></td>
+                            <td style="vertical-align:top;border-top:none;!important"><strong><p class="text-center">YAKSH - Online Test Platform</p></strong></td>
+                            <td style="vertical-align:top;border-top:none;!important"><strong><p class="text-center">Python Workshop</p></strong></td>
+                            <td style="vertical-align:top;border-top:none;!important"><strong><p class="text-center">IIT Bombay</p></strong></td>
+                         </tr>
+                    </table>
+                </div> 
+                </div>
+            </div>
+    </section>
+
+<img class="src-image"  src="{% static 'website/bootstrap-css/assets/images/speakers/dummy.png' %}"/>
+<img class="src-image"  src="{% static 'website/bootstrap-css/assets/images/speakers/dummy.png' %}"/>
+<img class="src-image"  src="{% static 'website/bootstrap-css/assets/images/speakers/dummy.png' %}"/>
+<img class="src-image"  src="{% static 'website/bootstrap-css/assets/images/speakers/dummy.png' %}"/>
+<img class="src-image"  src="{% static 'website/bootstrap-css/assets/images/speakers/dummy.png' %}"/>
+<img class="src-image"  src="{% static 'website/bootstrap-css/assets/images/speakers/dummy.png' %}"/>
+<img class="src-image"  src="{% static 'website/bootstrap-css/assets/images/speakers/dummy.png' %}"/>
+<img class="src-image"  src="{% static 'website/bootstrap-css/assets/images/speakers/dummy.png' %}"/>
+<img class="src-image"  src="{% static 'website/bootstrap-css/assets/images/speakers/dummy.png' %}"/>
+<img class="src-image"  src="{% static 'website/bootstrap-css/assets/images/speakers/dummy.png' %}"/>
+<img class="src-image"  src="{% static 'website/bootstrap-css/assets/images/speakers/dummy.png' %}"/>
+<img class="src-image"  src="{% static 'website/bootstrap-css/assets/images/speakers/dummy.png' %}"/>
+<img class="src-image"  src="{% static 'website/bootstrap-css/assets/images/speakers/dummy.png' %}"/>
+<img class="src-image"  src="{% static 'website/bootstrap-css/assets/images/speakers/dummy.png' %}"/>
+<img class="src-image"  src="{% static 'website/bootstrap-css/assets/images/speakers/dummy.png' %}"/>
+<img class="src-image"  src="{% static 'website/bootstrap-css/assets/images/speakers/dummy.png' %}"/>
+{% endblock %}
