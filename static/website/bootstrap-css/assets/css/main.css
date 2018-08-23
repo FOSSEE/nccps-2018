@@ -143,7 +143,7 @@ ul li {
   color: #313131;
   letter-spacing: 1px;
   margin: 0 0 20px;
-  text-transform: uppercase;
+  text-transform: none;
   text-align: center;
 }
 
@@ -250,7 +250,7 @@ ul li {
     color: #313131;
     letter-spacing: 1px;
     margin: 0 0 60px;
-    text-transform: uppercase;
+    text-transform: none;
     text-align: left;
   }
 }
@@ -419,7 +419,7 @@ ul li {
 .speaker {
   text-align: center;
   color: #313131;
-  text-transform: uppercase;
+  text-transform: none;
   margin: 25px 0;
 }
 .speaker .spkrmodal{
@@ -491,18 +491,21 @@ ul li {
 }
 .organiser .organiser-box {
   display: block;
-  opacity: 0.3;
-  height: 150px;
-  width: 150px;
+  opacity: 1;
+  height: 70px;
+  width: 200px;
   margin: 25px auto;
   -webkit-transition: 0.5s all linear;
           transition: 0.5s all linear;
 }
-.organiser .organiser-box:hover {
+/*.organiser .organiser-box:hover {
   opacity: 1;
-}
+}*/
 .organiser .organiser-box-1 {
-  background: url(../images/partner/fossee.png) no-repeat center center/contain;
+  background: url(../images/logo_4.png) no-repeat center center/contain;
+}
+.organiser .organiser-box-2 {
+  background: url(../images/logo_1.png) no-repeat center center/contain;
 }
 /*
 .sponsor .sponsor-box-2 {
