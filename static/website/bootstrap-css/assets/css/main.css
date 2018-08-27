@@ -1,7 +1,7 @@
 /* 
  * 1. Google Font
  */
-@import url(http://fonts.googleapis.com/css?family=Roboto:300,400,700);
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,700);
 /* 
  * 2.0 Global Style
  */
@@ -344,10 +344,17 @@ ul li {
   left: 0;
  /* background-color: rgba(0, 0, 0, 0.5);*/
 }
-
+.site-header .intro .important-dates{
+  margin-top: 2%;
+  margin-bottom: 5%;
+  color: #806600;
+  font-size: 25pt;
+  font-weight: 700;
+  text-decoration: underline;
+}
 .site-header .img {
   width: 100% !important;
-  margin-top: 58px; 
+  margin-top: 45px; 
 }
 .site-header .intro {
   color: #fff;
