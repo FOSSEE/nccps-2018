@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+
+<section id="submitcfw" class="section submitcfw">
+    <div class="container">
+        <p>
+            <center>
+                <h2>Submit Workshop Proposal</h2>
+            </center>
+        </p>
+        <hr>
+            {% if proposals_w >= 1 %} You have exceeded the workshop proposal submission limit. 
+            You may view your submitted proposals by clicking 
+            
+            <a href="{% url 'website:view_abstracts' %}" class="btn "> here</a>
+            {% else %}
+            <h2>
+                <u>Proposal Guidelines</u>
+            </h2>
+            <!-- <li>To be announced</li><br> -->
+            <ul>
+                <li>Please note that there are two parallel tracks, one for beginners and one for advanced users.</li>
+                <li>Please make sure the workshops are hands-on with plenty of exercises for the users.</li>
+                <li>It is usually a good idea to pick a particular problem or set of problems and orient your workshop around how to solve those using the package you plan to talk about.</li>
+                <li>Please provide us with links to any resources you have already prepared for the workshop.</li>
+                <li>The more detail you provide on your workshop, the easier it will be for us to pick it.</li>
+                <li>
+                    Provide us with the following sections:
+                    <ul>
+                        <li>Duration</li>
+                        <li>Track: beginner or advanced</li>
+                        <li>Intended audience</li>
+                        <li>Why should someone attend your workshop?  What will they get at the end of it?</li>
+                        <li>Outline of workshop with a reasonable breakup in terms of time.</li>
+                        <li>Possibly provide any material or similar material you plan to use.</li>
+                        <li>A small paragraph about you with an emphasis on your experience in the area and teaching this material.  Essentially, why are you well suited to teach this workshop?</li>
+                    </ul>
+                </li>
+            </ul>
+            <form action="" method=POST>
+                <div class="form-group">
+                    <label for="about_me">About me
+                        <span style="color:red;">*</span>:
+                    </label>
+                 {% render_field proposal_form.about_me %}
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone
+                        <span style="color:red;">*</span>:
+                    </label>
+                 {% render_field proposal_form.phone %}
+                </div>
+                <div class="form-group">
+                    <label for="title">Title
+                        <span style="color:red;">*</span>:
+                    </label>
+                 {% render_field proposal_form.title %}
+                </div>
+                <div class="form-group">
+                    <label for="dispositiont">Disposition (Min. 300 char.)
+                        <span style="color:red;">*</span>:
+                    </label>
+                 {% render_field proposal_form.abstract %}
+                    <label>Charater count:
+                        <div id="charNum"></div>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label for="duration">Duration (Mins.)
+                        <span style="color:red;">*</span>:
+                    </label>
+                 {% render_field proposal_form.duration %}
+                </div>
+                <div class="form-group">
+                    <label for="attachment">Attachments:</label>
+                 {% render_field proposal_form.attachment %}
+                    <div class="form-group">
+                        <label for="tags">Tags:</label>
+                 {% render_field proposal_form.tags %}
+                    </div>
+                </div>
+                <div class="form-inline">
+                    <div class="radio">
+                        <label for="open_to_share"> I agree to publish my resources of workshop/presentation on this website
+                            <span style="color:red;">*</span>:
+                        </label>
+                            {% render_field proposal_form.open_to_share %}
+                    </div>
+                </div>
+              {% render_field proposal_form.proposal_type %}
+              {% csrf_token %}
+                <center>
+                    <button id="subbtn" class="btn btn-info" type="submit" >Submit</button>
+                    <a href="{% url 'website:view_abstracts' %}" class="btn btn-info" role="button">Back</a>
+                </center>
+            </form>
+        {% endif %}
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+
+<section id="edit_proposal" class="section edit_proposal">
+        <div class="container">
+            <p>
+            <center>
+                {% if proposal.proposal_type == "ABSTRACT" %}
+                <h2>Edit Abstract Proposal</h2>
+                {% else %}
+                <h2>Edit Workshop Proposal</h2>
+                {% endif %}
+            </center>
+            </p>
+            <h3><span class="label label-primary">{{ proposal.user.first_name }} {{ proposal.user.last_name }}</span></h3>
+            <form   action="" method=POST enctype="multipart/form-data">
+                {% csrf_token %}  
+                <div class="row1">
+                    {% for field in form %} 
+                    <p>{{ field.label}}
+                        {% if field.field.required %} <span style="color:red;">*</span> {% endif %}
+                        {{ field }}
+                    </p>
+                    <a style="color:red; ">{{ field.errors }}</a>
+                    {% endfor %}
+                </div>
+                {% csrf_token %}
+                <center><button class="button special" type="submit">Submit</button></center>
+            </form>
+            <br>
+        </div>
+        </section>
+        {% endblock %}

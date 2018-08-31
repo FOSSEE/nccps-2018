@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+
+<section id="comment_abstract" class="section comment_abstract">
+        <div class="container">
+            <p>
+            <center>
+                {% if proposal.proposal_type == "ABSTRACT"%}
+                <h2>Abstract Details</h2>
+                {% else %}
+                <h2>Workshop Details</h2>
+                {% endif %}
+            </center>
+            </p>
+            <h3>{{ proposal.user.first_name }} {{ proposal.user.last_name }}</h3>
+            <p><b>Title: </b>&nbsp;{{ proposal.title }}</p>
+            <p align="justify"><b>About Me: </b>&nbsp;{{ proposal.about_me |linebreaks }}</p>
+            {% if proposal.proposal_type == "ABSTRACT"%}
+            <p align="justify"><b>Abstract:</b>&nbsp;
+                {% else %}
+            <p align="justify"><b>Description:</b>&nbsp;
+                {% endif %}
+                {{ proposal.abstract | linebreaks }}
+            </p>
+            {% if proposal.prerequisite %}
+            <p align="justify"><b>Prerequisite: </b>&nbsp;{{ proposal.prerequisite| linebreaks }}</p>
+            {% endif%}
+            <p><b>Duration: </b>&nbsp;{{ proposal.duration }} {% if proposal.proposal_type == "ABSTRACT"%} Mins {% else %}Hours {%endif%}</p>
+            {% if proposal.proposal_type == "ABSTRACT"%}
+            <p><b>Tags: </b>&nbsp;{{ proposal.tags }}</p>
+            {% else %}
+            <p><b>Level: </b>&nbsp;{{ proposal.tags }}</p>
+            {% endif %}
+            {% if url %}
+            <b>Attachment: </b>&nbsp;<a href="{{ url }}" class="btn btn-info" target="_blank">{{ filename }}</a>
+            {% endif %}
+            <p><b>Date Created: </b>&nbsp;{{ proposal.date_created }}</p>
+            <form action="{% url 'website:rate_proposal' proposal.id %}" method='POST' enctype="multipart/form-data">
+                {% csrf_token %}
+                <b>Ratings :</b>
+                <select name="rating" style="width:70px;" >
+                    <!--Call run() function-->
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                /10 &nbsp;
+                <input class="btn btn btn-primary"  type="submit"  value="Rate">
+            </form>
+            <h4>Ratings</h4>
+            {% for rate in rates %}
+            <div>
+                {{rate.rating}}/10 
+                by - {{ rate.user }}
+            </div>
+            {% endfor %}
+            <hr>
+            <h4>Comments</h4>
+            {% for comment in comments %}
+            <div>
+                <strong>Comment By:</strong>
+                {{ comment.user.first_name }} {{ comment.user.last_name }}
+                <p>{{ comment.comment| linebreaks }}</p>
+                <!--  {% if user == comment.user %}
+                    <form action="" method='POST' enctype="multipart/form-data">
+                    {% csrf_token %} 
+                    {% endif %} -->
+            </div>
+            <hr>
+            </form>
+            {% endfor %}
+            <form action="{% url 'website:comment_abstract' proposal.id %}" method='POST' enctype="multipart/form-data">
+                {% csrf_token %}
+                <textarea rows="5" cols="100" id="comment" class= "comment" name="comment" placeholder = "Add commnet here..."></textarea><br/>
+                <input class="button special"  type="submit" value="Comment">
+            </form>
+            <!--     <form action="{% url 'website:status' proposal.id %}" method='POST'>{% csrf_token %}
+                <input type="submit" class="button special" style="background:green" value="Accept" name="accept"/>
+                <input type="submit" class="button special" style="background:red "value="Reject" name="reject"/>
+                  <input type="submit" class="button special" style="background:grey "value="Resubmit" name="resubmit"/>
+                
+                 </form>
+                -->
+        </div>
+        </section>
+        {% endblock %}
+
+

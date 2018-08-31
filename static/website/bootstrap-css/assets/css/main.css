@@ -41,7 +41,7 @@ p {
 }
 
 ul li {
-  font-weight: 700;
+  font-weight: 500;
   margin-bottom: 10px;
 }
 
@@ -457,13 +457,15 @@ ul li {
 /* 
  * 6.6 Section: Schedule
  */
-.schedule-box {
-  position: relative;
-  background-color: #000;
+ .schedule-box {
+  /*background-color: #000;*/
+  color: black;
+  font-weight: 500;
+}
+.schedule-box .schedule-header{
   color: #fff;
-  text-align: center;
-  padding: 50px 0;
-  margin: 25px 0 0;
+  background-color: #806600;
+  font-weight: 600;
 }
 .schedule-box::before {
   content: '';
@@ -472,9 +474,8 @@ ul li {
   right: 5px;
   bottom: 5px;
   left: 5px;
-  border: 1px solid #fff;
+  /*border: 1px solid #fff;*/
 }
-
 /* 
  * 6.7 Section: Schedule
  */

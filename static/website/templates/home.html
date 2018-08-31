@@ -4,15 +4,8 @@
 <div id="home" data="home"></div>
     <header id="site-header" class="site-header valign-center img-fluid"> 
         <div class="intro">
-
-          <!--  <h2>21 &amp; 22 December, 2018 / IIT Bombay</h2> 
-            
-            <h1>National Conference on Chemical Process Simulation - 2018</h1> -->
-            
-           <!-- <p>International conference on Python for education and computing</p> -->
-          
             <img class="img img-fluid" src="{% static 'website/bootstrap-css/assets/images/backgrounds/top_2.png' %}" alt=""> <br><br>
-            <a class="btn btn-primary" data-scroll href="#submit">Submit a paper</a> <br><br>
+            <a class="btn btn-primary" href="{% url 'website:cfp' %}">Submit a paper</a> <br><br>
         </div>
     </header>
 
@@ -25,30 +18,11 @@
 
                     <p class="text-justify">The National Conference on Chemical Process Simulation-2018 is a confluence of academia and industry. This is an excellent opportunity for fostering academic and industrial collaborations. It is the place to meet the experts in chemical process simulation from all over the country. This conference provides a national platform to showcase the work done in this area by students and faculty.
                     </p>
-
-                    <!-- <figure>
-                        <img alt="" class="img-responsive" src="bootstrap-css/assets/images/about-us.jpg">
-                    </figure> -->
- 
                 </div><!-- /.col-sm-6 -->
 
                 <div class="col-sm-6">
-
-                  <!--  <h3 class="section-title multiple-title">What is Our Goal?</h3>
-
-                    <p class="text-justify">One of the goals of the conference is to combine education, engineering, and science with computing through the medium of Python and thereby extrapolate on how powerful Scientific Computing is in various fields and among different communities.</p>
-
-                    <ul class="list-arrow-right">
-
-                        <li>Have hands on sessions</li>
-                    </ul> -->
                      <h3 class="section-title multiple-title" align="center"><u>News and Updates</u></h3>
                     <a class="twitter-timeline" data-width="500" data-height="380" href="https://twitter.com/nccps2018?ref_src=twsrc%5Etfw">Tweets by nccps2018</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                     <!--
-                    <a class="twitter-timeline" href="https://twitter.com/FOSSEENMEICT" data-widget-id="1031487038086762496" data-width="100%">Tweets by @FOSSEENMEICT</a>
-
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> -->
-
                 </div><!-- /.col-sm-6 -->
             </div><!-- /.row -->
         </div><!-- /.container -->
@@ -58,28 +32,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
-
                     <i class="ion-ios-calendar"></i>
                     <h3>November 26 <br>2018</h3>
-                
                 </div>
                 <div class="col-sm-4">
-
                     <i class="ion-ios-location"></i>
                     <h3>Lecture Hall Complex, <br>IIT Bombay</h3>
-
                 </div>
-               <!-- <div class="col-sm-3">
-
-                    <i class="ion-pricetags"></i>
-                    <h3>Over 300<br>Tickets</h3>
-                
-                </div> -->
                 <div class="col-sm-4">
-                
                     <i class="ion-speakerphone"></i>
                     <h3>Paper Submission in Progress</h3>
-
                 </div>
             </div><!-- row -->
         </div><!-- container -->
@@ -89,37 +51,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-
                     <h3 class="section-title">Speakers</h3>
-                
                 </div>
             </div>
 
             <div class="row">
-                <!-- <div class="col-md-4">
-                    <div class="speaker">
-
-                        <figure>
-                            <img alt="" class="img-responsive center-block img-rounded" src="{% static 'website/bootstrap-css/assets/images/speakers/dummy.png' %}" style="max-width: 70%;">
-                        </figure>
-
-                        <h4>ABC XYZ</h4>
-
-                        <p>WXYZ QWERTY</p>
-
-                        <ul class="social-block">
-                            <li><a href=""><i class="ion-social-twitter"></i></a></li>
-                            <li><a href=""><i class="ion-social-facebook"></i></a></li>
-                            <li><a href=""><i class="ion-social-linkedin-outline"></i></a></li>
-                            <li><a href=""><i class="ion-social-googleplus"></i></a></li>
-                        </ul>
-
-                    </div><!-- /.speaker -->
-                <!-- </div> --> <!-- /.col-md-4 -->
-
                 <div class="col-md-6">
                     <div class="speaker">
-
                         <figure>
                             <img alt="" class="img-responsive center-block img-rounded" src="{% static 'website/bootstrap-css/assets/images/speakers/madhavan.png' %}" style="max-width: 70%;height: 253px;" data-toggle="modal" data-target="#myModal">
                         </figure>
@@ -127,17 +65,9 @@
                         <h4>Prof. K P Madhavan</h4>
 
                         <p style="text-transform: none;">Emeritus Professor, Dept. of Chemical Engineering, IIT Bombay</p>
-
-                        <!--<ul class="social-block">
-                            <li><a href=""><i class="ion-social-twitter"></i></a></li>
-                            <li><a href=""><i class="ion-social-facebook"></i></a></li>
-                            <li><a href=""><i class="ion-social-linkedin-outline"></i></a></li>
-                            <li><a href=""><i class="ion-social-googleplus"></i></a></li>
-                        </ul> -->
                         <div class="modal fade spkrmodal" id="myModal" role="dialog">
                         <div class="modal-dialog">
-                        
-                          <!-- Modal content-->
+                        <!-- Modal content-->
                           <div class="modal-content">
                             <div class="modal-header">
                               <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -150,7 +80,6 @@
                               <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
                             </div>
                           </div>
-                          
                         </div>
                       </div>
                     </div><!-- /.speaker -->
@@ -158,24 +87,13 @@
 
                 <div class="col-md-6">
                     <div class="speaker">
-
                         <figure>
                             <img alt="" class="img-responsive center-block img-rounded" src="{% static 'website/bootstrap-css/assets/images/speakers/alok.png' %}" style="max-width: 70%;height: 253px;" data-toggle="modal" data-target="#myModal1">
                         </figure>
-
                         <h4>Mr. Alok Pandit</h4>
-
                         <p style="text-transform: none;">Equinox Software and Services Private Limited</p>
-
-                        <!-- <ul class="social-block">
-                            <li><a href=""><i class="ion-social-twitter"></i></a></li>
-                            <li><a href=""><i class="ion-social-facebook"></i></a></li>
-                            <li><a href=""><i class="ion-social-linkedin-outline"></i></a></li>
-                            <li><a href=""><i class="ion-social-googleplus"></i></a></li>
-                        </ul> -->
                         <div class="modal fade spkrmodal" id="myModal1" role="dialog">
                         <div class="modal-dialog">
-                        
                           <!-- Modal content-->
                           <div class="modal-content">
                             <div class="modal-header">
@@ -189,7 +107,6 @@
                               <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
                             </div>
                           </div>
-                          
                         </div>
                       </div>
                     </div><!-- /.speaker -->
@@ -197,37 +114,167 @@
             </div><!-- /.row -->
         </div>
     </section>
-<!-- <section id="registration" class="section registration">
-  <div class="container">
+  
+    <section id="registration" class="section registration">
+      <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <h3 class="section-title">Registration</h3>
                 </div>
             </div>
             <div class="row">
-              <div class="col-md-12"><p class="text-justify">
-              This ticket allows you to ONLY attend the conference (workshops,oral & poster  presentations, job fair) for 1 Day including breakfast, Lunch, Tea. It does not include Accommodation, Dinner & T-Shirt. This is a non-refundable and non-transferable ticket. There will be an additional 18% charge for GST.</p></div>
+              <div class="col-md-12">
+                <p class="text-justify">
+                This ticket allows you to ONLY attend the conference (workshops,oral & poster  presentations, job fair) for 1 Day including breakfast, Lunch, Tea. It does not include Accommodation, Dinner & T-Shirt. This is a non-refundable and non-transferable ticket. There will be an additional 18% charge for GST.
+                </p>
               </div>
-                
             </div>
-</section> -->
-
-<!--
-
-    <section id="contribution" class="section bg-image-2 contribution">
-        <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <h3 class="text-uppercase mt0 font-400">Submit a Paper</h3>
-                    
-                    <p>We invite papers on Chemical Process Modelling, Simulation and Optimization. Time duration for oral presentation will be 15 minutes.  Accepted papers will be published in conference proceedings.</p>
-
-                    <a class="btn btn-white" href="#">Submit</a>
+              <div class="col-md-12 schedule-box">
+                  <table class="table table-bordered table-responsive">
+                    <tr  class="schedule-header">
+                    <td style="vertical-align:bottom;border-top:none;!important">
+                          <div class="align-baseline">
+                          Ticket type
+                          </div>
+                    </td>
+                    <td style="vertical-align:bottom;border-top:none;!important">
+                          <div class="align-baseline">
+                          Student
+                          </div>
+                    </td>
+                    <td style="vertical-align:bottom;border-top:none;!important">
+                          <div class="align-baseline">
+                          Faculty
+                          </div>
+                    </td>
+                    <td style="vertical-align:bottom;border-top:none;!important">
+                          <div class="align-baseline">
+                          Industry participant
+                          </div>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td style="vertical-align:bottom;border-top:none;!important">
+                          <div class="align-baseline">
+                          Regular Registration
+                          <br>(15 Sept 2018 - 25 Oct 2018)    
+                          </div>
+                    </td>
+                    <td style="vertical-align:bottom;border-top:none;!important">
+                          <div class="align-baseline">
+                          Rs. 750
+                          </div>
+                    </td>
+                    <td style="vertical-align:bottom;border-top:none;!important">
+                          <div class="align-baseline">
+                          Rs. 1,000
+                          </div>
+                    </td>
+                    <td style="vertical-align:bottom;border-top:none;!important">
+                          <div class="align-baseline">
+                          Rs. 2,000
+                          </div>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td style="vertical-align:bottom;border-top:none;!important">
+                          <div class="align-baseline">
+                          Late Registration
+                          <br>(26 Oct 2018 - 25 Nov 2018)    
+                          </div>
+                    </td>
+                    <td style="vertical-align:bottom;border-top:none;!important">
+                          <div class="align-baseline">
+                          Rs. 900
+                          </div>
+                    </td>
+                    <td style="vertical-align:bottom;border-top:none;!important">
+                          <div class="align-baseline">
+                          Rs. 1,200
+                          </div>
+                    </td>
+                    <td style="vertical-align:bottom;border-top:none;!important">
+                          <div class="align-baseline">
+                          Rs. 2,500
+                          </div>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td style="vertical-align:bottom;border-top:none;!important">
+                          <div class="align-baseline">
+                          Spot Registration    
+                          </div>
+                    </td>
+                    <td style="vertical-align:bottom;border-top:none;!important">
+                          <div class="align-baseline">
+                          Rs. 1,100
+                          </div>
+                    </td>
+                    <td style="vertical-align:bottom;border-top:none;!important">
+                          <div class="align-baseline">
+                          Rs. 1,500
+                          </div>
+                    </td>
+                    <td style="vertical-align:bottom;border-top:none;!important">
+                          <div class="align-baseline">
+                          Rs. 3,000
+                          </div>
+                    </td>
+                    </tr>
+                  </table>
                 </div>
             </div>
-        </div>
+            <div class="row">
+            <div class="col-md-12">
+                <p class="text-justify" style="color: red;">
+                *Spot registration will be subject to availability.
+                </p>
+              </div>
+            </div>
+            <div class="row">
+            <div class="col-md-12 schedule-box">
+            <table class="table table-bordered table-responsive">
+              <tr>
+              <td style="vertical-align:bottom;border-top:none;!important">
+                <div class="align-baseline">
+                  Accomodation<br>
+                  Add on
+                </div>
+              </td>
+              <td style="vertical-align:bottom;border-top:none;!important">
+                <div class="align-baseline">
+                  We have limited Low cost accommodation, guaranteed only if you register early.
+                </div>
+              </td>
+              </tr>
+              <tr>
+              <td style="vertical-align:bottom;border-top:none;!important">
+                <div class="align-baseline">
+                  T Shirt<br>   
+                  Rs 350/-<br>
+                  Add on
+                </div>
+              </td>
+              <td style="vertical-align:bottom;border-top:none;!important">
+                <div class="align-baseline">
+                  Change of size, exchange at the venue is not available. This is  a non-refundable and non-transferable ticket.
+                </div>
+              </td>
+              </tr>
+            </table>
+            </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+              <center>
+                <a data-toggle="modal" data-target="#registermdl" class="btn btn-primary">Register now</a>
+              </center>
+              </div>
+            </div>
+      </div>      
     </section>
--->
+
     <section id="coc" class="section coc">
         <div class="container">
             <div class="row">
@@ -275,6 +322,7 @@
                         </div>
 
                      </div>
+                     </p>
                      <center>
                         <button type="button" class="btn btn-black" data-toggle="collapse" data-target="#demo">
                             <i class="fa fa-arrow-down" aria-hidden="true"></i>
@@ -282,6 +330,8 @@
                         </button>
                     </center>
             </div>
+          </div>
+        </div>
     </section>
 
 
@@ -289,17 +339,142 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h3 class="section-title">Event Schedule</h3>
+                    <h3 class="section-title">Tentative Schedule</h3>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 col-sm-12">
-                    <div class="schedule-box">
-                        <div class="time">
-                            <!-- <time datetime="09:00">09:00 am</time> - <time datetime="22:00">10:00 am</time> -->
-                        </div>
-                        <p>TBD</p>
-                    </div>
+              <div class="col-md-12">
+                <p class="text-justify" style="font-weight: 500;"> Poster session - 8AM onwards</p>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 schedule-box">
+                  <div>
+                  <table class="table table-bordered" style="align-content: center !important;">
+                    <tr  class="schedule-header">
+                        <td style="vertical-align:bottom;border-top:none;!important">
+                          <div class="align-baseline">
+                          Time
+                          </div>
+                        </td>
+                        <td style="vertical-align:bottom;border-top:none;!important">
+                          <div class="align-baseline">
+                          Program
+                          </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align:bottom;border-top:none;!important">
+                          <div class="align-baseline">
+                              08:00  - 09:00 
+                          </div>
+                        </td>
+                        <td style="vertical-align:bottom;border-top:none;!important">
+                          <div class="align-baseline">
+                              Registration
+                          </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align:bottom;border-top:none;!important">
+                          <div class="align-baseline">
+                            09:00  - 09:30 
+                          </div>
+                        </td>
+                        <td style="vertical-align:bottom;border-top:none;!important">
+                          <div class="align-baseline">
+                            Inauguration
+                          </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align:bottom;border-top:none;!important">
+                          <div class="align-baseline">
+                              09:30  - 10:30 
+                          </div>
+                        </td>
+                        <td style="vertical-align:bottom;border-top:none;!important">
+                          <div class="align-baseline">
+                              Invited talks
+                          </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align:bottom;border-top:none;!important">
+                          <div class="align-baseline">
+                              10:30  - 11:00 
+                          </div>
+                        </td>
+                        <td style="vertical-align:bottom;border-top:none;!important">
+                          <div class="align-baseline">
+                              Tea
+                          </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align:bottom;border-top:none;!important">
+                          <div class="align-baseline">
+                              11:00  - 01:00 
+                          </div>
+                        </td>
+                        <td style="vertical-align:bottom;border-top:none;!important">
+                          <div class="align-baseline">
+                              Oral Presentations
+                          </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align:bottom;border-top:none;!important">
+                          <div class="align-baseline">
+                              01:00  - 02:00 
+                          </div>
+                        </td>
+                        <td style="vertical-align:bottom;border-top:none;!important">
+                          <div class="align-baseline">
+                              Lunch
+                          </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align:bottom;border-top:none;!important">
+                          <div class="align-baseline">
+                              02:00  - 04:00 
+                          </div>
+                        </td>
+                        <td style="vertical-align:bottom;border-top:none;!important">
+                          <div class="align-baseline">
+                              DWSIM/OpenModelica Workshop
+                          </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align:bottom;border-top:none;!important">
+                          <div class="align-baseline">
+                              04:00  - 04:15 
+                          </div>
+                        </td>
+                        <td style="vertical-align:bottom;border-top:none;!important">
+                          <div class="align-baseline">
+                              Tea
+                          </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align:bottom;border-top:none;!important">
+                          <div class="align-baseline">
+                              04:15  - 05:30 
+                          </div>
+                        </td>
+                        <td style="vertical-align:bottom;border-top:none;!important">
+                          <div class="align-baseline">
+                              Panel Discussion, Valedictory
+                          </div>
+                        </td>
+                    </tr>
+
+                    
+                    </table>
+                </div>
                 </div>
             </div>
     </section>
@@ -330,85 +505,12 @@
             <div class="row">
                 <div class="col-sm-6">
                     <a href="https://fossee.in" class="organiser-box organiser-box-1" target="_blank"></a>
-                   <!-- <p class="text-justify">NCCPS conference is organised by the team members of FOSSEE project which is part of the National Mission on Education through ICT with the thrust area being Adaptation and deployment of open source simulation packages equivalent to proprietary software, funded by MHRD, based at the Indian Institute of Technology Bombay (IITB). </p> -->
                 </div>
                 <div class="col-sm-6">
                     <a href="https://www.che.iitb.ac.in/online/" class="organiser-box organiser-box-2" target="_blank"></a>
                 </div>
             </div>
-            <!-- <div class="row">
-                <div class="col-sm-12">
-                    <p class="text-justify">NCCPS conference is organised by the team members of FOSSEE project which is part of the National Mission on Education through ICT with the thrust area being Adaptation and deployment of open source simulation packages equivalent to proprietary software, funded by MHRD, based at the Indian Institute of Technology Bombay (IITB). </p> 
-                </div>
-            </div> -->
     </section>
-
-<!--
-    <section id="sponsor" class="section sponsor">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h3 class="section-title">Sponsor</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12">
-                    <a href="http://mhrd.gov.in" class="sponsor-box sponsor-box-1" target="_blank"></a>
-                </div>
-            </div>
-             <div class="row">
-                <div class="col-sm-12">
-                    <p class="text-justify">
-                        Thank you for your interest to sponsor Scipy India 2018.</p>
-<p class="text-justify">
-    NCCPS India, an annual conference organized by FOSSEE (Free and Open Source Software for Education) based at IIT Bombay, provides the opportunity to unfurl the use of the Python programming language in the Scientific Computing community in India. NCCPS India being organized since 2009, attracts more than 250 students and faculty every year. This conference provides the participants with a unique opportunity to interact and connect with the Python community.
-</p><p class="text-justify">
-    Here’s a call to the interested organizations to sponsor this conference and get associated with the event. Through this sponsorship, you could engage with top professionals and enhance your organization’s brand visibility amongst Python users.
-                    </p>
-                </div>
-            </div>
-    </section>
-
-    <section id="write-us" class="section write-us">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h3 class="section-title">Write to Us</h3>
-                    <p><h5>Feel free to send us an email if you have any questions.</h5></p>
-                </div>
-            </div>
-
-            <form action="#" id="registration-form">
-                <div class="row">
-                    <div class="col-md-12" id="registration-msg" style="display:none;">
-                        <div class="alert"></div>
-                    </div>
-                    <div class="col-sm-12">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="First Name" id="fname" name="fname" required>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Last Name" id="lname" name="lname" required>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Email" id="email" name="email" required>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-12">
-                        <div class="form-group">
-                            <input type="textarea" class="form-control" placeholder="Your Query" id="query" name="query" required>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-center mt20">
-                    <button type="submit" class="btn btn-black" id="registration-submit-btn">Submit</button>
-                </div>
-            </form>
-        </div>
-    </section> -->
 
     <section id="contact-us" class="section contact-us">
         <div class="container">
@@ -460,25 +562,19 @@
             </div>
             </div>
     </section>
-
-<div class="modal fade spkrmodal" id="registermdl" role="dialog">
-                        <div class="modal-dialog">
-                        
-                          <!-- Modal content-->
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-                            <div class="modal-body">
-                              <p class="text-justify">Registrations open from 15 September</p>
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
-                            </div>
-                          </div>
-                          
-                        </div>
-                      </div>
-
-
+<div class="modal fade" id="registermdl" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+          <p class="text-justify">Registrations open from 15 September</p>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>                        
 {% endblock %}

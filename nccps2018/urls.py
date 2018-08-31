@@ -1,4 +1,4 @@
-"""nccps2018 URL Configuration
+"""Scipy2018 URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.1/topics/http/urls/
@@ -14,9 +14,28 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import include, path, re_path
+from django.contrib.auth import views as auth_views
+
 
 urlpatterns = [
-    path('', include('website.urls')),
+    re_path(r'^', include('website.urls', namespace='website')),
+    re_path(r'^accounts/',
+            include(('django.contrib.auth.urls', 'auth'), namespace='auth')),
     path('admin/', admin.site.urls),
+
+    re_path(r'^', include('social.apps.django_app.urls', namespace='social')),
+
+    re_path(r'^forgotpassword/$', auth_views.PasswordResetView.as_view(
+        template_name='registration/password_reset_form.html'), name="password_reset"),
+    re_path(r'^password_reset/(?P<uidb64>[0-9A-Za-z]+)-(?P<token>.+)/$', auth_views.PasswordResetConfirmView.as_view(
+        template_name='registration/password_reset_confirm.html'), name='password_reset_confirm'),
+    re_path(r'^password_reset/mail_sent/$', auth_views.PasswordResetDoneView.as_view(template_name='registration/password_reset_done.html'),
+            name='password_reset_done'),
+    re_path(r'^password_reset/complete/$', auth_views.PasswordResetCompleteView.as_view(template_name='registration/password_reset_complete.html'),
+            name='password_reset_complete'),
+    re_path(r'^changepassword/$', auth_views.PasswordChangeView.as_view(template_name='registration/password_change_form.html'),
+            name='password_change'),
+    re_path(r'^password_change/done/$', auth_views.PasswordChangeDoneView.as_view(template_name='registration/password_change_done.html'),
+            name='password_change_done'),
 ]

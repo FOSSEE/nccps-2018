@@ -9,7 +9,7 @@
       {% block content %}
     <section id="cfp" class="section cfp">
       <div class="container">
-         <p>
+     <!--    <p>
          <center>
             {% if user and not user.is_anonymous %}
             <h2>Submit Proposal</h2>
@@ -69,10 +69,7 @@
          </center>
          {% endif %}
          {% else %}
-         
-         <hr>
-         <div class="row">
-            <div class="col-sm-4">
+          <div class="col-sm-4">
                <span>
                   <h2>
                      <u>Login</u>
@@ -82,7 +79,7 @@
                {% if invalid %}
                <p style="color:red; font-size:15px;">* Invalid Username/Password</p>
                {% endif %}
-               <!-- <div id = "my_form"> -->
+               <!-- <div id = "my_form"> 
                <form action="" method="POST">
                   {{ form.as_p }}
                   <button class="button special" name ="login" type="submit">Login</button>
@@ -92,7 +89,7 @@
                   <a href="/2017/forgotpassword/">Forgot Password?</a>
                   {% csrf_token %}
                </form>
-               <!-- </div> -->
+               <!-- </div> 
                <p>Or Sign in with:&nbsp;<br>
                   <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}" class="btn btn-social-icon "  style="color:#d34836;">
                      <i class="fa fa-google-plus-square" style="font-size:40px;"></i>
@@ -118,31 +115,46 @@
                   </li>
                </ul>
                </p>
+            </div> -->
+            <div class="row">
+                <div class="col-md-12" >
+                   <h3> Call for Papers</h3>
+                </div>
             </div>
-                          
-                 <div class="col-sm-4" align="justify" style="background-color: #cef3f8;">
+            <div class="row">
+                <div class="col-md-12" style="font-weight: 500;">
+                    <p class="text-justify">We invite papers on Chemical Process Modelling, Simulation and Optimization. Time duration for oral presentation will be 15 minutes.  Accepted papers will be published in conference proceedings. Award will be given to best paper and best poster.</p>
+                    <p class="text-justify">Paper submission starts on September 10 2018.</p>
+                </div>
+            </div>
+                 <div class="row">         
+                 <div class="col-sm-6" align="justify">
                  <br>
                         <h4 class="panel-title">
-                        Guidelines for a Proposal
+                        General guidelines for paper submission:
                         </h4>
-                           <ul style="margin-left: -6%;">
-                              <li>The project should be an actual implementation rather than just an idea.</li>
-                              <li>Besides implementation, the submission can also be about experiences and usage of Python, Python-based tools and libraries for research or teaching.</li>
-                              <li>Abstract should be of 300 to 700 words describing the topic, including its relevance to scientific computing or the use of Python in education.</li>
-                              <li>All selected proposals must be presented at the conference by atleast one author.</li>
+                           <ul style="margin-top: 2%;">
+                              <li>Papers are invited on chemical process, modelling, simulation, and optimization. </li>
+                              <li>Use of open source software such as DWSIM and OpenModelica will be preferred.</li>
+                              <li>Authors must submit the manuscript up to 6 pages of length including tables, figures and references in the required 2-column format as described in the template below.</li>
+                              <li>Submissions will be judged on originality, significance, interest, clarity, relevance, and presentation.</li>
+                              <li>Authors should ensure that their work doesn’t contain plagiarized content and not under copyright elsewhere.</li>
+                              <li>Please download the appropriate file for structure of the paper. We encourage use of LaTeX for creating paper.(Click for <a href= "https://static.fossee.in/dwsim/nccps-templates/LaTeX-TEMPLATE.zip" target="_blank" style="color: #806600">LaTeX</a>/ <a href="https://static.fossee.in/dwsim/nccps-templates/WORD-TEMPLATE.zip" target="_blank" style="color: #806600">Word template</a>)</li>
                            </ul>
                         </div>
-                  <div class="col-sm-4" align="justify" style="background-color: #8cc9f0;">
+                  <div class="col-sm-6" align="justify">
                   <br>
                         <h4 class="panel-title">
-                           Guidelines for a Workshop
+                           Suggested Contents of a paper
                         </h4>
                      
-                        <ul style="margin-left: -6%;">
-                           <li>There are two parallel tracks, one for beginners and one for advanced users.</li>
-                           <li>The workshops should be hands-on with plenty of exercises for the users.</li>
-                           <li>It is advisable to pick particular problem(s) and orient your workshop around how to solve those using the package you plan to talk about.</li>
-                           <li>Provide us with links to any resources you have already prepared for the workshop.</li>
+                        <ul style="margin-top: 2%;">
+                           <li> Selection of a topic</li>
+                           <li> Importance of a topic</li>
+                           <li>Any difficulties while solving with open source software.</li>
+                           <li>The methodology followed to overcome these difficulties(any assumptions, data regression, custom modelling, etc.)</li>
+                           <li>Validation of the results with published papers/experimentation/commercial simulators like CHEMCAD, Aspen Plus, UniSim etc.</li>
+                           <li>Sensitivity studies, adjust, some tricks used for faster calculation etc done to optimize results and reduce simulation time.</li>
                         </ul>
                      </div>
                      

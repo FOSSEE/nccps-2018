@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+<div class="se-pre-con"></div>
+{% block content %}
+    <section id="register" class="section register">
+        <div class="container">
+            <center>
+                <h2>Register</h2>
+            </center>
+            {% if email_registered %}
+            <center>
+                <div class="alert" style="width:300px;height:50px;">
+                    <a class="close" data-dismiss="alert" href="#">&times;</a>
+                    <p>Email ID is already registered !</p>
+                </div>
+                <p style="line-height:5px;">Have you already logged in using social logins ?</p>
+                <p style="line-height:5px;">or</p>
+                <p style="line-height:5px;"><a href="{% url 'website:forgotpassword' %}">Click Here</a> if you forgot your username or password</p>
+            </center>
+            {% endif %}
+            {% if registration_complete %}
+            <p> Your Account is Created Successfully !</p>
+            {% endif %}
+        <!--  <div class = "col-md-7">                   
+           <div id = "my_form"> -->
+            <form action="" method="POST">
+
+                {% csrf_token %}
+                {% for field in form %} 
+                <p>{{ field.label}}
+                    {% if field.field.required %} <span style="color:red;">*</span> {% endif %}
+                    {{ field }}
+                </p>
+                <a style="color:red; ">{{ field.errors }}</a>
+                {% endfor %}
+                <br>
+                <button class="btn btn-primary" type="submit" >SignUp</button>
+                <a class="btn btn-primary" href="{% url 'website:cfp' %}" style="text-decoration: none;">I have an account</a>
+                <!-- </div> -->
+            </form>
+        <!--</div>-->
+       </section>
+{% endblock %}
