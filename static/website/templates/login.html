@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+        <section id="cfp" class="section cfp">
+            <div class="container">
+                <div class="row">
+                <center>
+                  <div class="col-md-12"> 
+                        <h3>Login</h3>
+                          <p>Login/Register to Submit a paper</p>
+                            {% if invalid %}
+                            <p style="color:red; font-size:15px;">* Invalid Username/Password</p>
+                            {% endif %}
+                            <form action="" method="POST">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                                <button class="btn btn-primary" name ="login" type="submit">Login</button>
+                                <br/>
+                                <br/>
+                                <a style="padding-right : 20px;" href="{% url 'website:user_register' %}" class="btn btn btn-primary">Create an Account
+                                </a>
+                                <br>
+                                <a href="/2018/forgotpassword/">Forgot Password?</a>
+                            </form> 
+                            </p>
+                    </div>
+                    </center>
+                  </div>
+              </div>
+        </section>
+{% endblock %}
+

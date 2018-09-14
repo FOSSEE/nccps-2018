@@ -39,12 +39,23 @@
                     <li><a data-scroll href="{{SITE_URL}}/#location">Venue</a></li>
                     <li><a data-scroll href="{{SITE_URL}}/#organiser">Organiser</a></li>
                     <li><a data-scroll href="{{SITE_URL}}/#contact-us">Contact Us</a></li>
-                    {% if user.is_authenticated %}
-                      <li><a href="{% url 'login' %}"><i class="fa fa-user" aria-hidden="true"></i>
-                        {{ user.username }}!</a></li>
-                    <li><a href="{% url 'logout' %}">logout</a></li>
-                        {% else %}
                     <li><a href="{% url 'website:cfp' %}">cfp</a></li>
+                    {% if user.is_authenticated %}
+                      <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="{% url 'auth:login' %}" >
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        {{ user.username }}!<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url 'website:proposal' %}">Submit your Paper</a></li>
+                            <li><a href="{{SITE_URL}}/#registration">Book your Ticket</a></li>     
+                            <li><a href="{% url 'auth:logout' %}?next=/"><i class="fa fa-sign-out"></i>&nbsp;Logout</a></li>
+                        </ul>
+                      </li>
+                    
+                        {% else %}
+                     
+                     <li><a href="{% url 'auth:login' %}">Login</a></li>
                     {% endif %}
                 </ul>
             </div>

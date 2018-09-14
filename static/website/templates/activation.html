@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% csrf_token %}
+{% block content %}
+	{% if status == '2' %}
+	<div class="container">
+			<div class="jumbotron">
+				<p> Your email is already verified, Please view your profile <a href="{{ URL_ROOT }}/view_profile/">here</a> </p>
+				
+			</div>
+	</div>
+	{% elif status == '1' %}
+	<script type="text/javascript">
+		window.setTimeout(function()
+		{   
+			location.href="{{ URL_ROOT }}/register/"
+		}, 3000);
+	</script>
+	<div class="container">
+			<div class="jumbotron">
+				<p> Your activation has expired please register again</p>
+			</div>
+	</div>
+	{% elif status == '0' %}
+	<div class="container">
+			<div class="jumbotron">
+				<p> Your account has been activated. Please view your profile <a href="{{ URL_ROOT }}/view_profile/">here</a> </p>
+				
+			</div>
+	</div>
+	{% else %}
+	<script type="text/javascript">
+		window.setTimeout(function()
+		{   
+			location.href="{% url 'auth:logout' %}?next=/"
+		}, 5000);
+	</script>
+
+	<div class="container">
+		<div class="jumbotron">
+			<h1>Activation Awaiting</h1>      
+			<p>The Activation Link has been sent to your email. The link expires in <strong>24hours</strong> from the date of registration. You will be logged out automatically.</p>
+		</div>
+	</div>
+	{% endif %}
+{% endblock %}

@@ -1,3 +1,4 @@
+{% extends "base.html" %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -164,8 +165,66 @@
          </div>
          {% endif %}   
       </section>
+{% block content %}
+        <section id="cfp" class="section cfp">
+            <div class="container">
+                <div class="row">
+                <h3>Call for Papers</h3>
+                  <div class="col-md-12">  
+                      <div class="row">
+                          <div class="col-md-12" style="font-weight: 500;">
+                              <p class="text-justify">We invite papers on Chemical Process Modelling, Simulation and Optimization. Time duration for oral presentation will be 15 minutes.  Accepted papers will be published in conference proceedings. Award will be given to best paper and best poster.</p>
+                              <p class="text-justify">Paper submission starts on September 15 2018.</p>
+                          </div>
+                      </div>
+                           <div class="row">         
+                           <div class="col-md-6">
+                              <h4 class="panel-title">
+                              General guidelines for paper submission:
+                              </h4>
+                              <ul style="margin-top: 2%;">
+                                  <li>Papers are invited on chemical process, modelling, simulation, and optimization. </li>
+                                  <li>Use of open source software such as DWSIM and OpenModelica will be preferred.</li>
+                                  <li>Authors must submit the manuscript up to 6 pages of length including tables, figures and references in the required 2-column format as described in the template below.</li>
+                                  <li>Multiple submissions from one author is allowed.</li>
+                                  <li>Maximum 3 authors for one paper are allowed, in that case only one author should submit a paper on behalf of everyone. All authors should register and book a ticket for the conference.
+                                  </li>
+                                  <li>Submissions will be judged on originality, significance, interest, clarity, relevance, and presentation.</li>
+                                  <li>Authors should ensure that their work doesn’t contain plagiarized content and not under copyright elsewhere.</li>
+                                  <li>Please download the appropriate file for structure of the paper. We encourage use of LaTeX for creating paper.</li>
+                                  <li>Click the following links for templates 
+                                  <ul type="none" style="margin-left:-10%;">
+                                    <li>
+                                      <a href= "https://static.fossee.in/dwsim/nccps-templates/LaTeX-TEMPLATE.zip" class="btn btn-link" style="text-transform: none;">LaTeX Template
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a href="https://static.fossee.in/dwsim/nccps-templates/WORD-TEMPLATE.zip" class="btn btn-link" style="text-transform: none;">Word Template
+                                      </a>
+                                    </li>
+                                  </ul>
+                                  </li>
+                              </ul>
+                          </div>
+                            <div class="col-md-6">
+                                  <h4 class="panel-title">
+                                     Suggested Contents of a paper
+                                  </h4>
+                               
+                                  <ul style="margin-top: 2%;">
+                                     <li> Selection of a topic</li>
+                                     <li> Importance of a topic</li>
+                                     <li>Any difficulties while solving with open source software.</li>
+                                     <li>The methodology followed to overcome these difficulties(any assumptions, data regression, custom modelling, etc.)</li>
+                                     <li>Validation of the results with published papers/experimentation/commercial simulators like CHEMCAD, Aspen Plus, UniSim etc.</li>
+                                     <li>Sensitivity studies, adjust, some tricks used for faster calculation etc done to optimize results and reduce simulation time.</li>
+                                  </ul>
+                               </div>
+                               
+                            </div>
+                                </div>
+                                </div>
+                            </div>
+                        </section>
       {% endblock %}
-
-    {% include 'footer.html' %}
-    </body>
 

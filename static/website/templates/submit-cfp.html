@@ -6,23 +6,24 @@
     <div class="container">
         {% if proposals_a >= 1 %} You have exceeded the abstract submission limit. You may view your submitted proposals by clicking <a href="{{ SITE_URL}}/proposal/view" class="btn btn-info" role="button"> here</a>
         <!-- <h2>{{ user.get_full_name|default:user.username }} </h2> -->
-        {% else %} <br>
+        {% else %}
         <center>
-            <h1>Submit Proposal</h1>
+            <h1>Submit paper</h1>
         </center>
         <hr>
-        <h2><u>Proposal Guidelines</u></h2>
-        <ul>
-            <li>The project you are willing to present should be an actual implementation rather than just an idea.</li>
-            <li>Submissions need not necessarily be about an implementation, they could also be about experiences and usage of Python and Python-based tools and libraries for research or teaching.</li>
-            <li>Abstract should be of 300 to 700 words describing the topic, including its relevance to scientific computing or the use of Python in education.</li>
-            <li>Proposals with an aim to promote a commercial product or service will be rejected.</li>
-            <li>In your abstract mention the various tools/libraries used for development.</li>
-            <li>Notification for selection/rejection of your proposal will be given through email.</li>
-            <li>All selected proposals must be presented at the conference by at least one author.</li>
-        </ul>
+        <h4 class="panel-title">
+                        General guidelines for paper submission:
+                        </h4>
+                           <ul style="margin-top: 2%;">
+                              <li>Papers are invited on chemical process, modelling, simulation, and optimization. </li>
+                              <li>Use of open source software such as DWSIM and OpenModelica will be preferred.</li>
+                              <li>Authors must submit the manuscript up to 6 pages of length including tables, figures and references in the required 2-column format as described in the template below.</li>
+                              <li>Submissions will be judged on originality, significance, interest, clarity, relevance, and presentation.</li>
+                              <li>Authors should ensure that their work doesn’t contain plagiarized content and not under copyright elsewhere.</li>
+                              <li>Please download the appropriate file for structure of the paper. We encourage use of LaTeX for creating paper.</li>
+                              <li>Click for <a href= "https://static.fossee.in/dwsim/nccps-templates/LaTeX-TEMPLATE.zip" target="_blank" style="color: #806600">LaTeX</a>/ <a href="https://static.fossee.in/dwsim/nccps-templates/WORD-TEMPLATE.zip" target="_blank" style="color: #806600">Word template</a></li>
+                           </ul>
         <form action="" method=POST enctype="multipart/form-data">
-            <!--            <a style="color:red; ">{{ proposal_form.errors }}      -->
             <div class="row1">
                 {% for field in proposal_form %}
                 <p>{{ field.label}} {% if field.field.required %} <span style="color:red;">*</span> {% endif %} {{ field }}
@@ -32,7 +33,7 @@
             {% csrf_token %}
             <center>
                 <button class="btn btn-info" type="submit">Submit</button>
-                <a href="{{ SITE_URL}}/proposal" class="btn btn-info" role="button">Back</a>
+                <a href="{% url 'website:proposal' %}" class="btn btn-info" role="button">Back</a>
             </center>
         </form>
         {% endif %}

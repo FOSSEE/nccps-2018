@@ -15,10 +15,11 @@
             </center>
             </p>
             <h3>{{ proposal.user.first_name }} {{ proposal.user.last_name }}</h3>
-            <p><b>Title: </b>&nbsp;{{ proposal.title }}</p>
-            <p align="justify"><b>About Me: </b>&nbsp;{{ proposal.about_me |linebreaks }}</p>
-            {% if proposal.proposal_type == "ABSTRACT"%}
-            <p align="justify"><b>Abstract:</b>&nbsp;
+            <p><b>Title of the paper: </b>&nbsp;{{ proposal.title }}</p>
+            <p><b>Name of the author(s):</b> &nbsp;{{proposal.name_of_authors}}</p>
+            <p align="justify"><b>About the Author(s): </b>&nbsp;{{ proposal.about_the_authors |linebreaks }}</p>
+            <!--{% if proposal.proposal_type == "ABSTRACT"%}
+             <p align="justify"><b>Abstract:</b>&nbsp;
                 {% else %}
             <p align="justify"><b>Description:</b>&nbsp;
                 {% endif %}
@@ -26,7 +27,7 @@
             </p>
             {% if proposal.prerequisite %}
             <p align="justify"><b>Prerequisite: </b>&nbsp;{{ proposal.prerequisite| linebreaks }}</p>
-            {% endif%}
+            {% endif%} -->
             <p><b>Duration: </b>&nbsp;{{ proposal.duration }} {% if proposal.proposal_type == "ABSTRACT"%} Mins {% else %}Hours {%endif%}</p>
             {% if proposal.proposal_type == "ABSTRACT"%}
             <p><b>Tags: </b>&nbsp;{{ proposal.tags }}</p>

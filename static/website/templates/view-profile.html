@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+ {% block content %}
+<section id="profile" class="section proposal">
+    <div class="container">
+            {% if user and not user.is_anonymous %}
+            <h2>Welcome <span style="text-transform: uppercase;">{{ user.username }}</span></h2>
+            {% endif %}
+        <div class="row">
+        <div class="col-md-6" style="margin-top: 4%;">
+        {% if user.is_superuser %}
+            <div class="row">
+                <div class="col-md-12">
+                    <a href="{% url 'website:view_abstracts' %}" class="btn btn-info">View Proposals</a>
+                </div>
+            </div>
+            <div class="row"></div>
+            <div class="row">
+                <div class="col-md-12">
+                    <a href="{% url 'website:submitcfp' %}" class ="btn" role="button"> Submit paper  </a>
+                </div>
+            </div>
+                    <!-- <a href="{{SITE_URL}}/#registration" class ="btn btn-info" role="button">Book your ticket </a> -->
+         {% else %}
+            <div class="row">
+                <div class="col-md-8">
+                    <a href="{% url 'website:proposal' %}" class="btn btn-primary">Submit your Paper</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12"><p></p></div>
+            </div>
+            <!--<div class="row">
+                <div class="col-md-12">
+                    <a href="{{SITE_URL}}/#registration" class ="btn btn-primary" role="button"> Book your Ticket</a>
+                </div>
+            </div> -->
+                    <!-- <a href="{{SITE_URL}}/#registration" class ="btn btn-info" role="button">Book your ticket</a>  -->
+         {% endif %}
+
+
+    </div>
+        <div class="col-md-6">
+        <span>
+            <h2>
+               <u>Important Dates</u>
+            </h2>
+         </span>
+        <ul>
+            <li>Last date for paper submission: <b> 28/09/2018</b></li>
+            <li>Notification of acceptance: <b>22/10/2018</b></li>
+            <li>Last date for final paper submission: <b>02/11/2018</b></li>
+        </ul>
+        </div>
+        
+</div>
+</div>
+</section>
+{% endblock %}
