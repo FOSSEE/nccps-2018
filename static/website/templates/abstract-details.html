@@ -11,8 +11,8 @@
             <h3><span class="label label-primary">{{ proposal.user.first_name }} {{ proposal.user.last_name }}</span></h3>
             <hr>
             <p><b>Title: </b>&nbsp;{{ proposal.title }}</p>
-            <p><b>About Me: </b>&nbsp;{{ proposal.about_me | linebreaks }}</p>
-            <p><b>Abstract: </b>&nbsp;{{ proposal.abstract |linebreaks }}</p>
+            <p><b>About the Author(s): </b>&nbsp;{{ proposal.about_the_authors | linebreaks }}</p>
+            <!--<p><b>Abstract: </b>&nbsp;{{ proposal.abstract |linebreaks }}</p> -->
             {% if proposal.prerequisite %}
             <p><b>Prerequisite: </b>&nbsp;{{ proposal.prerequisite |linebreaks }}</p>
             {% endif%}

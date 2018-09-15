@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'widget_tweaks',
     'website',
 ]
 
@@ -130,5 +131,6 @@ STATICFILES_DIRS = [
     '/../static/',
 ]
 
-LOGIN_REDIRECT_URL = '/proposal'
-LOGOUT_REDIRECT_URL = '/accounts/login'
+LOGIN_REDIRECT_URL = '/nccps-2018/proposal'
+LOGOUT_REDIRECT_URL = '/nccps-2018/accounts/login'
+LOG_FOLDER= os.path.join(BASE_DIR,'logs')

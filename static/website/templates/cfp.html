@@ -10,113 +10,7 @@
       {% block content %}
     <section id="cfp" class="section cfp">
       <div class="container">
-     <!--    <p>
-         <center>
-            {% if user and not user.is_anonymous %}
-            <h2>Submit Proposal</h2>
-            {% else %}
-            <h2>Login</h2>
-            {% endif %}
-         </center>
-         </p>
-         {% if proposal_submit %}
-         <center>
-            <table>
-               <tr>
-                  <td>
-                     <p>Thank You for your submission. Your proposal has been saved successfully and is under review. You can check the status of submission <a href="{{SITE_URL}}/proposal/view">here 
-                        </a>!
-                     </p>
-                  </td>
-               </tr>
-            </table>
-         </center>
-         {% endif %}
-         {% if registration_complete %}
-         <center>
-            <p>Thank You for your registration. You can now log in by clicking  <a href="{{SITE_URL}}/proposal/cfp">here 
-               </a>!
-            </p>
-            <br/><br/>
-         </center>
-         {% endif %}
-         {% if user and not user.is_anonymous and not login_required %}
-         <p>We invite you to submit proposals for talks or workshops to be presented at SciPy 2017. The time duration for talks is 15 or 30 minutes and for workshops is 2 to 4 hours. There will be two parallel tracks for the workshops this year.  One track is meant for beginners and the other is for advanced users.     
-         </p>
-         <span>
-            <h2>
-               <u>Important Dates</u>
-            </h2>
-         </span>
-         <ul>
-            <li>Call for proposals opens: 
-               <b>15<sup>th</sup> Sept. 2017</b>
-            </li>
-            <li>Last date for submission of proposals: 
-               <b>10<sup>th</sup> Nov. 2017</b>
-            </li>
-            <li>Announcement of selected proposals: 
-               <b>15<sup>th</sup> Nov. 2017</b>
-            </li>
-         </ul>
-         <br/>
-         {% if user.is_superuser %}
-         <center>
-            <a href="{{SITE_URL}}/proposal/view" class="btn btn-info">View Proposals</a>
-         </center>
-         {% else %}
-         <center>
-            <a href="{{SITE_URL}}/proposal/view" class="btn btn-info">View Proposals</a>
-         </center>
-         {% endif %}
-         {% else %}
-          <div class="col-sm-4">
-               <span>
-                  <h2>
-                     <u>Login</u>
-                  </h2>
-               </span>
-               <p>Login/Register to Submit a Proposal</p>
-               {% if invalid %}
-               <p style="color:red; font-size:15px;">* Invalid Username/Password</p>
-               {% endif %}
-               <!-- <div id = "my_form"> 
-               <form action="" method="POST">
-                  {{ form.as_p }}
-                  <button class="button special" name ="login" type="submit">Login</button>
-                  <br/><br/>
-                  <a style="padding-right : 20px;" href="{{SITE_URL}}/accounts/userregister" class="btn btn btn-primary">Create an Account
-                  </a><br>
-                  <a href="/2017/forgotpassword/">Forgot Password?</a>
-                  {% csrf_token %}
-               </form>
-               <!-- </div> 
-               <p>Or Sign in with:&nbsp;<br>
-                  <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}" class="btn btn-social-icon "  style="color:#d34836;">
-                     <i class="fa fa-google-plus-square" style="font-size:40px;"></i>
-                  </a>&nbsp;
-                  <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}" class=" btn btn-social-icon" style="color:#3b5998">
-                     <i class="fa fa-facebook-square" style="font-size:40px;"></i>
-                  </a>
-               </p>
-               <br>
-               <p>
-               <h4>
-                  <u>Important Dates</u>
-               </h4>
-               <ul style="margin-left: -7%;">
-                  <li>Call for proposals opens: <br>
-                     <b>15<sup>th</sup> Sept. 2017</b>
-                  </li>
-                  <li>Last date for submission of proposals: <br>
-                     <b>10<sup>th</sup> Nov. 2017</b>
-                  </li>
-                  <li>Announcement of selected proposals: <br>
-                     <b>15<sup>th</sup> Nov. 2017</b>
-                  </li>
-               </ul>
-               </p>
-            </div> -->
+    
             <div class="row">
                 <div class="col-md-12" >
                    <h3> Call for Papers</h3>
@@ -138,6 +32,8 @@
                               <li>Papers are invited on chemical process, modelling, simulation, and optimization. </li>
                               <li>Use of open source software such as DWSIM and OpenModelica will be preferred.</li>
                               <li>Authors must submit the manuscript up to 6 pages of length including tables, figures and references in the required 2-column format as described in the template below.</li>
+                              <li>Multiple submissions from one author is allowed.</li>
+                              <li>Maximum 3 authors for one paper are allowed, in that case only one author should submit a paper on behalf of everyone. All authors should register and book a ticket for the conference.</li>
                               <li>Submissions will be judged on originality, significance, interest, clarity, relevance, and presentation.</li>
                               <li>Authors should ensure that their work doesn’t contain plagiarized content and not under copyright elsewhere.</li>
                               <li>Please download the appropriate file for structure of the paper. We encourage use of LaTeX for creating paper.(Click for <a href= "https://static.fossee.in/dwsim/nccps-templates/LaTeX-TEMPLATE.zip" target="_blank" style="color: #806600">LaTeX</a>/ <a href="https://static.fossee.in/dwsim/nccps-templates/WORD-TEMPLATE.zip" target="_blank" style="color: #806600">Word template</a>)</li>
@@ -163,68 +59,6 @@
                
 
          </div>
-         {% endif %}   
       </section>
-{% block content %}
-        <section id="cfp" class="section cfp">
-            <div class="container">
-                <div class="row">
-                <h3>Call for Papers</h3>
-                  <div class="col-md-12">  
-                      <div class="row">
-                          <div class="col-md-12" style="font-weight: 500;">
-                              <p class="text-justify">We invite papers on Chemical Process Modelling, Simulation and Optimization. Time duration for oral presentation will be 15 minutes.  Accepted papers will be published in conference proceedings. Award will be given to best paper and best poster.</p>
-                              <p class="text-justify">Paper submission starts on September 15 2018.</p>
-                          </div>
-                      </div>
-                           <div class="row">         
-                           <div class="col-md-6">
-                              <h4 class="panel-title">
-                              General guidelines for paper submission:
-                              </h4>
-                              <ul style="margin-top: 2%;">
-                                  <li>Papers are invited on chemical process, modelling, simulation, and optimization. </li>
-                                  <li>Use of open source software such as DWSIM and OpenModelica will be preferred.</li>
-                                  <li>Authors must submit the manuscript up to 6 pages of length including tables, figures and references in the required 2-column format as described in the template below.</li>
-                                  <li>Multiple submissions from one author is allowed.</li>
-                                  <li>Maximum 3 authors for one paper are allowed, in that case only one author should submit a paper on behalf of everyone. All authors should register and book a ticket for the conference.
-                                  </li>
-                                  <li>Submissions will be judged on originality, significance, interest, clarity, relevance, and presentation.</li>
-                                  <li>Authors should ensure that their work doesn’t contain plagiarized content and not under copyright elsewhere.</li>
-                                  <li>Please download the appropriate file for structure of the paper. We encourage use of LaTeX for creating paper.</li>
-                                  <li>Click the following links for templates 
-                                  <ul type="none" style="margin-left:-10%;">
-                                    <li>
-                                      <a href= "https://static.fossee.in/dwsim/nccps-templates/LaTeX-TEMPLATE.zip" class="btn btn-link" style="text-transform: none;">LaTeX Template
-                                      </a>
-                                    </li>
-                                    <li>
-                                      <a href="https://static.fossee.in/dwsim/nccps-templates/WORD-TEMPLATE.zip" class="btn btn-link" style="text-transform: none;">Word Template
-                                      </a>
-                                    </li>
-                                  </ul>
-                                  </li>
-                              </ul>
-                          </div>
-                            <div class="col-md-6">
-                                  <h4 class="panel-title">
-                                     Suggested Contents of a paper
-                                  </h4>
-                               
-                                  <ul style="margin-top: 2%;">
-                                     <li> Selection of a topic</li>
-                                     <li> Importance of a topic</li>
-                                     <li>Any difficulties while solving with open source software.</li>
-                                     <li>The methodology followed to overcome these difficulties(any assumptions, data regression, custom modelling, etc.)</li>
-                                     <li>Validation of the results with published papers/experimentation/commercial simulators like CHEMCAD, Aspen Plus, UniSim etc.</li>
-                                     <li>Sensitivity studies, adjust, some tricks used for faster calculation etc done to optimize results and reduce simulation time.</li>
-                                  </ul>
-                               </div>
-                               
-                            </div>
-                                </div>
-                                </div>
-                            </div>
-                        </section>
       {% endblock %}
 
