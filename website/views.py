@@ -227,14 +227,14 @@ def submitcfp(request):
                 to = (social_user.email, TO_EMAIL)
                 message = """
                 Dear {0}, <br><br>
-                Thank you for showing interest & submitting a talk proposal at NCCPS 2018 conference for the talk titled <b>“{1}”</b>. Reviewal of the proposals will start once the CFP closes.
-                <br><br>You will be notified regarding comments/selection/rejection of your talk via email.
+                Thank you for showing interest & submitting a paper proposal at NCCPS 2018 conference for the paper titled <b>“{1}”</b>. Reviewal of the proposals will start once the CFP closes.
+                <br><br>You will be notified regarding comments/selection/rejection of your paper via email.
                 Visit this {2} link to view status of your submission.
                 <br>Thank You ! <br><br>Regards,<br>NCCPS 2018,<br>FOSSEE - IIT Bombay.
                 """.format(
                     social_user.first_name,
                     request.POST.get('title', None),
-                    'http://dwsim.fossee.in/2018/view-abstracts/',)
+                    'http://dwsim.fossee.in/nccps-2018/view-abstracts/',)
                 email = EmailMultiAlternatives(
                     subject, '',
                     sender_email, to,
@@ -254,7 +254,7 @@ def submitcfp(request):
             return render(request, 'submit-cfp.html', {'proposal_form': form})
     else:
         context['login_required'] = True
-        return render_to_response('cfp.html', context)
+        return render_to_response('login.html', context)
 
 
 @csrf_protect

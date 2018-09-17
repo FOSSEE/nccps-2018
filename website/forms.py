@@ -170,8 +170,8 @@ class ProposalForm(forms.ModelForm):
             if not ext in valid_extensions:
                 raise forms.ValidationError(
                     u'File not supported!  Only .pdf file is accepted')
-            if attachment.size > (5*1024*1024):
-                raise forms.ValidationError('File size exceeds 5MB')
+            if attachment.size > (10*1024*1024):
+                raise forms.ValidationError('File size exceeds 10MB')
         return attachment
 
 
