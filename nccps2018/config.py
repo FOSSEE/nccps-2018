@@ -1,7 +1,7 @@
-DB_NAME_DEFAULT = 'DBNAME'
-DB_USER_DEFAULT = 'DBUSER'
-DB_PASS_DEFAULT = 'DBPWD'
-DB_HOST_DEFAULT = 'localhost'
+DB_NAME_DEFAULT = 'nccps'
+DB_USER_DEFAULT = 'root'
+DB_PASS_DEFAULT = 'aero123'
+DB_HOST_DEFAULT = '127.0.0.1'
 DB_PORT_DEFAULT = ''
 ########################################
 GOOGLE_KEY = 'GOOGLE_KEY'
@@ -25,12 +25,20 @@ EMAIL_HOST_SERVER = 'localhost'
 EMAIL_PORT_SERVER = 25
 #########################################
 # Optional SMTP authentication information for EMAIL_HOST.
-EMAIL_HOST_USER_SERVER = ''
+EMAIL_HOST = '127.0.0.1'
+EMAIL_PORT = '25'
+EMAIL_HOST_USER = 'your username'
+EMAIL_HOST_PASSWORD = 'your password'
+EMAIL_USE_TLS = True
+SENDER_EMAIL = 'your email address'
+PRODUCTION_URL = "http://dwsim.fossee.aero.iitb.ac.in/nccps-2018"
+ADMIN_EMAIL = ""
+EMAIL_HOST_USER_SERVER = 'localhost'
 EMAIL_HOST_PASSWORD_SERVER = ''
 EMAIL_USE_TLS_SERVER = False
 #########################################
-ALLOWED_HOSTS = 'allowed host value'
+ALLOWED_HOSTS_VAL = ['dwsim.fossee.aero.iitb.ac.in','10.101.11.205',]
 DEBUG_VAL = True
-SITE = 'SITE'
-ROOT_URL_VAL = 'root url value' #http://127.0.0.1:8000
+SITE = 'http://dwsim.fossee.aero.iitb.ac.in/nccps-2018'
+ROOT_URL_VAL = 'http://dwsim.fossee.aero.iitb.ac.in/nccps-2018' #http://127.0.0.1:8000
 #########################################

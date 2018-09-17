@@ -170,7 +170,7 @@ def view_abstracts(request):
 def user_login(request):
     user = request.user
     if request.user.is_authenticated:
-        return redirect('/proposal/')
+        return redirect('/nccps-2018/proposal/')
     else:
         if request.method == "POST":
             context = {}
@@ -183,7 +183,7 @@ def user_login(request):
                 login(request, user)
                 proposals = Proposal.objects.filter(user=request.user).count()
                 context['user'] = user
-                return redirect('/proposal')
+                return redirect('/nccps-2018/proposal')
                 #template = loader.get_template('index.html')
                 #return render(request, 'index.html', context)
             else:
