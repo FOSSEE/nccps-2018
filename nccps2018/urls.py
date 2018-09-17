@@ -21,7 +21,7 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     re_path(r'^', include('website.urls', namespace='website')),
     re_path(r'^accounts/',
-            include(('django.contrib.auth.urls', 'auth'), namespace='auth')),
+            include(('django.contrib.auth.urls', 'auth_views'), namespace='auth_views')),
     path('admin/', admin.site.urls),
 
     re_path(r'^', include('social.apps.django_app.urls', namespace='social')),
