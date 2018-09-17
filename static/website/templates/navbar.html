@@ -42,20 +42,20 @@
                     <li><a href="{% url 'website:cfp' %}">cfp</a></li>
                     {% if user.is_authenticated %}
                       <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="{% url 'auth_views:login' %}" >
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="{% url 'auth:login' %}" >
                             <i class="fa fa-user" aria-hidden="true"></i>
                         {{ user.username }}!<span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="{% url 'website:proposal' %}">Submit your Paper</a></li>
                             <li><a href="{{SITE_URL}}/#registration">Book your Ticket</a></li>     
-                            <li><a href="{% url 'auth_views:logout' %}?next=/"><i class="fa fa-sign-out"></i>&nbsp;Logout</a></li>
+                            <li><a href="{% url 'auth:logout' %}?next=/"><i class="fa fa-sign-out"></i>&nbsp;Logout</a></li>
                         </ul>
                       </li>
                     
                         {% else %}
                      
-                      <li><a href="{% url 'auth_views:login' %}">Login</a></li>
+                     <li><a href="{% url 'auth:login' %}">Login</a></li>
                     {% endif %}
                 </ul>
             </div>
