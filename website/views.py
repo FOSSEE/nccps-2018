@@ -383,7 +383,7 @@ def abstract_details(request, proposal_id=None):
                 proposal = Proposal.objects.get(id=proposal_id)
                 if proposal.user == user:
                     try:
-                        url = '/2018'+str(proposal.attachment.url)
+                        url = '/nccps-2018'+str(proposal.attachment.url)
                         context['url'] = url
                     except:
                         pass
@@ -451,7 +451,7 @@ def comment_abstract(request, proposal_id=None):
             try:
                 proposal = Proposal.objects.get(id=proposal_id)
                 try:
-                    url = '/2018'+str(proposal.attachment.url)
+                    url = '/nccps-2018'+str(proposal.attachment.url)
                     context['url'] = url
                 except:
                     pass

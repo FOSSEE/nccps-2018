@@ -131,6 +131,8 @@ STATICFILES_DIRS = [
     '/../static/',
 ]
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+MEDIA_URL = "/downloads/"
 
 LOGIN_REDIRECT_URL = '/proposal'
 LOGOUT_REDIRECT_URL = '/accounts/login'

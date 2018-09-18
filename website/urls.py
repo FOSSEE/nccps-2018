@@ -1,5 +1,6 @@
 from django.urls import path, include, re_path
-
+from django.conf.urls.static import static
+from django.conf import settings
 from . import views
 
 app_name = 'website'
@@ -40,4 +41,4 @@ urlpatterns = [
             views.rate_proposal, name='rate_proposal'),
     re_path(r'^process-contact-form/(?P<next_url>\d+)',
             views.contact_us, name='contact_us'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
