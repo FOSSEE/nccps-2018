@@ -31,7 +31,7 @@ def get_document_dir(instance, filename):
     # ename, eext = instance.user.email.split("@")
     fname, fext = os.path.splitext(filename)
     # print "----------------->",instance.user
-    return 'paper_uploads/%s/attachment/%s/%s.%s' % (instance.user, instance.proposal_type, fname+'_'+str(instance.user), fext)
+    return '%s/attachment/%s/%s.%s' % (instance.user, instance.proposal_type, fname+'_'+str(instance.user), fext)
 
 
 class Proposal(models.Model):
