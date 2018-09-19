@@ -51,6 +51,7 @@ class Proposal(models.Model):
     proposal_type = models.CharField(max_length=100)
     tags = models.CharField(max_length=250)
     open_to_share = models.CharField(max_length=2, default=1)
+    terms_and_conditions = models.BooleanField(default= 'True')
 
 
 class Ratings(models.Model):

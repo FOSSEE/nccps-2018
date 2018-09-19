@@ -155,6 +155,7 @@ class ProposalForm(forms.ModelForm):
                            )
     open_to_share = forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect(), required=True,
                                       label='I agree to publish my content',)
+    terms_and_conditions = forms.BooleanField(widget=forms.CheckboxInput(), required=True, label='I agree to the terms and conditions')
 
     class Meta:
         model = Proposal
