@@ -223,14 +223,16 @@ def submitcfp(request):
                 context['proposal_submit'] = True
                 sender_name = "NCCPS 2018"
                 sender_email = TO_EMAIL
-                subject = "NCCPS 2018 – Talk Proposal Submission Acknowledgment"
+                subject = "NCCPS 2018 – Paper Submission Acknowledgement "
                 to = (social_user.email, TO_EMAIL)
                 message = """
                 Dear {0}, <br><br>
-                Thank you for showing interest & submitting a paper proposal at NCCPS 2018 conference for the paper titled <b>“{1}”</b>. Reviewal of the proposals will start once the CFP closes.
-                <br><br>You will be notified regarding comments/selection/rejection of your paper via email.
-                Visit this {2} link to view status of your submission.
-                <br>Thank You ! <br><br>Regards,<br>NCCPS 2018,<br>FOSSEE - IIT Bombay.
+                Thank you for showing interest & submitting a paper proposal at NCCPS-2018 
+                for the paper titled “test title paper”. Reviewal of the proposals will start 
+                once the CFP closes.
+                You will be notified regarding comments/selection/rejection of your paper via email. 
+                Visit this {2} link to view the status of your submission.
+                <br>Thank You. <br><br>Regards,<br>NCCPS 2018,<br>FOSSEE - IIT Bombay.
                 """.format(
                     social_user.first_name,
                     request.POST.get('title', None),

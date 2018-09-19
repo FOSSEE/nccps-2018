@@ -91,3 +91,14 @@ $(document)
     e.preventDefault(); // prevent the default action (scroll / move caret)
   });
 
+$(function()
+{
+  $('#id_terms_and_conditions').click(function()
+        {
+            if ($('#id_terms_and_conditions').is(":checked")) {
+                $('#modal_terms_and_conditions').modal('show');
+            }else {
+                $('#modal_terms_and_conditions').modal('hide');
+            }
+        });
+});
