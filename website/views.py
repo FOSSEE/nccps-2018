@@ -240,7 +240,7 @@ def submitcfp(request):
                     'http://dwsim.fossee.in/nccps-2018/view-abstracts/',)
                 email = EmailMultiAlternatives(
                     subject, '',
-                    sender_email, to, bcc_email
+                    sender_email, to, bcc_email,
                     headers={"Content-type": "text/html;charset=iso-8859-1"}
                 )
                 email.attach_alternative(message, "text/html")
