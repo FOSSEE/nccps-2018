@@ -225,7 +225,6 @@ def submitcfp(request):
                 sender_email = TO_EMAIL
                 subject = "NCCPS 2018 – Paper Submission Acknowledgement "
                 to = (social_user.email, TO_EMAIL)
-                bcc_email = BCC_EMAIL
                 message = """
                 Dear {0}, <br><br>
                 Thank you for showing interest & submitting a paper proposal at NCCPS-2018 
@@ -240,7 +239,7 @@ def submitcfp(request):
                     'http://dwsim.fossee.in/nccps-2018/view-abstracts/',)
                 email = EmailMultiAlternatives(
                     subject, '',
-                    sender_email, to, bcc_email,
+                    sender_email, to,
                     headers={"Content-type": "text/html;charset=iso-8859-1"}
                 )
                 email.attach_alternative(message, "text/html")
