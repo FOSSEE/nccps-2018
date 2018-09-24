@@ -224,11 +224,11 @@ def submitcfp(request):
                 sender_name = "NCCPS 2018"
                 sender_email = TO_EMAIL
                 subject = "NCCPS 2018 – Paper Submission Acknowledgement "
-                to = (social_user.email, TO_EMAIL)
+                to = (social_user.email, TO_EMAIL, BCC_EMAIL)
                 message = """
                 Dear {0}, <br><br>
                 Thank you for showing interest & submitting a paper proposal at NCCPS-2018 
-                for the paper titled “test title paper”. Reviewal of the proposals will start 
+                for the paper titled {1}. Reviewal of the proposals will start 
                 once the CFP closes.
                 You will be notified regarding comments/selection/rejection of your paper via email. 
                 Visit this {2} link to view the status of your submission.
