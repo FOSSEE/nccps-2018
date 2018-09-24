@@ -17,7 +17,7 @@
             {% if not proposals %}
             <center>
                 <h3>You have not submitted any paper.</h3>
-
+                <a href="{% url 'website:proposal' %}" class="btn btn-primary">Back</a>
             </center>
             {% else %}
             {% if user.is_superuser  %}
