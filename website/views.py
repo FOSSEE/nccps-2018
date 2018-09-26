@@ -228,7 +228,7 @@ def submitcfp(request):
                 message = """
                 Dear {0}, <br><br>
                 Thank you for showing interest & submitting a paper proposal at NCCPS-2018 
-                for the paper titled {1}. Reviewal of the proposals will start 
+                for the paper titled "<b>{1}</b>". Reviewal of the proposals will start 
                 once the CFP closes.
                 You will be notified regarding comments/selection/rejection of your paper via email. 
                 Visit this {2} link to view the status of your submission.
@@ -236,7 +236,7 @@ def submitcfp(request):
                 """.format(
                     social_user.first_name,
                     request.POST.get('title', None),
-                    'http://dwsim.fossee.in/nccps-2018/view-abstracts/',)
+                    'https://dwsim.fossee.in/nccps-2018/view-abstracts/',)
                 email = EmailMultiAlternatives(
                     subject, '',
                     sender_email, to,
@@ -291,7 +291,7 @@ def submitcfw(request):
                 """.format(
                     social_user.first_name,
                     request.POST.get('title', None),
-                    'http://dwsim.fossee.in/nccps-2018/view-abstracts/',)
+                    'https://dwsim.fossee.in/nccps-2018/view-abstracts/',)
                 email = EmailMultiAlternatives(
                     subject, '',
                     sender_email, to,
