@@ -144,7 +144,7 @@ class ProposalForm(forms.ModelForm):
                             )
     abstract = forms.CharField(widget= forms.HiddenInput(),required=False, label='')
     proposal_type = forms.CharField(
-        widget=forms.HiddenInput(), label='', initial='ABSTRACT', required=False)
+        widget=forms.HiddenInput(), label='', initial='PAPER', required=False)
 
     duration = forms.ChoiceField(widget=forms.Select(attrs={'readonly': True}), choices=abs_duration, required=True)
     #duration = forms.ChoiceField(choices=abs_duration, widget=forms.ChoiceField(attrs={'readonly': True}),

@@ -30,7 +30,7 @@
                 <div class="table-responsive">
                     <table id = "myTable" width="100%" cellpadding="10" class="table-bordered table-hover tablesorter">
                         <colgroup>
-                            {% if user.is_superuser  %}
+                            {% if user.is_staff  %}
                             <col width="15%" />
                             <col width="20%" />
                             <col width="10%" />
@@ -45,17 +45,17 @@
                             <col width="20%" />
                             {% endif %}
                         </colgroup>
-                            {% if user.is_superuser  %}
+                            {% if user.is_staff  %}
                         <th style="text-align: center;">
                         </th>
                         <th style="text-align: center;">Speaker
                             {% endif %}
                         <th style="text-align: center;"> Type
                         <th style="text-align: center;"> Title
-                            {% if not user.is_superuser %}
+                            {% if not user.is_staff %}
                         <th style="text-align: center;"> View
                             {% endif %}
-                            {% if user.is_superuser %}
+                            {% if user.is_staff %}
                         <th style="text-align: center;">
                             <center> Duration</center>
                             {% else %}
@@ -64,7 +64,7 @@
                         <th style="text-align: center;"> Status
                             {% for proposal in proposals %}
                         <tr>
-                            {% if user.is_superuser %}
+                            {% if user.is_staff %}
                             <td style="text-align: center;">
                                 {% if proposal.status == 'Rejected' %}
                                 {% else %}
@@ -76,14 +76,14 @@
                             </td>
                             {% endif %}
                             <td style="text-align: center;"> {{proposal.proposal_type }} </td>
-                            {% if user.is_superuser  %}
+                            {% if user.is_staff  %}
                             <td style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:.5px;"><a title="Title : {{proposal.title}}, Tags: {{proposal.tags}}" href="{% url 'website:comment_abstract' proposal.id %}">{{proposal.title}}</a> </td>
                             {% else %}
                             <td  style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:.5px;"> {{proposal.title}}</td>
                             <td style="text-align: center;"><a href="{% url 'website:abstract_details' proposal.id %}">View</a> </td>
                             {% endif %}
                             <td style="text-align: center;">
-                                {% if user.is_superuser %}
+                                {% if user.is_staff %}
                                 <center>{{ proposal.duration }}
                                     {% if proposal.proposal_type == 'ABSTRACT' %}
                                     Mins{% else %} Hrs {% endif %}
@@ -100,7 +100,7 @@
                                 {% elif proposal.status == 'Commented' %}
                                 <h5 style="color:brown;">{{proposal.status}}</h5>
                                 {% elif proposal.status == 'Edit' %}
-                                {% if user.is_superuser %}
+                                {% if user.is_staff %}
                                 <h5 style="color:grey;">{{proposal.status}}</h5>
                                 {% else %}
                                 <a href="">{{proposal.status}}</a>
@@ -111,11 +111,11 @@
                             </td>
                            <!--
                             <div>   
-                                {% if not user.is_superuser and type == 'ABSTRACT' %}
+                                {% if not user.is_staff and type == 'ABSTRACT' %}
                                 <a href="{% url 'website:submitcfw' %}" class ="btn btn-info" role="button">Submit workshop </a>    
-                                {% elif not user.is_superuser and type == 'WORKSHOP' %}
+                                {% elif not user.is_staff and type == 'WORKSHOP' %}
                                 <a href="{% url 'website:submitcfp' %}" class ="btn btn-info" role="button"> Submit paper  </a>
-                                {% elif not user.is_superuser%}
+                                {% elif not user.is_staff%}
                                 {% endif %}
                             </div>-->
                          </tr>
@@ -126,7 +126,7 @@
                 </p>
 
 
-                {% if user.is_superuser  %}
+                {% if user.is_staff  %}
                 <input type="submit" id="delete" class ="btn btn-info" value="Delete" name="delete"/>
                 <center>
                     <input type="submit" id="accept" class ="btn btn-info" value="Accept" name="accept"/>
