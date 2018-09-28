@@ -20,7 +20,7 @@
                 <a href="{% url 'website:proposal' %}" class="btn btn-primary">Back</a>
             </center>
             {% else %}
-            {% if user.is_superuser  %}
+            {% if user.is_staff  %}
             <div style="float:right"><input type="submit" id="dump" class ="btn btn-info"  value="Export as csv" name="dump"/></div>
             <br>
             {% endif %}
@@ -126,7 +126,7 @@
                 </p>
 
 
-                {% if user.is_staff  %}
+                {% if user.is_superuser  %}
                 <input type="submit" id="delete" class ="btn btn-info" value="Delete" name="delete"/>
                 <center>
                     <input type="submit" id="accept" class ="btn btn-info" value="Accept" name="accept"/>
