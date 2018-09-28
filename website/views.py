@@ -136,7 +136,7 @@ def view_abstracts(request):
     context = {}
     count_list = []
     if request.user.is_authenticated:
-        if user.is_superuser:
+        if user.is_staff:
             proposals = Proposal.objects.all().order_by('status')
             ratings = Ratings.objects.all()
             context['ratings'] = ratings
@@ -449,7 +449,7 @@ def comment_abstract(request, proposal_id=None):
     user = request.user
     context = {}
     if user.is_authenticated:
-        if user.is_superuser:
+        if user.is_staff:
             try:
                 proposal = Proposal.objects.get(id=proposal_id)
                 try:
@@ -531,7 +531,7 @@ def comment_abstract(request, proposal_id=None):
             template = loader.get_template('cfp.html')
             return HttpResponse(template.render(context, request))
     else:
-        template = loader.get_template('cfp.html')
+        template = loader.get_template('abstract-details.html')
         return HttpResponse(template.render(context, request))
 
 
