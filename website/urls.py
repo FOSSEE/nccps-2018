@@ -18,6 +18,8 @@ urlpatterns = [
 
 
     re_path(r'^cfp/$', views.cfp, name='cfp'),
+    #re_path(r'^quiz/$', views.quiz_view, name='quiz_view'),
+    #re_path(r'^question-add/$', views.question_add, name='question_add'),
     re_path(r'^submit-cfp/$', views.submitcfp, name='submitcfp'),
     re_path(r'^submit-cfw/$', views.submitcfw, name='submitcfw'),
     #url(r'^submit-cfp/$', 'website.views.cfp', name='home'),
