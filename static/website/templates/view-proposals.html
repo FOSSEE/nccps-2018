@@ -85,7 +85,7 @@
                             <td style="text-align: center;">
                                 {% if user.is_staff %}
                                 <center>{{ proposal.duration }}
-                                    {% if proposal.proposal_type == 'ABSTRACT' %}
+                                    {% if proposal.proposal_type == 'PAPER' %}
                                     Mins{% else %} Hrs {% endif %}
                                 </center>
                                 {% else %}
@@ -111,7 +111,7 @@
                             </td>
                            <!--
                             <div>   
-                                {% if not user.is_staff and type == 'ABSTRACT' %}
+                                {% if not user.is_staff and type == 'PAPER' %}
                                 <a href="{% url 'website:submitcfw' %}" class ="btn btn-info" role="button">Submit workshop </a>    
                                 {% elif not user.is_staff and type == 'WORKSHOP' %}
                                 <a href="{% url 'website:submitcfp' %}" class ="btn btn-info" role="button"> Submit paper  </a>

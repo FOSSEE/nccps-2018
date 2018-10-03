@@ -7,7 +7,7 @@
         <div class="container">
             <p>
             <center>
-                {% if proposal.proposal_type == "ABSTRACT"%}
+                {% if proposal.proposal_type == "PAPER"%}
                 <h2>Abstract Details</h2>
                 {% else %}
                 <h2>Workshop Details</h2>
@@ -18,18 +18,18 @@
             <p><b>Title of the paper: </b>&nbsp;{{ proposal.title }}</p>
             <p><b>Name of the author(s):</b> &nbsp;{{proposal.name_of_authors}}</p>
             <p align="justify"><b>About the Author(s): </b>&nbsp;{{ proposal.about_the_authors |linebreaks }}</p>
-            <!--{% if proposal.proposal_type == "ABSTRACT"%}
-             <p align="justify"><b>Abstract:</b>&nbsp;
+            <!--{% if proposal.proposal_type == "PAPER"%}
+             <p align="justify"><b>Paper:</b>&nbsp;
                 {% else %}
             <p align="justify"><b>Description:</b>&nbsp;
                 {% endif %}
-                {{ proposal.abstract | linebreaks }}
+                {{ proposal.paper | linebreaks }}
             </p>
             {% if proposal.prerequisite %}
             <p align="justify"><b>Prerequisite: </b>&nbsp;{{ proposal.prerequisite| linebreaks }}</p>
             {% endif%} -->
-            <p><b>Duration: </b>&nbsp;{{ proposal.duration }} {% if proposal.proposal_type == "ABSTRACT"%} Mins {% else %}Hours {%endif%}</p>
-            {% if proposal.proposal_type == "ABSTRACT"%}
+            <p><b>Duration: </b>&nbsp;{{ proposal.duration }} {% if proposal.proposal_type == "PAPER"%} Mins {% else %}Hours {%endif%}</p>
+            {% if proposal.proposal_type == "PAPER"%}
             <p><b>Tags: </b>&nbsp;{{ proposal.tags }}</p>
             {% else %}
             <p><b>Level: </b>&nbsp;{{ proposal.tags }}</p>
