@@ -32,7 +32,7 @@ def get_document_dir(instance, filename):
     fname, fext = os.path.splitext(filename)
     # print "----------------->",instance.user
     return '%s/attachment/%s/%s.%s' % (instance.user, instance.proposal_type, fname+'_'+str(instance.user), fext)
-
+        
 
 class Proposal(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE,)
@@ -99,3 +99,13 @@ class Profile(models.Model):
             self.user.last_name,
             self.user.email
         )
+
+"""class Question(models.Model):
+    Question for a quiz.
+
+    question = models.CharField(max_length=100)
+    option_1 = models.CharField(max_length=100)
+    option_2 = models.CharField(max_length=100)
+    option_3 = models.CharField(max_length=100)
+    option_4 = models.CharField(max_length=100)
+    correct_answer = models.CharField(max_length=100) """

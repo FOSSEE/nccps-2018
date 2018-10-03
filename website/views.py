@@ -1033,4 +1033,4 @@ def quiz_view(request):
     else:
         context['login_required'] = True
         return render_to_response('login.html', context)
-
+"""
