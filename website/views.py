@@ -85,7 +85,6 @@ def proposal(request):
         template = loader.get_template('proposal.html')
         return HttpResponse(template.render(context, request))
 
-
 # User Register
 @csrf_protect
 def userregister(request):
@@ -126,7 +125,7 @@ def userregister(request):
         template = loader.get_template('user-register.html')
         return HttpResponse(template.render(context, request))
 
-# View Proposal/Abstract
+# View Proposal/Paper
 
 
 @login_required
@@ -148,12 +147,12 @@ def view_abstracts(request):
                 proposals = Proposal.objects.filter(
                     user=user).order_by('status')
                 proposal_list = [pro.proposal_type for pro in proposals]
-                if 'WORKSHOP' in proposal_list and 'ABSTRACT' in proposal_list:
+                if 'WORKSHOP' in proposal_list and 'PAPER' in proposal_list:
                     proposal_type = 'BOTH'
-                elif 'WORKSHOP' in proposal_list and 'ABSTRACT' not in proposal_list:
+                elif 'WORKSHOP' in proposal_list and 'PAPER' not in proposal_list:
                     proposal_type = 'WORKSHOP'
                 else:
-                    proposal_type = 'ABSTRACT'
+                    proposal_type = 'PAPER'
 
                 context['counts'] = count_list
                 context['proposals'] = proposals
@@ -178,7 +177,7 @@ def user_login(request):
             password = request.POST.get('password', None)
             user = authenticate(username=username, password=password)
             #proposals_a = Proposal.objects.filter(
-            #    user=request.user, proposal_type='ABSTRACT').count()
+            #    user=request.user, proposal_type='PAPER').count()
             if user is not None:
                 login(request, user)
                 proposals = Proposal.objects.filter(user=request.user).count()
@@ -212,7 +211,7 @@ def submitcfp(request):
         django_user = User.objects.get(username=social_user)
         context['user'] = django_user
         proposals_a = Proposal.objects.filter(
-            user=request.user, proposal_type='ABSTRACT').count()
+            user=request.user, proposal_type='PAPER').count()
         if request.method == 'POST':
             form = ProposalForm(request.POST, request.FILES)
             if form.is_valid():
@@ -331,7 +330,7 @@ def edit_proposal(request, proposal_id=None):
         try:
             proposal = Proposal.objects.get(id=proposal_id)
             if proposal.status == 'Edit':
-                if proposal.proposal_type == 'ABSTRACT':
+                if proposal.proposal_type == 'PAPER':
                     form = ProposalForm(instance=proposal)
                 else:
                     form = WorkshopForm(instance=proposal)
@@ -339,7 +338,7 @@ def edit_proposal(request, proposal_id=None):
                 return render(request, 'cfp.html')
             if request.method == 'POST':
                 if proposal.status == 'Edit':
-                    if proposal.proposal_type == 'ABSTRACT':
+                    if proposal.proposal_type == 'PAPER':
                         form = ProposalForm(
                             request.POST, request.FILES, instance=proposal)
                     else:
@@ -467,7 +466,7 @@ def comment_abstract(request, proposal_id=None):
                     sender_name = "NCCPS 2018"
                     sender_email = TO_EMAIL
                     to = (proposal.user.email, TO_EMAIL)
-                    if proposal.proposal_type == 'ABSTRACT':
+                    if proposal.proposal_type == 'PAPER':
                         subject = "NCCPS 2018 - Comment on Your talk Proposal"
                         message = """
                             Dear {0}, <br><br>
@@ -548,7 +547,7 @@ def status(request, proposal_id=None):
                 sender_name = "NCCPS 2018"
                 sender_email = TO_EMAIL
                 to = (proposal.user.email, TO_EMAIL)
-                if proposal.proposal_type == 'ABSTRACT':
+                if proposal.proposal_type == 'PAPER':
                     subject = "NCCPS 2018 - Talk Proposal Accepted"
                     message = """Dear """+proposal.user.first_name+""",
                     Thank you for your excellent submissions!  This year we received many really good submissions.  Due the number and quality of the talks this year we have decided to give 20 minute slots to all the accepted talks.  So even though you may have submitted a 30 minute one, we are sorry you will only have 20 minutes.  Of these 20 minutes please plan to do a 15 minute talk (we will strive hard to keep to time), and keep 5 minutes for Q&A and transfer.  We will have the next speaker get ready during your Q&A session in order to not waste time.
@@ -571,7 +570,7 @@ def status(request, proposal_id=None):
                 sender_name = "NCCPS 2018"
                 sender_email = TO_EMAIL
                 to = (proposal.user.email, TO_EMAIL, )
-                if proposal.proposal_type == 'ABSTRACT':
+                if proposal.proposal_type == 'PAPER':
                     subject = "NCCPS 2018 - Talk Proposal Rejected"
                     message = """Dear """+proposal.user.first_name+""",
                    Thank you for your submission to the conference.  Unfortunately, due to the large number of excellent talks that were submitted, your talk was not selected.  We hope you are not discouraged and request you to kindly attend the conference and participate.  We have an excellent line up of workshops (8 in total) and many excellent talks. You may also wish to give a lightning talk (a short 5 minute talk) at the conference if you so desire.
@@ -606,7 +605,7 @@ def status(request, proposal_id=None):
                 to = (proposal.user.email, TO_EMAIL)
                 sender_name = "NCCPS 2018"
                 sender_email = TO_EMAIL
-                if proposal.proposal_type == 'ABSTRACT':
+                if proposal.proposal_type == 'PAPER':
                     subject = "NCCPS 2018 - Talk Proposal Resumbmission"
                     message = """
                     Dear {0}, <br><br>
@@ -738,7 +737,7 @@ def status_change(request):
                     sender_name = "NCCPS 2018"
                     sender_email = TO_EMAIL
                     to = (proposal.user.email, TO_EMAIL)
-                    if proposal.proposal_type == 'ABSTRACT':
+                    if proposal.proposal_type == 'PAPER':
                         subject = "NCCPS 2018 - Talk Proposal Accepted"
                         message = """Dear """+proposal.user.first_name+""",
                         Thank you for your excellent submissions!  This year we received many really good submissions.  Due the number and quality of the talks this year we have decided to give 20 minute slots to all the accepted talks.  So even though you may have submitted a 30 minute one, we are sorry you will only have 20 minutes.  Of these 20 minutes please plan to do a 15 minute talk (we will strive hard to keep to time), and keep 5 minutes for Q&A and transfer.  We will have the next speaker get ready during your Q&A session in order to not waste time.
@@ -770,7 +769,7 @@ We strongly suggest that you try to plan your workshops carefully and focus on d
                     sender_name = "NCCPS 2018"
                     sender_email = TO_EMAIL
                     to = (proposal.user.email, TO_EMAIL)
-                    if proposal.proposal_type == 'ABSTRACT':
+                    if proposal.proposal_type == 'PAPER':
                         subject = "NCCPS 2018 - Talk Proposal Rejected"
                         message = """Dear """+proposal.user.first_name+""",
                         Thank you for your submission to the conference.  Unfortunately, due to the large number of excellent talks that were submitted, your talk was not selected.  We hope you are not discouraged and request you to kindly attend the conference and participate.  We have an excellent line up of workshops (8 in total) and many excellent talks. You may also wish to give a lightning talk (a short 5 minute talk) at the conference if you so desire.
@@ -810,7 +809,7 @@ We strongly suggest that you try to plan your workshops carefully and focus on d
                     sender_name = "NCCPS 2018"
                     sender_email = TO_EMAIL
                     to = (proposal.user.email, TO_EMAIL)
-                    if proposal.proposal_type == 'ABSTRACT':
+                    if proposal.proposal_type == 'PAPER':
                         subject = "NCCPS 2018 - Talk Proposal Acceptance"
                         message = """
                         Dear {0}, <br><br>
@@ -876,7 +875,7 @@ def edit_proposal(request, proposal_id=None):
         try:
             proposal = Proposal.objects.get(id=proposal_id)
             if proposal.status == 'Edit':
-                if proposal.proposal_type == 'ABSTRACT':
+                if proposal.proposal_type == 'PAPER':
                     form = ProposalForm(instance=proposal)
                 else:
                     form = WorkshopForm(instance=proposal)
@@ -884,7 +883,7 @@ def edit_proposal(request, proposal_id=None):
                 return render(request, 'cfp.html')
             if request.method == 'POST':
                 if proposal.status == 'Edit':
-                    if proposal.proposal_type == 'ABSTRACT':
+                    if proposal.proposal_type == 'PAPER':
                         form = ProposalForm(
                             request.POST, request.FILES, instance=proposal)
                     else:
@@ -991,3 +990,47 @@ def view_profile(request):
                 return redirect('/login/')
             except:
                 return redirect('/register/')
+"""@csrf_protect
+@login_required
+def question_add(request):
+    context = {}
+    if request.user.is_authenticated:
+        social_user = request.user
+
+        django_user = User.objects.get(username=social_user)
+        context['user'] = django_user
+        if request.method == 'POST':
+            form = QuestionForm(request.POST)
+            if form.is_valid():
+                data = form.save(commit=False)
+                data.user = django_user
+                data.email = social_user.email
+                data.save()
+                return render_to_response('question-display.html', context)
+                return HttpResponse(template.render(context, request))
+            else:
+                context['qform'] = form
+                template = loader.get_template('question-display.html')
+                return HttpResponse(template.render(context, request))
+        else:
+            form = QuestionForm()
+            return render(request, 'question-display.html', {'qform': form})
+    else:
+        context['login_required'] = True
+        return render_to_response('login.html', context)
+
+@csrf_protect
+def quiz_view(request):
+    context = {}
+    if request.user.is_authenticated:
+        social_user = request.user
+        django_user = User.objects.get(username=social_user)
+        questions = Question.objects.all()
+        context['user'] = django_user
+        context['questions'] = questions
+        template = loader.get_template('quiz-display.html')
+        return HttpResponse(template.render(context, request))
+    else:
+        context['login_required'] = True
+        return render_to_response('login.html', context)
+
