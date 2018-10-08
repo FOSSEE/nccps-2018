@@ -990,47 +990,4 @@ def view_profile(request):
                 return redirect('/login/')
             except:
                 return redirect('/register/')
-"""@csrf_protect
-@login_required
-def question_add(request):
-    context = {}
-    if request.user.is_authenticated:
-        social_user = request.user
 
-        django_user = User.objects.get(username=social_user)
-        context['user'] = django_user
-        if request.method == 'POST':
-            form = QuestionForm(request.POST)
-            if form.is_valid():
-                data = form.save(commit=False)
-                data.user = django_user
-                data.email = social_user.email
-                data.save()
-                return render_to_response('question-display.html', context)
-                return HttpResponse(template.render(context, request))
-            else:
-                context['qform'] = form
-                template = loader.get_template('question-display.html')
-                return HttpResponse(template.render(context, request))
-        else:
-            form = QuestionForm()
-            return render(request, 'question-display.html', {'qform': form})
-    else:
-        context['login_required'] = True
-        return render_to_response('login.html', context)
-
-@csrf_protect
-def quiz_view(request):
-    context = {}
-    if request.user.is_authenticated:
-        social_user = request.user
-        django_user = User.objects.get(username=social_user)
-        questions = Question.objects.all()
-        context['user'] = django_user
-        context['questions'] = questions
-        template = loader.get_template('quiz-display.html')
-        return HttpResponse(template.render(context, request))
-    else:
-        context['login_required'] = True
-        return render_to_response('login.html', context)
-"""
