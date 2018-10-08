@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-
 from social.apps.django_app.default.models import UserSocialAuth
 from nccps2018 import settings
 from django.core.validators import RegexValidator
@@ -99,13 +98,7 @@ class Profile(models.Model):
             self.user.last_name,
             self.user.email
         )
-
-"""class Question(models.Model):
-    Question for a quiz.
-
-    question = models.CharField(max_length=100)
-    option_1 = models.CharField(max_length=100)
-    option_2 = models.CharField(max_length=100)
-    option_3 = models.CharField(max_length=100)
-    option_4 = models.CharField(max_length=100)
-    correct_answer = models.CharField(max_length=100) """
+        
+        
+    
+        

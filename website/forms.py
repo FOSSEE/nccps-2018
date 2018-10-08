@@ -377,11 +377,5 @@ class UserRegistrationForm(forms.Form):
         new_profile.save()
         key = Profile.objects.get(user=new_user).activation_key
         return u_name, pwd, key
-
-#class QuestionForm(forms.ModelForm):
-    """Creates a form to add or edit a Question.
-    It has the related fields and functions required."""
-
-"""    class Meta:
-        model = Question
-        exclude = ['user', 'active'] """
+    
+        
