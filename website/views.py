@@ -46,6 +46,11 @@ def cfp(request):
     context = {}
     template = loader.get_template('cfp.html')
     return HttpResponse(template.render(context, request))
+
+def dwsimquiz(request):
+    context = {}
+    template = loader.get_template('dwsim-quiz.html')
+    return HttpResponse(template.render(context, request))
     
 # def proposal(request):
 #    context = {}
