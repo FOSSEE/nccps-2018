@@ -16,7 +16,7 @@ urlpatterns = [
     #path('proposal/submitcfp', views.submitcfp, name='submitcfp'),
     #path('accounts/register', views.userregister, name='userregister'),
 
-
+    re_path(r'^dwsimquiz/$', views.dwsimquiz, name='dwsimquiz'),
     re_path(r'^cfp/$', views.cfp, name='cfp'),
     re_path(r'^submit-cfp/$', views.submitcfp, name='submitcfp'),
     re_path(r'^submit-cfw/$', views.submitcfw, name='submitcfw'),
