@@ -18,6 +18,13 @@ urlpatterns = [
 
     re_path(r'^dwsimquiz/$', views.dwsimquiz, name='dwsimquiz'),
     re_path(r'^cfp/$', views.cfp, name='cfp'),
+    #re_path(r'^quiz/$', views.quiz_view, name='quiz_view'),
+    re_path(r'^question_list/$', views.question_list, name='question_list'),
+    re_path(r'^add_questions/$', views.add_questions, name='add_questions'),
+    re_path(r'^edit_question/(?P<qid>\d+)$', views.edit_question, name='edit_question'),
+    re_path(r'^take_quiz/$', views.take_quiz, name='take_quiz'),
+    re_path(r'^quiz_intro/$', views.quiz_intro, name='quiz_intro'),
+    re_path(r'^leaderboard/$', views.leaderboard, name='leaderboard'),
     re_path(r'^submit-cfp/$', views.submitcfp, name='submitcfp'),
     re_path(r'^submit-cfw/$', views.submitcfw, name='submitcfw'),
     #url(r'^submit-cfp/$', 'website.views.cfp', name='home'),

@@ -1,9 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
+from datetime import datetime, timedelta
 from social.apps.django_app.default.models import UserSocialAuth
 from nccps2018 import settings
 from django.core.validators import RegexValidator
 import os
+import pytz
 
 position_choices = (
     ("student", "Student"),
@@ -98,7 +101,26 @@ class Profile(models.Model):
             self.user.last_name,
             self.user.email
         )
-        
-        
+
+
+class Question(models.Model):
+
+    question = models.TextField()
+    option_1 = models.CharField(max_length=255)
+    option_2 = models.CharField(max_length=255)
+    option_3 = models.CharField(max_length=255)
+    option_4 = models.CharField(max_length=255)
+    correct_answer = models.CharField(max_length=255, 
+        help_text='please write it as written in the option \
+        above(Case-sensitive)')
     
-        
+    # The date for the question.
+    question_day = models.DateField()
+
+
+class AnswerPaper(models.Model):
+
+    participant = models.ForeignKey(Profile,  on_delete=models.CASCADE)
+    answered_q = models.ForeignKey(Question, on_delete=models.CASCADE)
+    validate_ans = models.BooleanField()
+    date = models.DateTimeField(auto_now=True)

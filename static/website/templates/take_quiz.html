@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% load static %}
+ {% block content %}
+<br><br><br><br>
+<div class="container">
+
+        {% if messages %}
+		<ul class="messages">
+		    {% for message in messages %}
+		    	<div class="alert alert-{{ message.tags }}">
+				    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}> {{ message }}
+				    </li>
+			    </div>
+		    {% endfor %}
+		</ul>
+    {% endif %}
+    
+    {% if question_list is None %}
+        <div class="alert alert-success">
+            <strong>You've Already taken the quiz, please come tomorrow for other questions!</strong> 
+        </div>
+    {% else %}
+   <form method="POST">
+       {% csrf_token %}
+    <div class="question_one">
+    <strong>{{ question_list.0.question | safe }}</strong><br>
+    <input type="radio" value="{{question_list.0.option_1}}" name="q1"> {{ question_list.0.option_1 }}<br>
+    <input type="radio" value="{{question_list.0.option_2}}" name="q1"> {{ question_list.0.option_2 }}<br>
+    <input type="radio" value="{{question_list.0.option_3}}" name="q1"> {{ question_list.0.option_3 }}<br>
+    <input type="radio" value="{{question_list.0.option_4}}" name="q1"> {{ question_list.0.option_4 }}<br>
+    <br> <br> <br>
+    </div>
+   
+    <div class="question_two">
+        <strong>{{ question_list.1.question | safe }}</strong><br>
+        <input type="radio" value="{{question_list.1.option_1}}" name="q2"> {{ question_list.1.option_1 }}<br>
+        <input type="radio" value="{{question_list.1.option_2}}" name="q2"> {{ question_list.1.option_2 }}<br>
+        <input type="radio" value="{{question_list.1.option_3}}" name="q2"> {{ question_list.1.option_3 }}<br>
+        <input type="radio" value="{{question_list.1.option_4}}" name="q2"> {{ question_list.1.option_4 }}<br>
+        <br>
+    </div>
+    <button class="btn btn-primary center-block" type="Submit">Submit</button> <br>
+    </form>
+    {% endif %}
+
+</div>
+  {% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% load static %}
+ {% block content %}
+ <br><br><br>
+ 
+    <section>
+    <div class="container">
+        <table border="1" width="90%"> 
+            <thead>
+                <tr>
+                    <th>Participant Name</th>
+                    &nbsp
+                    <th>Score</th>
+                </tr>
+            </thead>
+            
+            {% for participant in leaderboard %}
+            <tbody>
+                <tr>
+                    <td>
+                        &nbsp {{ participant.0.user.get_full_name }}
+                    </td>
+
+                    <td>
+                        &nbsp {{ participant.1 }}
+                    </td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+
+    </div>
+    </section>
+<br><br>
+ {% endblock %}
