@@ -19,7 +19,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.utils import timezone
 from website.models import (
-    Profile, User
+    Profile, User, Question
 )
 
 UNAME_CHARS = letters + "._" + digits
@@ -377,5 +377,23 @@ class UserRegistrationForm(forms.Form):
         new_profile.save()
         key = Profile.objects.get(user=new_user).activation_key
         return u_name, pwd, key
+
+
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
+
+class QuestionUploadForm(forms.ModelForm):
+    """Creates a form to add or edit a Question.
+    It has the related fields and functions required."""
     
-        
+
+    class Meta:
+        model = Question
+        fields = ['question', 'option_1', 'option_2', 'option_3',
+                'option_4', 'correct_answer', 'question_day'
+                ]
+
+        widgets = {
+            'question_day': DateInput(),
+            }

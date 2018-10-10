@@ -12,18 +12,23 @@ from django.views.decorators.csrf import (csrf_exempt, csrf_protect,
                                           requires_csrf_token)
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from website.models import Proposal, Comments, Ratings
+from website.models import (Proposal, Comments, Ratings, Question,
+                            AnswerPaper, Profile)
 
 from website.forms import (ProposalForm, UserRegisterForm, UserRegistrationForm,
-                           UserLoginForm, WorkshopForm)  # ,ContactForm
+                           UserLoginForm, WorkshopForm,QuestionUploadForm)  # ,ContactForm
 from website.models import Proposal, Comments, Ratings
 from social.apps.django_app.default.models import UserSocialAuth
 from django.contrib.auth import authenticate, login, logout
-
+from datetime import datetime
+from django import template
 from django.core.mail import EmailMultiAlternatives
 import os
 from nccps2018.config import *
 from website.send_mails import send_email
+from django.contrib.auth.models import Group
+from django.contrib import messages
+
 
 
 def is_email_checked(user):
@@ -995,4 +1000,202 @@ def view_profile(request):
                 return redirect('/login/')
             except:
                 return redirect('/register/')
+
+"""@csrf_protect
+@login_required
+def question_add(request):
+    context = {}
+    if request.user.is_authenticated:
+        social_user = request.user
+
+        django_user = User.objects.get(username=social_user)
+        context['user'] = django_user
+        if request.method == 'POST':
+            form = QuestionForm(request.POST)
+            if form.is_valid():
+                data = form.save(commit=False)
+                data.user = django_user
+                data.email = social_user.email
+                data.save()
+                return render_to_response('question-display.html', context)
+                return HttpResponse(template.render(context, request))
+            else:
+                context['qform'] = form
+                template = loader.get_template('question-display.html')
+                return HttpResponse(template.render(context, request))
+        else:
+            form = QuestionForm()
+            return render(request, 'question-display.html', {'qform': form})
+    else:
+        context['login_required'] = True
+        return render_to_response('login.html', context)
+
+@csrf_protect
+def quiz_view(request):
+    context = {}
+    if request.user.is_authenticated:
+        social_user = request.user
+        django_user = User.objects.get(username=social_user)
+        questions = Question.objects.all()
+        context['user'] = django_user
+        context['questions'] = questions
+        template = loader.get_template('quiz-display.html')
+        return HttpResponse(template.render(context, request))
+    else:
+        context['login_required'] = True
+        return render_to_response('login.html', context)
+"""
+
+
+def has_group(user, group_name):
+    group = Group.objects.get(name=group_name)
+    return True if group in user.groups.all() else False
+
+
+@login_required
+def question_list(request):
+    user = request.user
+    grouptype = Group.objects.get(name='moderator')
+    if has_group(user, grouptype):
+        question_list = Question.objects.all()
+        return render(request, 'question_list.html', {'question_list': question_list})
+    else:
+        logout(request)
+        return redirect('/nccps-2018/accounts/login/')
+
+
+@login_required
+def add_questions(request):
+    user = request.user
+    if request.method == 'POST':
+        form = QuestionUploadForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Question Uploaded Successfully! .')
+        else:
+            return redirect('/nccps-2018/add_questions')
+
+    grouptype = Group.objects.get(name='moderator')
+    if has_group(user, grouptype):
+        question_form = QuestionUploadForm()
+        return render(request, 'add_question.html', {'questions': question_form})
+    else:
+        logout(request)
+        return redirect('/nccps-2018/accounts/login/')
+
+
+@login_required
+def edit_question(request, qid=None):
+    """ edit profile details facility for instructor and coordinator """
+
+    user = request.user
+    context = {'template': template}
+    if request.method == 'POST':
+        form = QuestionUploadForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(
+                        request, 'add_question.html'
+                        )
+        else:
+            context['form'] = form
+            return render(request, 'add_question.html', context)
+    else:
+        question = Question.objects.get(id=qid)
+        form = QuestionUploadForm(instance=question)
+        return render(request, 'edit_question.html', {'form': form})
+
+
+@login_required
+def quiz_intro(request):
+    return render(request, 'quiz_intro.html')
+
+@login_required
+def take_quiz(request):
+    user = request.user
+    today = datetime.today().date()
+    question_list = Question.objects.filter(question_day=today)
+    user_profile = Profile.objects.get(user_id=user.profile.user_id)
+    questions = dict(enumerate(question_list))
+
+    if request.method == 'POST':
+        data = request.body.decode("utf-8").split('&')
+        if len(data) <3:
+            messages.info(request, 'Please answer both the questions!')
+        else:
+            ans1 = data[1].split("=on")[0].replace("+", ' ').replace("%2F", "/")
+            ans2 = data[2].split("=on")[0].replace("+", ' ').replace("%2F", "/")
+            ans1 = ans1.split("q1=")[1]
+            ans2 = ans2.split("q2=")[1]
+
+            #For First Answer
+            ans1_obj = AnswerPaper()
+            ans1_obj.participant = user_profile
+            ans1_obj.answered_q = questions[0]
+
+            try:
+                question1 = AnswerPaper.objects.get(
+                                answered_q=questions[0],
+                                participant_id=user_profile.id)
+                question2 = AnswerPaper.objects.get(
+                                answered_q=questions[1],
+                                participant_id=user_profile.id)
+            except:
+                if questions[0].correct_answer==ans1:
+                    ans1_obj.validate_ans = 1
+                else:
+                    ans1_obj.validate_ans = 0
+                ans1_obj.save()
+
+                #For Second Answer    
+                ans2_obj = AnswerPaper()
+                ans2_obj.participant = user_profile
+                ans2_obj.answered_q = questions[1]
+                if questions[1].correct_answer==ans2:
+                    ans2_obj.validate_ans = 1
+                else:
+                    ans2_obj.validate_ans = 0
+                ans2_obj.save()
+                messages.info(request, "Submitted Successfully!")
+
+                return redirect('/nccps-2018/take_quiz/')
+
+            if question1 or question2:
+                messages.info(request, "You've already taken the quiz")    
+
+    else:
+        
+        try:
+            question1 = AnswerPaper.objects.get(
+                                answered_q=questions[0],
+                                participant_id=user_profile.id)
+            question2 = AnswerPaper.objects.get(
+                                answered_q=questions[1],
+                                participant_id=user_profile.id)
+            
+            if question1 or question2:
+                questions = None
+        except:
+            pass
+
+    return render(request, 'take_quiz.html', {
+            'question_list' : questions
+            })
+
+
+def leaderboard(request):
+    profiles = Profile.objects.all()
+
+    leaderboard = {p:0 for p in profiles}
+
+    answers = AnswerPaper.objects.all()
+
+    for i in leaderboard:
+        profile_data = AnswerPaper.objects.filter(participant=i)
+        for pro in profile_data:
+            if pro.validate_ans==1:
+                leaderboard[i] +=1
+                
+    sorted_leaderboard = sorted(leaderboard.items(), key=lambda kv: kv[1])
+    return render(request, "leaderboard.html", {'leaderboard': sorted_leaderboard[::-1]})
 

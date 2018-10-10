@@ -37,7 +37,7 @@ EMAIL_HOST_USER_SERVER = 'localhost'
 EMAIL_HOST_PASSWORD_SERVER = ''
 EMAIL_USE_TLS_SERVER = False
 #########################################
-ALLOWED_HOSTS_VAL = ['dwsim.fossee.aero.iitb.ac.in','10.101.11.205',]
+ALLOWED_HOSTS_VAL = ['dwsim.fossee.aero.iitb.ac.in','127.0.0.1',]
 DEBUG_VAL = True
 SITE = 'http://dwsim.fossee.aero.iitb.ac.in/nccps-2018'
 ROOT_URL_VAL = 'http://dwsim.fossee.aero.iitb.ac.in/nccps-2018' #http://127.0.0.1:8000

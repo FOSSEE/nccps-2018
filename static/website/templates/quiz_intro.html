@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{% include 'header.html' %}
+<body data-spy="scroll" data-target="#site-nav">
+<div class="se-pre-con"></div>
+
+    {% include 'navbar.html' %}
+      {% block content %}
+    <section id="dwsimquiz" class="section dwsimquiz">
+      <div class="container">
+    
+            <div class="row">
+                <div class="col-md-12" >
+                   <h3>DWSIM Online Quiz</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12" style="font-weight: 500;">
+                    <h4>About the Quiz</h4>
+                    <p>As a part of the National Conference on Chemical Process Simulation (NCCPS) - 2018, FOSSEE Team is conducting a national level online daily quiz competition called DWSIM Online Quiz . The quiz will comprise of questions based on chemical process simulator DWSIM. This competition will be held from 15-10-2018 to 13-11-2018. The primary objective of this competition is to allow chemical engineering practitioners to enhance their simulation skills. Competitors standing at top 3 position in the leaderboard will stand a chance to win attractive prizes on the day of the conference.</p>
+                    <h5>Procedure to Participate in the Quiz:</h5>
+                    <ul>
+                      <li>Go to <a href="{{SITE_URL}}">NCCPS - 2018</a> website and <a href="{% url 'auth:login' %}" >log in</a> with your registered credentials.</li>
+                      <li>If not already registered in the conference website, please <a href="{% url 'website:user_register' %}">register</a> with your details to start participating in the DWSIM Online Quiz.</li>
+                      <li>Once you are in DWSIM Online Quiz page, please read the quiz instructions carefully.</li>
+                      <li>Click on <strong>Start Online Quiz</strong> to view the questions assigned for the day.</li>
+                      <li>Two Multiple Choice Questions (MCQs) with 4 options will be displayed for that day.</li>
+                      <li>Simulate the displayed problem statement in <strong>DWSIM (Version 5.3)</strong>.</li>
+                      <li>Select your option for the displayed questions.</li>
+                      <li>Submit the Quiz by clicking on Submit button.</li>
+                    </ul>
+                    <h5>Guidelines</h5>
+                    <ul>
+<li><strong>Use DWSIM Version 5.3</strong> for simulating the problem statement. This version will be followed throughout the competition.</li>
+                      <li>Correct option for the displayed questions will be based on problem statement simulated using <strong>DWSIM Version 5.3</strong>.</li>
+                      <li>The new questions for the day will be available to attempt from 12:00 AM of that day to 11:59 PM of the same day.</li>
+                      <li>In case you are logged out of the session before clicking on Submit button, please go and re-attempt the quiz.</li>
+                      <li>There will be only one correct answer for each displayed question.</li>
+                      <li>It is mandatory to register in the <a href="{{SITE_URL}}">NCCPS - 2018</a> website to participate in the quiz.</li>
+                      <li>Participants are strictly restricted to attempt the quiz by logging in through multiple accounts registered for the same person. If anyone is found to follow such unethical practice will be disqualified.</li>
+                      <li>Participant cannot re-attempt the quiz for the day once they have submitted their answers for that day.</li>
+                      <li>Every correct answer will carry +1 mark and wrong answers will not be rewarded any marks.</li>
+                      <li>Winners will be declared based on highest score obtained throughout the competition.</li>
+                    </ul>
+                </div>
+            </div>
+            <br>
+            <a href="{% url 'website:take_quiz' %}"><button class="btn-lg btn-warning">Take Quiz</button></a>
+         </div>
+      </section>
+
+      
+      {% endblock %}
