@@ -1,6 +1,6 @@
 DB_NAME_DEFAULT = 'nccps'
 DB_USER_DEFAULT = 'root'
-DB_PASS_DEFAULT = 'aero123'
+DB_PASS_DEFAULT = 'user123'
 DB_HOST_DEFAULT = '127.0.0.1'
 DB_PORT_DEFAULT = ''
 ########################################
