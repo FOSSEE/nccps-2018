@@ -532,7 +532,7 @@ def status(request, proposal_id=None):
     user = request.user
     context = {}
     if user.is_authenticated:
-        if user.is_superuser:
+        if user.is_staff:
             proposal = Proposal.objects.get(id=proposal_id)
             if 'accept' in request.POST:
                 proposal.status = "Accepted"
@@ -650,7 +650,7 @@ def status_change(request):
     user = request.user
     context = {}
     if user.is_authenticated:
-        if user.is_superuser:
+        if user.is_staff:
             if 'delete' in request.POST:
                 delete_proposal = request.POST.getlist('delete_proposal')
                 for proposal_id in delete_proposal:
