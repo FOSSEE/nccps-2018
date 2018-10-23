@@ -81,10 +81,10 @@ WSGI_APPLICATION = 'nccps2018.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
--       'NAME': DB_NAME_DEFAULT,                      # Or path to database file if using sqlite3.
--       'USER': DB_USER_DEFAULT,
--       'PASSWORD': DB_PASS_DEFAULT,
--       'HOST': DB_HOST_DEFAULT,
+       'NAME': DB_NAME_DEFAULT,                      # Or path to database file if using sqlite3.
+       'USER': DB_USER_DEFAULT,
+       'PASSWORD': DB_PASS_DEFAULT,
+       'HOST': DB_HOST_DEFAULT,
     }
 }
 
