@@ -480,29 +480,12 @@ def comment_abstract(request, proposal_id=None):
                         subject = "NCCPS 2018 - Comment on Your talk Proposal"
                         message = """
                             Dear {0}, <br><br>
-                            There is a comment posted on your proposal for the talk titled <b>{1}</b>.<br>
-                            Once we receive your response, you will be notified regarding further comments/acceptance/ rejection of your talk/workshop via email. 
-                            Visit this link {2} to view comments on your submission.<br><br>
+                            There is a comment posted on your proposal titled <b>{1}</b>.<br> 
+                            Log in to the website to view comments on your submission.<br><br>
                             Thank You ! <br><br>Regards,<br>NCCPS 2018,<br>FOSSEE - IIT Bombay.
                             """.format(
                             proposal.user.first_name,
                             proposal.title,
-                            'http://dwsim.fossee.in/nccps-2018/abstract-details/' +
-                            str(proposal.id),
-                        )
-                    elif proposal.proposal_type == 'WORKSHOP':
-                        subject = "NCCPS 2018 - Comment on Your Workshop Proposal"
-                        message = """
-                            Dear {0}, <br><br>
-                            There is a comment posted on your proposal for the workshop titled <b>{1}</b>.<br>
-                            Once we receive your response, you will be notified regarding further comments/acceptance/ rejection of your talk/workshop via email. 
-                            Visit this {2} link to view comments on your submission.<br><br>
-                            Thank You ! <br><br>Regards,<br>NCCPS 2018,<br>FOSSEE - IIT Bombay.
-                            """.format(
-                            proposal.user.first_name,
-                            proposal.title,
-                            'http://dwsim.fossee.in/nccps-2018/abstract-details/' +
-                            str(proposal.id),
                         )
                     email = EmailMultiAlternatives(
                         subject, '',
@@ -581,18 +564,19 @@ def status(request, proposal_id=None):
                 sender_email = TO_EMAIL
                 to = (proposal.user.email, TO_EMAIL, )
                 if proposal.proposal_type == 'PAPER':
-                    subject = "NCCPS 2018 - Talk Proposal Rejected"
-                    message = """Dear """+proposal.user.first_name+""",
-                   Thank you for your submission to the conference.  Unfortunately, due to the large number of excellent talks that were submitted, your talk was not selected.  We hope you are not discouraged and request you to kindly attend the conference and participate.  We have an excellent line up of workshops (8 in total) and many excellent talks. You may also wish to give a lightning talk (a short 5 minute talk) at the conference if you so desire.
-                   We look forward to your active participation in the conference.
-                   \n\nThank You ! \n\nRegards,\nNCCPS 2018,\nFOSSEE - IIT Bombay"""
-                   # message = """Dear """+proposal.user.first_name+""",
-                   # Your talk was rejected because the contents of your work (your report for example) were entirely plagiarized.  This is unacceptable and this amounts to severe academic malpractice and misconduct. As such we do not encourage this at any level whatsoever.  We strongly suggest that you change your ways.  You should NEVER EVER copy paste any content, no matter where you see it.  Even if you cite the place where you lifted material from, it is not acceptable to copy anything verbatim.  Always write in your own words. Your own personal integrity is much more important than a publication.  When giving a tutorial it is understandable that you may use material that someone else has made if you acknowledge this correctly and with their full knowledge.  However, the expectation is that you have done something yourself too.  In your case a bulk of the work seems plagiarized and even if your talk material is your own, your act of plagiarizing content for your report is unacceptable to us.
-
-                   # Having said that, we do encourage you to attend the conference.  We hope you do change your ways and be honest in the future.
-
-                    # \n\nRegards,\n\n
-                    # NCCPS Program chairs"""
+                    subject = "NCCPS 2018 - Paper Proposal Rejected"
+                    message = """
+                    Dear {0}, <br><br>
+                    We are thankful for your submission and patience. 
+                    We regret to inform you that your paper titled <b>“{1}”</b> is not selected for NCCPS-2018. 
+                    Please check the feedback of reviewers by logging in at {2}.<br>
+                    You are welcome to attend the conference. Please register at {3}
+                    <br>Thank You ! <br><br>Regards,<br>NCCPS 2018,<br>FOSSEE - IIT Bombay.
+                    """.format(
+                        proposal.user.first_name,
+                        proposal.title,
+                        'https://dwsim.fossee.in/nccps-2018/accounts/login/'
+                        'https://dwsim.fossee.in/nccps-2018/#registration',)
 
                 elif proposal.proposal_type == 'WORKSHOP':
                     subject = "NCCPS 2018 - Workshop Proposal Rejected"
@@ -780,11 +764,15 @@ We strongly suggest that you try to plan your workshops carefully and focus on d
                     sender_email = TO_EMAIL
                     to = (proposal.user.email, TO_EMAIL)
                     if proposal.proposal_type == 'PAPER':
-                        subject = "NCCPS 2018 - Talk Proposal Rejected"
+                        subject = "NCCPS 2018 - Paper Proposal Rejected"
                         message = """Dear """+proposal.user.first_name+""",
-                        Thank you for your submission to the conference.  Unfortunately, due to the large number of excellent talks that were submitted, your talk was not selected.  We hope you are not discouraged and request you to kindly attend the conference and participate.  We have an excellent line up of workshops (8 in total) and many excellent talks. You may also wish to give a lightning talk (a short 5 minute talk) at the conference if you so desire.
-                        We look forward to your active participation in the conference.
-                        \n\nThank You ! \n\nRegards,\nNCCPS 2018,\nFOSSEE - IIT Bombay"""
+                        We are thankful for your submission and patience. 
+                        We regret to inform you that your paper titled """ +proposal.title+""" is not selected for NCCPS-2018. Please check the feedback of reviewers by logging in at
+                        You are welcome to attend the conference. Please register at http://dwsim.fossee.in/nccps-2018/
+                        \n\nThank You ! \n\nRegards,\nNCCPS 2018,\nFOSSEE - IIT Bombay""".format(
+                            proposal.user.first_name,
+                            proposal.title,
+                        )
                         # message = """Dear """+proposal.user.first_name+""",
                    # Your talk was rejected because the contents of your work (your report for example) were entirely plagiarized.  This is unacceptable and this amounts to severe academic malpractice and misconduct. As such we do not encourage this at any level whatsoever.  We strongly suggest that you change your ways.  You should NEVER EVER copy paste any content, no matter where you see it.  Even if you cite the place where you lifted material from, it is not acceptable to copy anything verbatim.  Always write in your own words. Your own personal integrity is much more important than a publication.  When giving a tutorial it is understandable that you may use material that someone else has made if you acknowledge this correctly and with their full knowledge.  However, the expectation is that you have done something yourself too.  In your case a bulk of the work seems plagiarized and even if your talk material is your own, your act of plagiarizing content for your report is unacceptable to us.
 
