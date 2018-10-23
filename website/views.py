@@ -775,7 +775,7 @@ We strongly suggest that you try to plan your workshops carefully and focus on d
                     """.format(
                         proposal.user.first_name,
                         proposal.title,
-                        'https://dwsim.fossee.in/nccps-2018/accounts/login/'
+                        'https://dwsim.fossee.in/nccps-2018/accounts/login/',
                         'https://dwsim.fossee.in/nccps-2018/#registration',)
                     email = EmailMultiAlternatives(
                         subject, '',
