@@ -764,7 +764,7 @@ We strongly suggest that you try to plan your workshops carefully and focus on d
                     sender_email = TO_EMAIL
                     to = (proposal.user.email, TO_EMAIL)
                     if proposal.proposal_type == 'PAPER':
-                        subject = "NCCPS 2018 - Paper Proposal Rejected"
+                        subject = "NCCPS 2018 - Paper proposal result"
                         message = """
                     Dear {0}, <br><br>
                     We are thankful for your submission and patience. 
