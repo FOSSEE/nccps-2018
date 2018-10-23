@@ -767,38 +767,24 @@ We strongly suggest that you try to plan your workshops carefully and focus on d
                         subject = "NCCPS 2018 - Paper Proposal Rejected"
                         message = """
                     Dear {0}, <br><br>
-                    Thank you for your excellent submissions!  Your talk has been accepted! This year we received many really good submissions.  Due to the number and quality of the talks this year we have decided to give 20 minute slots to all the accepted talks.  So even though you may have submitted a 30 minute one, we are sorry you will only have 20 minutes.  Of these 20 minutes please plan to do a 15 minute talk (we will strive hard to keep to time), and keep 5 minutes for Q&A and transfer.  We will have the next speaker get ready during your Q&A session in order to not waste time.
-                    Pardon the unsolicited advice but it is important that you plan your presentations carefully. 15 minutes is a good amount of time to communicate your central idea. Most really good TED talks finish in 15 minutes.  Keep your talk focussed and please do rehearse your talk and slides to make sure it flows well. 
-                    We (the program chairs) are happy to help you by giving you some early feedback on your slides.  Just upload your slides before 26th and we will go over it once.  You may upload your slides by clicking on edit when you login to the site.  You may also modify your abstract if you want to improve it.  For anything submitted after 26th we may not have time to comment but will try to give you feedback.  Please also keep handy a PDF version of your talk in case your own laptops have a problem.
-                    Please confirm your participation via return email.  The tentative schedule will be put up online by end of day.  We look forward to hearing your talk.
-
+                    We are thankful for your submission and patience. 
+                    We regret to inform you that your paper titled <b>“{1}”</b> is not selected for NCCPS-2018. 
+                    Please check the feedback of reviewers by logging in at {2}.<br>
+                    You are welcome to attend the conference. Please register at {3}
+                    <br>Thank You ! <br><br>Regards,<br>NCCPS 2018,<br>FOSSEE - IIT Bombay.
                     """.format(
                         proposal.user.first_name,
                         proposal.title,
-                        'http://dwsim.fossee.in/nccps-2018/view-abstracts/'
+                        'https://dwsim.fossee.in/nccps-2018/accounts/login/'
+                        'https://dwsim.fossee.in/nccps-2018/#registration',)
+                    email = EmailMultiAlternatives(
+                        subject, '',
+                        sender_email, to,
+                        headers={"Content-type": "text/html;charset=iso-8859-1"}
                     )
-                        # message = """Dear """+proposal.user.first_name+""",
-                   # Your talk was rejected because the contents of your work (your report for example) were entirely plagiarized.  This is unacceptable and this amounts to severe academic malpractice and misconduct. As such we do not encourage this at any level whatsoever.  We strongly suggest that you change your ways.  You should NEVER EVER copy paste any content, no matter where you see it.  Even if you cite the place where you lifted material from, it is not acceptable to copy anything verbatim.  Always write in your own words. Your own personal integrity is much more important than a publication.  When giving a tutorial it is understandable that you may use material that someone else has made if you acknowledge this correctly and with their full knowledge.  However, the expectation is that you have done something yourself too.  In your case a bulk of the work seems plagiarized and even if your talk material is your own, your act of plagiarizing content for your report is unacceptable to us.
+                    email.attach_alternative(message, "text/html")
+                    email.send(fail_silently=True)
 
-                   # Having said that, we do encourage you to attend the conference.  We hope you do change your ways and be honest in the future.
-
-                    # \n\nRegards,\n\nNCCPS Program chairs"""
-                    elif proposal.proposal_type == 'WORKSHOP':
-                        subject = "NCCPS 2018 - Workshop Proposal Rejected"
-                        message = """Dear """+proposal.user.first_name+""",
-                        Thank you for your submission to the conference. 
-                    Unfortunately, due to the large number of excellent workshops submitted, yours was not selected. We hope you are not discouraged and request you to kindly attend the conference and participate. We have an excellent line up of workshops (8 in total) and many excellent talks. You may also wish to give a lightning talk (a short 5 minute talk) at the conference if you so desire. 
-                    We look forward to your active participation in the conference.
-                    \n\nThank You ! \n\nRegards,\nNCCPS 2018,\nFOSSEE - IIT Bombay"""
-                        # message = """Dear """+proposal.user.first_name+""",
-                   # Thank you for your excellent workshop submission titled “Digital forensics using Python”.  The program committee was really excited about your proposal and thought it was a very good one.  While the tools you use are certainly in the NCCPS toolstack the application was not entirely in the domain of the attendees we typically have at NCCPS.  This along with the fact that we had many really good workshops that were submitted made it hard to select your proposal this time -- your proposal narrowly missed out.  We strongly suggest that you submit this to other more generic Python conferences like the many PyCon and PyData conferences as it may be a much better fit there.  We also encourage you to try again next year and if we have a larger audience, we may have space for it next year.  This year with two tracks we already have 8 excellent workshops selected.
-
-                    # We really hope you are not discouraged as it was indeed a very good submission and a rather original one at that.  We hope you understand and do consider participating in the conference anyway.
-
-                    # We look forward to seeing you at the conference and to your continued interest and participation.
-                    # \n\nRegards,\n\nNCCPS Program chairs"""
-                    #send_mail(subject, message, sender_email, to)
-                    # context.update(csrf(request))
                 proposals = Proposal.objects.all()
                 context['proposals'] = proposals
                 context['user'] = user
