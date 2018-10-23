@@ -547,16 +547,6 @@ def status(request, proposal_id=None):
                     Pardon the unsolicited advice but it is important that you plan your presentations carefully. 15 minutes is a good amount of time to communicate your central idea. Most really good TED talks finish in 15 minutes.  Keep your talk focussed and please do rehearse your talk and slides to make sure it flows well. If you need help with this, the program chairs can try to help you by giving you some early feedback on your slides.  Just upload your slides before 26th on the same submission interface and we will go over it once.  For anything submitted after 26th we may not have time to comment on but will try to give you feedback.  Please also keep handy a PDF version of your talk in case your own laptops have a problem.
                     Please confirm your participation.  The schedule will be put up online by end of day.  We look forward to hearing your talk.
                     \n\nYou will be notified regarding instructions of your talk via email.\n\nThank You ! \n\nRegards,\nNCCPS 2018,\nFOSSEE - IIT Bombay"""
-                elif proposal.proposal_type == 'WORKSHOP':
-                    subject = "NCCPS 2018 - Workshop Proposal Accepted"
-                    message = """Dear """+proposal.user.first_name+""",
-                    Thank you for your excellent submissions!  We are pleased to accept your workshop. Due to the large number of submissions we have decided to accept 8 workshops and give all the selected workshops 2 hours each. Please plan for 1 hour and 55 minutes in order to give the participants a 10 minute break between workshops for tea.
-                    The tentative schedule will be put up on the website shortly.  Please do provide detailed instructions for the participants (and the organizers if they need to do something for you) in your reply.  Please also confirm your participation.
-                    We strongly suggest that you try to plan your workshops carefully and focus on doing things hands-on and not do excessive amounts of theory.  Try to give your participants a decent overview so they can pick up additional details on their own. It helps to pick one or two overarching problems you plan to solve and work your way through the solution of those. 
-                    Installation is often a problem, so please make sure your instructions are simple and easy to follow.  If you wish, we could allow some time the previous day for installation help.  Let us know about this.  Also, do not waste too much time on installation during your workshop.
-                    \n\nYou will be notified regarding instructions of your talk via email.\n\nThank You ! \n\nRegards,\nNCCPS 2018,\nFOSSEE - IIT Bombay"""
-                #send_mail(subject, message, sender_email, to)
-                # context.update(csrf(request))
             elif 'reject' in request.POST:
                 proposal.status = "Rejected"
                 proposal.save()
@@ -577,24 +567,13 @@ def status(request, proposal_id=None):
                         proposal.title,
                         'https://dwsim.fossee.in/nccps-2018/accounts/login/'
                         'https://dwsim.fossee.in/nccps-2018/#registration',)
-
-                elif proposal.proposal_type == 'WORKSHOP':
-                    subject = "NCCPS 2018 - Workshop Proposal Rejected"
-                    message = """Dear """+proposal.user.first_name+""",
-                    Thank you for your submission to the conference. 
-                    Unfortunately, due to the large number of excellent workshops submitted, yours was not selected. We hope you are not discouraged and request you to kindly attend the conference and participate. We have an excellent line up of workshops (8 in total) and many excellent talks. You may also wish to give a lightning talk (a short 5 minute talk) at the conference if you so desire. 
-                    We look forward to your active participation in the conference.
-                    \n\nThank You ! \n\nRegards,\nNCCPS 2018,\nFOSSEE - IIT Bombay"""
-                   # message = """Dear """+proposal.user.first_name+""",
-                  # Thank you for your excellent workshop submission titled “Digital forensics using Python”.  The program committee was really excited about your proposal and thought it was a very good one.  While the tools you use are certainly in the NCCPS toolstack the application was not entirely in the domain of the attendees we typically have at NCCPS.  This along with the fact that we had many really good workshops that were submitted made it hard to select your proposal this time -- your proposal narrowly missed out.  We strongly suggest that you submit this to other more generic Python conferences like the many PyCon and PyData conferences as it may be a much better fit there.  We also encourage you to try again next year and if we have a larger audience, we may have space for it next year.  This year with two tracks we already have 8 excellent workshops selected.
-
-                    # We really hope you are not discouraged as it was indeed a very good submission and a rather original one at that.  We hope you understand and do consider participating in the conference anyway.
-
-                    # We look forward to seeing you at the conference and to your continued interest and participation.
-                    # \n\nRegards,\n\nNCCPS Program chairs"""
-
-                #send_mail(subject, message, sender_email, to)
-                # context.update(csrf(request))
+                    email = EmailMultiAlternatives(
+                        subject, '',
+                        sender_email, to,
+                        headers={"Content-type": "text/html;charset=iso-8859-1"}
+                    )
+                    email.attach_alternative(message, "text/html")
+                    email.send(fail_silently=True)
             elif 'resubmit' in request.POST:
                 to = (proposal.user.email, TO_EMAIL)
                 sender_name = "NCCPS 2018"
@@ -613,6 +592,13 @@ def status(request, proposal_id=None):
                         proposal.title,
                         'http://dwsim.fossee.in/nccps-2018/view-abstracts/'
                     )
+                    email = EmailMultiAlternatives(
+                        subject, '',
+                        sender_email, to,
+                        headers={"Content-type": "text/html;charset=iso-8859-1"}
+                    )
+                    email.attach_alternative(message, "text/html")
+                    email.send(fail_silently=True)
                 elif proposal.proposal_type == 'WORKSHOP':
                     subject = "NCCPS 2018 - Workshop Proposal Resubmission"
                     message = """
@@ -636,9 +622,9 @@ def status(request, proposal_id=None):
                 proposal.save()
                 # context.update(csrf(request))
         else:
-            return render(request, 'cfp.html')
+            return render(request, 'view-proposals.html')
     else:
-        return render(request, 'cfp.html')
+        return render(request, 'view-proposals.html')
     proposals = Proposal.objects.all().order_by('status')
     context['proposals'] = proposals
     context['user'] = user
