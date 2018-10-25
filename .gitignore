@@ -21,3 +21,6 @@ db.sqlite3
 
 #MAC OS specific
 .DS_Store
+
+#VScode
+.vscode/
