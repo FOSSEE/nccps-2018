@@ -16,7 +16,7 @@ from website.models import (Proposal, Comments, Ratings, Question,
                             AnswerPaper, Profile)
 
 from website.forms import (ProposalForm, UserRegisterForm, UserRegistrationForm,
-                           UserLoginForm, WorkshopForm,QuestionUploadForm,
+                           UserLoginForm, WorkshopForm,QuestionUploadForm
                            )# ,ContactForm
 from website.models import Proposal, Comments, Ratings
 from social.apps.django_app.default.models import UserSocialAuth
@@ -1177,7 +1177,7 @@ def leaderboard(request):
             if p.validate_ans==1:
                 if marks['5'][0] <= p.answered_q.question_day <= marks['5'][1]:
                     leaderboard[i] +=5
-                elif marks['5'][0] <= p.answered_q.question_day <= marks['5'][1]:
+                elif marks['10'][0] <= p.answered_q.question_day <= marks['10'][1]:
                     leaderboard[i] +=10
                 else:
                     leaderboard[i] +=1
@@ -1187,6 +1187,7 @@ def leaderboard(request):
     return render(request, "leaderboard.html", {'leaderboard': sorted_leaderboard[::-1]})
 
 
+'''
 @login_required
 def uploadmodel(request):
     if request.method == 'POST':
@@ -1201,7 +1202,7 @@ def uploadmodel(request):
         except:
             messages.error(request, 'No question uploaded for mentioned date')
         
-        '''
+        
         form = UploadModelForm(request.POST)
         if form.is_valid():
             uploadForm = form.save(commit=False)
@@ -1216,7 +1217,7 @@ def uploadmodel(request):
             print(question_obj)
         else:
             messages.error(request, 'Invalid Form')
-        '''
+        
 
-    return render(request, "uploadmodel.html", {"question_list":question_list})
+    return render(request, "uploadmodel.html", {"question_list":question_list})'''
     
