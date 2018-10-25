@@ -16,11 +16,12 @@ from website.models import (Proposal, Comments, Ratings, Question,
                             AnswerPaper, Profile)
 
 from website.forms import (ProposalForm, UserRegisterForm, UserRegistrationForm,
-                           UserLoginForm, WorkshopForm,QuestionUploadForm)  # ,ContactForm
+                           UserLoginForm, WorkshopForm,QuestionUploadForm
+                           )# ,ContactForm
 from website.models import Proposal, Comments, Ratings
 from social.apps.django_app.default.models import UserSocialAuth
 from django.contrib.auth import authenticate, login, logout
-from datetime import datetime
+from datetime import datetime, date
 from django import template
 from django.core.mail import EmailMultiAlternatives
 import os
@@ -1163,17 +1164,60 @@ def take_quiz(request):
 
 def leaderboard(request):
     profiles = Profile.objects.all()
-
     leaderboard = {p:0 for p in profiles}
-
+    marks = {
+        '5': [date(2018, 10, 29), date(2018, 11, 4)],
+        '10': [date(2018, 11, 5), date(2018, 11, 12)]
+        }
     answers = AnswerPaper.objects.all()
 
     for i in leaderboard:
-        profile_data = AnswerPaper.objects.filter(participant=i)
-        for pro in profile_data:
-            if pro.validate_ans==1:
-                leaderboard[i] +=1
+        profiles = AnswerPaper.objects.filter(participant=i)
+        for p in profiles:
+            if p.validate_ans==1:
+                if marks['5'][0] <= p.answered_q.question_day <= marks['5'][1]:
+                    leaderboard[i] +=5
+                elif marks['10'][0] <= p.answered_q.question_day <= marks['10'][1]:
+                    leaderboard[i] +=10
+                else:
+                    leaderboard[i] +=1
+
                 
     sorted_leaderboard = sorted(leaderboard.items(), key=lambda kv: kv[1])
     return render(request, "leaderboard.html", {'leaderboard': sorted_leaderboard[::-1]})
 
+
+'''
+@login_required
+def uploadmodel(request):
+    if request.method == 'POST':
+        data = request.body.decode("utf-8").split('&')
+        date = data[1].replace("qdate=", "")
+        date = datetime.strptime(date, "%Y-%m-%d").date()
+        question_list = Question.objects.all()
+        try:
+            question_obj = Question.objects.get(question_day=date)
+            print(question_obj)
+            messages.info(request, 'Uploaded Successfully!')
+        except:
+            messages.error(request, 'No question uploaded for mentioned date')
+        
+        
+        form = UploadModelForm(request.POST)
+        if form.is_valid():
+            uploadForm = form.save(commit=False)
+            try:
+                question_obj = Question.objects.get(question_day=date)
+                uploadForm.question = question_obj
+                uploadForm.model_file
+                uploadForm.save()
+                messages.info(request, 'Uploaded Successfully!')
+            except:
+                messages.error(request, 'No question uploaded for mentioned date')
+            print(question_obj)
+        else:
+            messages.error(request, 'Invalid Form')
+        
+
+    return render(request, "uploadmodel.html", {"question_list":question_list})'''
+    

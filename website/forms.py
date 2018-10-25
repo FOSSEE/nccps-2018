@@ -1,7 +1,7 @@
 from django import forms
 
 from django.forms import ModelForm, widgets
-
+import datetime
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.core.validators import MinLengthValidator, MinValueValidator, \
@@ -397,3 +397,12 @@ class QuestionUploadForm(forms.ModelForm):
         widgets = {
             'question_day': DateInput(),
             }
+
+
+#To upload model for each question
+'''
+class UploadModelForm(forms.ModelForm):
+    class Meta:
+        model = UploadModel
+        fields = ['model_file']
+''' 

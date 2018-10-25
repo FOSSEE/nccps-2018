@@ -34,7 +34,11 @@ def get_document_dir(instance, filename):
     fname, fext = os.path.splitext(filename)
     # print "----------------->",instance.user
     return '%s/attachment/%s/%s.%s' % (instance.user, instance.proposal_type, fname+'_'+str(instance.user), fext)
-        
+
+
+def attachments(instance, filename):
+    return os.sep.join((instance.workshoptype_name.replace(" ", '_'), filename))
+
 
 class Proposal(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE,)
@@ -124,3 +128,11 @@ class AnswerPaper(models.Model):
     answered_q = models.ForeignKey(Question, on_delete=models.CASCADE)
     validate_ans = models.BooleanField()
     date = models.DateTimeField(auto_now=True)
+
+
+#To upload model for each question
+'''
+class UploadModel(models.Model):
+   question = models.ForeignKey(Question, on_delete=models.CASCADE, blank=True, null=True)
+   model_file = models.FileField(upload_to=attachments)
+'''
