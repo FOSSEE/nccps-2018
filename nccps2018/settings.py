@@ -80,11 +80,11 @@ WSGI_APPLICATION = 'nccps2018.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'TEST': {
-            'NAME': 'mytestdatebase',
-        },
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': DB_NAME_DEFAULT,                      # Or path to database file if using sqlite3.
+        'USER': DB_USER_DEFAULT,
+        'PASSWORD': DB_PASS_DEFAULT,
+        'HOST': DB_HOST_DEFAULT,
     }
 }
 
