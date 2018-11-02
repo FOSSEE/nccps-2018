@@ -1094,6 +1094,30 @@ def edit_question(request, qid=None):
 def quiz_intro(request):
     return render(request, 'quiz_intro.html')
 
+
+def calculate_leader():
+    profiles = Profile.objects.all()
+    leaderboard = {p:0 for p in profiles}
+    marks = {
+        '5': [date(2018, 10, 29), date(2018, 11, 4)],
+        '10': [date(2018, 11, 5), date(2018, 11, 12)]
+        }
+    answers = AnswerPaper.objects.all()
+
+    for i in leaderboard:
+        profiles = AnswerPaper.objects.filter(participant=i)
+        for p in profiles:
+            if p.validate_ans==1:
+                if marks['5'][0] <= p.answered_q.question_day <= marks['5'][1]:
+                    leaderboard[i] +=5
+                else:
+                    leaderboard[i] +=1
+
+                
+    sorted_leaderboard = sorted(leaderboard.items(), key=lambda kv: kv[1])
+    return sorted_leaderboard
+
+
 @login_required
 def take_quiz(request):
     user = request.user
@@ -1162,31 +1186,23 @@ def take_quiz(request):
         except:
             pass
 
+    today = datetime.today().date()
+    if today > date(2018, 11, 4):
+        set_visible = 0
+    else:
+        set_visible = 1
+    sorted_leaderboard = calculate_leader()
+
     return render(request, 'take_quiz.html', {
-            'question_list' : questions
+            'question_list' : questions,
+            'set_visible': set_visible,
+            "leaderboard": sorted_leaderboard[::-1]
             })
 
 
+
 def leaderboard(request):
-    profiles = Profile.objects.all()
-    leaderboard = {p:0 for p in profiles}
-    marks = {
-        '5': [date(2018, 10, 29), date(2018, 11, 4)],
-        '10': [date(2018, 11, 5), date(2018, 11, 12)]
-        }
-    answers = AnswerPaper.objects.all()
-
-    for i in leaderboard:
-        profiles = AnswerPaper.objects.filter(participant=i)
-        for p in profiles:
-            if p.validate_ans==1:
-                if marks['5'][0] <= p.answered_q.question_day <= marks['5'][1]:
-                    leaderboard[i] +=5
-                else:
-                    leaderboard[i] +=1
-
-                
-    sorted_leaderboard = sorted(leaderboard.items(), key=lambda kv: kv[1])
+    sorted_leaderboard = calculate_leader()
     return render(request, "leaderboard.html", {'leaderboard': sorted_leaderboard[::-1]})
 
 
@@ -1194,7 +1210,6 @@ def leaderboard(request):
 def view_solutions(request,id=None):
     ''''Show solutions to participants after a specific date'''
     question_ans_list = Question.objects.all()
-
     today = datetime.today().date()
     if today < date(2018, 11, 15):
         set_visible = 0
@@ -1219,8 +1234,7 @@ def view_solutions(request,id=None):
         response.write(zipfile_name.read())
         return response
         
-        
-        
+    
     return render(request, 'view_solutions.html', {"question_ans_list": question_ans_list, 
                         "set_visible": set_visible
                     })

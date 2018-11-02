@@ -3,7 +3,9 @@
 {% load static %}
  {% block content %}
 <br><br><br><br>
-<div class="container">
+
+{% if set_visible %}
+    <div class="container">
 
         {% if messages %}
 		<ul class="messages">
@@ -43,6 +45,75 @@
     <button class="btn btn-primary center-block" type="Submit">Submit</button> <br>
     </form>
     {% endif %}
+    </div>  
 
-</div>
+    {% else %}
+    
+    <div class="container">
+       <h2> DWSIM Flowsheeting Creation Competition</h2>
+       <br>
+        <ul>
+    <li> Top 8 participants in the leaderboard by end of 02-11-2018, 11:59 PM are eligible for this competition.</li>
+    <li> These participants will receive the problem statement to be solved in DWSIM directly through e-mail by 03-11-2018, 12:00 noon.</li>
+    <li>Participants have to propose the assigned flowsheet in the DWSIM Flowsheeting Project webpage using the proposal form 
+        <a href="https://dwsim.fossee.in/flowsheeting-project/proposal" style="color: #cc0000">here.</a> 
+        The proposal should be submitted by 04-11-2018, 12:00 noon.</li>
+    <li>In case of any issues regarding submission of proposal, please write to us at <a href="mailto:contact-dwsim@fossee.in" style="color: hsl(236, 95%, 50%)">contact-dwsim@fossee.in</a> before the deadline for proposal submission.</li>
+    <li>Participants can start creating the simulation for the assigned flowsheet as soon as they  submit the proposal. Participants need not wait for approval of the proposal to start working on the flowsheet.</li>
+    <li>No extension in deadline will be granted for submission of proposal. If any of the participant doesn’t submit the proposal by the given deadline, flowsheet will be assigned to the next participant i.e. the 9th participant in the leaderboard and so on.</li>
+    <li>Solve the flowsheet using <u>DWSIM Version 5.4 Update 2.</u></li>
+    <li>Flowsheet and a well written abstract should be submitted <a href="https://dwsim.fossee.in/flowsheeting-project/abstract-code/upload" style="color: #cc0000">here.</a></li>
+    <li>Flowsheet creation competition would carry 50 marks in total divided in the following manner.</li>
+    <ol>
+        <li>Approach to the flowsheet   -  10</li>
+        <li>Validation / Accuracy of results in the flowsheet   -  20 </li>
+        <li>Presentation of the flowsheet - 10 </li>
+        <li>Abstract - 10</li>
+    </ol>
+    <li>Please adhere to the guidelines for the flowsheet development and abstract mentioned <a href="https://dwsim.fossee.in/flowsheeting-project/coding-guidelines-flowsheeting" style="color: #cc0000">here.</a></li>
+    <li>The last date for submission of flow sheet is 8-11-2018, 11:59 PM.</li>
+    <li>Submission of correct flowsheet by 04-11-2018, 11:59 PM will attract bonus of 10 marks.</li>
+    <li>Submission of correct flowsheet by 05-11-2018, 11:59 PM will attract bonus of 7 marks.</li>
+    <li> Submission of correct flowsheet by 06-11-2018, 11:59 PM will attract bonus of 5 marks.</li>
+    <li>If the flowsheet is not as per the given problem statement, participants will be given chance to correct and re-upload the flowsheet. In that case, no bonus marks will be rewarded.</li>
+    <li>Decision of the NCCPS team regarding marking of the flowsheeting competition will be final.</li>
+    <br>
+    </ul>
+    </div>
+
+    <br>
+ 
+    <section>
+    <div class="container">
+        <h3>Leaderboard</h3>
+        <table border="1" width="90%"> 
+            <thead>
+                <tr>
+                    <th>Participant Name</th>
+                    &nbsp
+                    <th>Score</th>
+                </tr>
+            </thead>
+            
+            {% for participant in leaderboard %}
+            <tbody>
+                <tr>
+                    <td>
+                        &nbsp {{ participant.0.user.get_full_name }}
+                    </td>
+
+                    <td>
+                        &nbsp {{ participant.1 }}
+                    </td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+
+    </div>
+    </section>
+<br><br>
+
+    {% endif %}
+
   {% endblock %}
