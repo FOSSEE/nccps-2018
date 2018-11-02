@@ -3,7 +3,8 @@ import csv
 from django.http import HttpResponse
 from .models import( Profile,
                     AnswerPaper,
-                    Question
+                    Question,
+                    UploadModel
                    )
 
 try:
@@ -45,7 +46,12 @@ class AnswerPaperAdmin(admin.ModelAdmin):
 
 
 
+class UploadModelAdmin(admin.ModelAdmin):
+    list_display = ['question']
+
+
 # Register your models here.
 admin.site.register(Profile, ProfileAdmin)
 admin.site.register(AnswerPaper, AnswerPaperAdmin)
 admin.site.register(Question, QuestionAdmin)
+admin.site.register(UploadModel, UploadModelAdmin)

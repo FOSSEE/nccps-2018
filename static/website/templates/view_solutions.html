@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% load static %}
+ {% block content %}
+ <br><br>
+ <br><br>
+
+ <div class="container">
+    {% if set_visible %}
+    <form method="POST">
+        {% csrf_token %}
+        <button class="btn-default btn-info btn-lg" name="Download">Download Model Files</button>
+    </form>
+    <br><br>
+
+        <table style="width:100%" class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Question</th>
+                    <th>Answer</th>
+                </tr>
+                </thead>
+            {% for q in  question_ans_list %}
+            <tbody>
+            <tr>
+            <td>{{ q.question }} </td>
+            <td>{{ q.correct_answer }} </td>
+            </tr>
+            </tbody>  
+            {% endfor %}
+        </table>
+
+    {% else %}
+        <div class="jumbotron">
+            <p>This page will be visible from <strong>15-11-2018</strong></p>
+        </div>
+    {% endif %}
+</div>
+
+{% endblock %}

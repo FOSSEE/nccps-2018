@@ -398,11 +398,3 @@ class QuestionUploadForm(forms.ModelForm):
             'question_day': DateInput(),
             }
 
-
-#To upload model for each question
-'''
-class UploadModelForm(forms.ModelForm):
-    class Meta:
-        model = UploadModel
-        fields = ['model_file']
-''' 

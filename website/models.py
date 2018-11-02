@@ -36,10 +36,6 @@ def get_document_dir(instance, filename):
     return '%s/attachment/%s/%s.%s' % (instance.user, instance.proposal_type, fname+'_'+str(instance.user), fext)
 
 
-def attachments(instance, filename):
-    return os.sep.join((instance.workshoptype_name.replace(" ", '_'), filename))
-
-
 class Proposal(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE,)
     name_of_authors = models.CharField(max_length=200, default='None')
@@ -121,6 +117,9 @@ class Question(models.Model):
     # The date for the question.
     question_day = models.DateField()
 
+    def __str__(self):
+        return u"{0} || {1}".format(self.correct_answer, self.question_day)
+
 
 class AnswerPaper(models.Model):
 
@@ -131,8 +130,7 @@ class AnswerPaper(models.Model):
 
 
 #To upload model for each question
-'''
+
 class UploadModel(models.Model):
-   question = models.ForeignKey(Question, on_delete=models.CASCADE, blank=True, null=True)
-   model_file = models.FileField(upload_to=attachments)
-'''
+    question = models.ForeignKey(Question, on_delete=models.CASCADE, blank=True)
+    model_file = models.FileField(upload_to='uploads/')

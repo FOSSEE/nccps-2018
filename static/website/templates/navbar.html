@@ -54,6 +54,7 @@
                             {% else %}
                                 <!--<li><a href="{% url 'website:proposal' %}">Submit your Paper</a></li> -->
                                 <li><a href="{% url 'website:quiz_intro' %}">Take Quiz</a></li>
+                                <li><a href="{% url 'website:view_solutions' %}">View Solutions</a></li>
                             {% endif %}
                             <!-- <li><a href="{{SITE_URL}}/#registration">Book your Ticket</a></li> -->    
                             <li><a href="{% url 'auth:logout' %}?next=/nccps-2018"><i class="fa fa-sign-out"></i>&nbsp;Logout</a></li>

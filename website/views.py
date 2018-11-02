@@ -1,6 +1,6 @@
 # Create your views here.
 
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.shortcuts import render_to_response, render, redirect
 from django.template import loader
@@ -13,7 +13,7 @@ from django.views.decorators.csrf import (csrf_exempt, csrf_protect,
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from website.models import (Proposal, Comments, Ratings, Question,
-                            AnswerPaper, Profile)
+                            AnswerPaper, Profile, UploadModel)
 
 from website.forms import (ProposalForm, UserRegisterForm, UserRegistrationForm,
                            UserLoginForm, WorkshopForm,QuestionUploadForm
@@ -24,11 +24,16 @@ from django.contrib.auth import authenticate, login, logout
 from datetime import datetime, date
 from django import template
 from django.core.mail import EmailMultiAlternatives
-import os
+import os, re
 from nccps2018.config import *
 from website.send_mails import send_email
 from django.contrib.auth.models import Group
 from django.contrib import messages
+from zipfile import ZipFile
+try:
+    from StringIO import StringIO as string_io
+except ImportError:
+    from io import BytesIO as string_io
 
 
 
@@ -1085,6 +1090,30 @@ def edit_question(request, qid=None):
 def quiz_intro(request):
     return render(request, 'quiz_intro.html')
 
+
+def calculate_leader():
+    profiles = Profile.objects.all()
+    leaderboard = {p:0 for p in profiles}
+    marks = {
+        '5': [date(2018, 10, 29), date(2018, 11, 4)],
+        '10': [date(2018, 11, 5), date(2018, 11, 12)]
+        }
+    answers = AnswerPaper.objects.all()
+
+    for i in leaderboard:
+        profiles = AnswerPaper.objects.filter(participant=i)
+        for p in profiles:
+            if p.validate_ans==1:
+                if marks['5'][0] <= p.answered_q.question_day <= marks['5'][1]:
+                    leaderboard[i] +=5
+                else:
+                    leaderboard[i] +=1
+
+                
+    sorted_leaderboard = sorted(leaderboard.items(), key=lambda kv: kv[1])
+    return sorted_leaderboard
+
+
 @login_required
 def take_quiz(request):
     user = request.user
@@ -1153,67 +1182,56 @@ def take_quiz(request):
         except:
             pass
 
+    today = datetime.today().date()
+    if today > date(2018, 11, 4):
+        set_visible = 0
+    else:
+        set_visible = 1
+    sorted_leaderboard = calculate_leader()
+
     return render(request, 'take_quiz.html', {
-            'question_list' : questions
+            'question_list' : questions,
+            'set_visible': set_visible,
+            "leaderboard": sorted_leaderboard[::-1]
             })
 
 
+
 def leaderboard(request):
-    profiles = Profile.objects.all()
-    leaderboard = {p:0 for p in profiles}
-    marks = {
-        '5': [date(2018, 10, 29), date(2018, 11, 4)],
-        '10': [date(2018, 11, 5), date(2018, 11, 12)]
-        }
-    answers = AnswerPaper.objects.all()
-
-    for i in leaderboard:
-        profiles = AnswerPaper.objects.filter(participant=i)
-        for p in profiles:
-            if p.validate_ans==1:
-                if marks['5'][0] <= p.answered_q.question_day <= marks['5'][1]:
-                    leaderboard[i] +=5
-                elif marks['10'][0] <= p.answered_q.question_day <= marks['10'][1]:
-                    leaderboard[i] +=10
-                else:
-                    leaderboard[i] +=1
-
-                
-    sorted_leaderboard = sorted(leaderboard.items(), key=lambda kv: kv[1])
+    sorted_leaderboard = calculate_leader()
     return render(request, "leaderboard.html", {'leaderboard': sorted_leaderboard[::-1]})
 
 
-'''
 @login_required
-def uploadmodel(request):
-    if request.method == 'POST':
-        data = request.body.decode("utf-8").split('&')
-        date = data[1].replace("qdate=", "")
-        date = datetime.strptime(date, "%Y-%m-%d").date()
-        question_list = Question.objects.all()
-        try:
-            question_obj = Question.objects.get(question_day=date)
-            print(question_obj)
-            messages.info(request, 'Uploaded Successfully!')
-        except:
-            messages.error(request, 'No question uploaded for mentioned date')
-        
-        
-        form = UploadModelForm(request.POST)
-        if form.is_valid():
-            uploadForm = form.save(commit=False)
-            try:
-                question_obj = Question.objects.get(question_day=date)
-                uploadForm.question = question_obj
-                uploadForm.model_file
-                uploadForm.save()
-                messages.info(request, 'Uploaded Successfully!')
-            except:
-                messages.error(request, 'No question uploaded for mentioned date')
-            print(question_obj)
-        else:
-            messages.error(request, 'Invalid Form')
-        
+def view_solutions(request,id=None):
+    ''''Show solutions to participants after a specific date'''
+    question_ans_list = Question.objects.all()
+    today = datetime.today().date()
+    if today < date(2018, 11, 15):
+        set_visible = 0
+    else:
+        set_visible = 1
 
-    return render(request, "uploadmodel.html", {"question_list":question_list})'''
+    if request.method == 'POST':
+        filename = UploadModel.objects.all()
+        attachment_path = os.path.dirname(filename[0].model_file.path)
+        zipfile_name = string_io()
+        zipfile = ZipFile(zipfile_name, "w")
+        attachments = os.listdir(attachment_path)
+        for file in attachments:
+            file_path = os.sep.join((attachment_path, file))
+            zipfile.write(file_path, os.path.basename(file_path))
+        zipfile.close()
+        zipfile_name.seek(0)
+        response = HttpResponse(content_type='application/zip')
+        response['Content-Disposition'] = 'attachment; filename={0}.zip'.format(
+                                "Solutions"
+                                )
+        response.write(zipfile_name.read())
+        return response
+        
+    
+    return render(request, 'view_solutions.html', {"question_ans_list": question_ans_list, 
+                        "set_visible": set_visible
+                    })
     
