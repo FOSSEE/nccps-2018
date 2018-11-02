@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{% include 'header.html' %}
+<body data-spy="scroll" data-target="#site-nav">
+<!-- <div class="se-pre-con"></div> -->
+
+    {% include 'navbar.html' %}
+      {% block content %}
+    <section id="jobfair" class="section jobfair" style="font-weight: 400;">
+    <h3 class="section-title" style="margin-left: 6%;">Job Fair</h3>
+    <div class="container">
+    <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#employers">Employers</a>
+        </h4>
+      </div>
+      <div id="employers" class="panel-collapse collapse" style="padding: 20px;">
+        <h3>For Employers</h3>
+
+		<h4>Introduction</h4>
+		<p class="text-justify">The conference committee is excited to invite your esteemed organisation to the job fair to be conducted in connection with the National Conference on Chemical Process Simulation-2018 to be held on 26 November 2018 at IIT Bombay. </p>
+
+		<p class="text-justify">The conference will bring together people from both industry and academia. An important aim of this job fair is to offer networking opportunities with prospective recruits. Your organisation can meet bright chemical engineering students who are experts in process modelling and simulation. We have sent invites to more than 300 chemical engineering departments across the country.</p>
+		<span>What we offer?</span>
+		<ul>
+			<li>Meeting bright chemical engineering students who are experts in process modelling and simulation</li>
+			<li>Accommodation for the company/ organisation representatives (for 2 people) for one night</li>
+			<li>One room at the venue where your organization can meet and interact with prospective recruits</li>
+		</ul>
+		<!-- <p>If you are interested, please fill the <a href="" target="_blank">form</a> with the details.</p>  -->
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#students">Students</a>
+        </h4>
+      </div>
+      <div id="students" class="panel-collapse collapse"  style="padding: 20px;">
+        
+		<h3>For Students</h3>
+
+		<h4>Introduction</h4>
+		<p class="text-justify">The conference committee is pleased to invite to the job fair which is to be conducted in connection with the the National Conference on Chemical Process Simulation-2018 to be held at IIT Bombay on 26 November 2018.</p>
+
+		<p class="text-justify">We have invited many companies to participate in the job fair. Some of the companies who have confirmed of their presence are Equinox, Ingenero,......
+		<!-- If you are interested in meeting the companies, please fill this <a href="https://docs.google.com/forms/d/1cArwdS8mLZ45vFLpwejJaYZvnOCLWP2dsejy6bTqnmY/viewform" target="_blank">form</a>--></p>
+
+      </div>
+    </div>
+  </div> 
+    </div>
+	</section>
+
+
+      {% endblock %}
