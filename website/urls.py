@@ -17,6 +17,7 @@ urlpatterns = [
     #path('accounts/register', views.userregister, name='userregister'),
 
     re_path(r'^dwsimquiz/$', views.dwsimquiz, name='dwsimquiz'),
+    re_path(r'^jobfair/$', views.jobfair, name='jobfair'),
     re_path(r'^cfp/$', views.cfp, name='cfp'),
     #re_path(r'^quiz/$', views.quiz_view, name='quiz_view'),
     re_path(r'^question_list/$', views.question_list, name='question_list'),

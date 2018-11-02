@@ -62,7 +62,12 @@ def dwsimquiz(request):
     context = {}
     template = loader.get_template('dwsim-quiz.html')
     return HttpResponse(template.render(context, request))
-    
+
+def jobfair(request):
+    context = {}
+    template = loader.get_template('job-fair.html')
+    return HttpResponse(template.render(context, request))
+
 # def proposal(request):
 #    context = {}
 #    template = loader.get_template('proposal.html')
