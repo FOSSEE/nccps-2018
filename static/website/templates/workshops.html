@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{% include 'header.html' %}
+<body data-spy="scroll" data-target="#site-nav">
+<!-- <div class="se-pre-con"></div> -->
+
+    {% include 'navbar.html' %}
+      {% block content %}
+    <section id="workshop" class="section workshop" style="font-weight: 400;">
+    <h3 class="section-title" style="margin-left: 6%;">Workshops</h3>
+    <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <p class="text-justify">Improve your skills by attending workshops on DWSIM and OpenModelica organized for you at NCCPS-2018. </p>
+
+        <p class="text-justify">We are organizing free workshops for all the participants who have registered for NCCPS-2018.  Attend the workshop suitable for you and explore the tools available, free of cost for your field of interest.</p>
+      </div>
+    </div>
+    <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#dwsim-workshop">DWSIM</a>
+        </h4>
+      </div>
+      <div id="dwsim-workshop" class="panel-collapse collapse" style="padding: 20px;">
+        <p class="text-justify">DWSIM is an open-source CAPE-OPEN compliant chemical process simulator. It features a Graphical User Interface (GUI), advanced thermodynamics calculations, reactions support and petroleum characterization / hypothetical component generation tools. DWSIM can simulate steady-state, vapor–liquid, vapor–liquid-liquid, solid–liquid and aqueous electrolyte equilibrium processes and has built-in thermodynamic models and unit operations (<a href="https://en.wikipedia.org/wiki/DWSIM" target="_blank">https://en.wikipedia.org/wiki/DWSIM</a> ). It is available for Windows, Linux and Mac OS.</p>
+
+        <p class="text-justify">The objective of this workshop is to create awareness about the open source process simulator DWSIM among academia and industry. This workshop will start from introduction to DWSIM and will extend to flowsheet creation and the use of some basic unit operations. This workshop will make use of Spoken Tutorials created at IIT Bombay.</p>
+
+        <p class="text-justify">After attending this workshop, participants will be able to create simulation using DWSIM and use tools available in DWSIM. Being a free and open-source tool, the workshop will enable the faculty members to establish process simulation lab in their institutes/departments and offer lab course on process simulation to their undergraduate and graduate chemical engineering degree programmes. Industry people will enable to do their plant simulations on their own computers free of cost.</p>
+
+        <p class="text-justify">Participation certificate will be provided to all participants.</p>
+
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#students">OpenModelica</a>
+        </h4>
+      </div>
+      <div id="students" class="panel-collapse collapse"  style="padding: 20px;">
+        <p class="text-justify">OpenModelica is an open-source Modelica-based modeling and simulation environment intended for industrial and academic usage (<a href="https://en.wikipedia.org/wiki/OpenModelica" target="_blank">https://en.wikipedia.org/wiki/OpenModelica</a>). Modelica is a non-proprietary, object-oriented, equation based language to conveniently model complex physical systems containing, e.g., mechanical, electrical, electronic, hydraulic, thermal, control, electric power or process-oriented subcomponents.</p>
+
+        <p class="text-justify">The objective of this workshop is to introduce OpenModelica to academia and industry. This workshop will be covering basic concepts of OpenModelica. Spoken tutorials created at IIT Bombay will be used for the workshop.</p>
+
+        <p class="text-justify">After attending this workshop, participant will be able to create and simulate simple models using OpenModelica. Being an open-source tool , this workshop will enable the people from academia to use OpenModelica for their research. Industry people can also explore use of OpenModelica for their simulations.</p>
+
+        <p class="text-justify">Participation certificate will be provided to all participants.</p>
+
+      </div>
+    </div>
+  </div> 
+    </div>
+	</section>
+
+
+      {% endblock %}
