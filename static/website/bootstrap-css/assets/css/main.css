@@ -383,6 +383,14 @@ ul li {
   font-weight: 300;
 }
 
+@media(max-width: 768px){
+    .site-header .img {
+  width: 100% !important;
+  margin-top: 60px; 
+}
+
+}
+
 @media (min-width: 768px) {
   .navbar-custom {
     background-color: #b3a366;

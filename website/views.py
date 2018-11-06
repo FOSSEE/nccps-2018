@@ -68,6 +68,11 @@ def jobfair(request):
     template = loader.get_template('job-fair.html')
     return HttpResponse(template.render(context, request))
 
+def workshop(request):
+    context = {}
+    template = loader.get_template('workshops.html')
+    return HttpResponse(template.render(context, request))
+
 # def proposal(request):
 #    context = {}
 #    template = loader.get_template('proposal.html')
