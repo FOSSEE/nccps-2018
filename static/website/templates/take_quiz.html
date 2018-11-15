@@ -48,7 +48,8 @@
     </div>  
 
     {% else %}
-    
+
+        <!--
     <div class="container">
        <h2> DWSIM Flowsheeting Creation Competition</h2>
        <br>
@@ -80,34 +81,149 @@
     <br>
     </ul>
     </div>
-
+    --->
     <br>
  
     <section>
+
     <div class="container">
-        <h3>Leaderboard</h3>
+        <h1>Leaderboard</h1>
+        <h4>This is the final leaderboard after addition of online quiz and flowsheeting competition marks</h4>
         <table border="1" width="90%"> 
             <thead>
                 <tr>
+                    <th>Rank</th>
                     <th>Participant Name</th>
                     &nbsp
                     <th>Score</th>
                 </tr>
             </thead>
             
-            {% for participant in leaderboard %}
             <tbody>
                 <tr>
+                    <td>1</td>
                     <td>
-                        &nbsp {{ participant.0.user.get_full_name }}
+                        &nbsp    Mehulkumar Sutariya
                     </td>
-
                     <td>
-                        &nbsp {{ participant.1 }}
+                        &nbsp 132
                     </td>
                 </tr>
+
+                <tr>
+                        <td>2</td>
+                        <td>
+                            &nbsp Vignesh Candasamy
+                        </td>
+                        <td>
+                            &nbsp 131
+                        </td>
+                </tr>
+
+                <tr>
+                        <td>3</td>
+                        <td>
+                            &nbsp Sushruth Nambiath
+                        </td>
+                        <td>
+                            &nbsp 76
+                        </td>
+                </tr>
+
+                <tr>
+                        <td>4</td>
+                        <td>
+                            &nbsp Varun Doshi
+                        </td>
+                        <td>
+                            &nbsp 72
+                        </td>
+                </tr>
+
+                <tr>
+                        <td>5</td>
+                        <td>
+                            &nbsp Jayram Ganesan
+                        </td>
+                        <td>
+                            &nbsp 67
+                        </td>
+                </tr>
+
+
+                <tr>
+                        <td>6</td>
+                        <td>
+                            &nbsp Swetha Saraswathi
+                        </td>
+                        <td>
+                            &nbsp 51
+                        </td>
+                </tr>
+
+                <tr>
+                        <td>7</td>
+                        <td>
+                            &nbsp Prassana R
+                        </td>
+                        <td>
+                            &nbsp 48
+                        </td>
+                </tr>
+
+                <tr>
+                        <td>8</td>
+                        <td>
+                            &nbsp Amarnath
+                        </td>
+                        <td>
+                            &nbsp 35
+                        </td>
+                </tr>
+
+
+                <tr>
+                        <td>9</td>
+                        <td>
+                            &nbsp Pranaav
+                        </td>
+                        <td>
+                            &nbsp 26
+                        </td>
+                </tr>
+
+                <tr>
+                        <td>10</td>
+                        <td>
+                            &nbsp Akash Subramaniam
+                        </td>
+                        <td>
+                            &nbsp 26
+                        </td>
+                </tr>
+
+                <tr>
+                        <td>11</td>
+                        <td>
+                            &nbsp Charan Rajagopal
+                        </td>
+                        <td>
+                            &nbsp 8
+                        </td>
+                </tr>
+
+
+                <tr>
+                        <td>12</td>
+                        <td>
+                            &nbsp Athithyan
+                        </td>
+                        <td>
+                            &nbsp 3
+                        </td>
+                </tr>
+
             </tbody>
-            {% endfor %}
         </table>
 
     </div>
